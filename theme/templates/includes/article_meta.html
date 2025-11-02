@@ -1,0 +1,19 @@
+<!-- includes/article_meta.html -->
+{#            <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>#}
+{#            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>#}
+{#            <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>#}
+            {%- if article.tags %}
+{#              <br />#}
+              {%- for tag in article.tags %}
+              <a class="tag"  rel="tag" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}{% endif %}
+{#              <a href="{{ SITEURL }}/archives.html?tag={{ tag }}" class="tag" rel="tag" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %} {% endif %}#}
+              {% endfor -%}
+            {% endif -%}
+                <time class="tag" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%Y-%m-%d') }}</time>
+            {%- if article.translations %}
+              <br />Langues: 
+              [<a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang or DEFAULT_LANG }}</a>]
+              {%- for translation in article.translations %}
+              <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+              {% endfor -%}
+             {% endif -%}

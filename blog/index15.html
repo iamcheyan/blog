@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com</title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-01-01-创业满一年，纪念一下，还活着.html"
+                       title="创业满一年，纪念一下，还活着">
+                        创业满一年，纪念一下，还活着
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p><img alt="29601-064oplwpf43m.png" src="../assets/2019/09/170950622.png"></p>
+<!--more-->
+<p><img alt="16315-zjzu8g8jkx.png" src="../assets/2019/09/1417012888.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a><time class="tag" datetime="2014-01-01">2014-01-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-01-01-创业满一年，纪念一下，还活着.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-12-13-我厂.html"
+                       title="我厂">
+                        我厂
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="48568-p6fru4yyeee.png" src="../assets/2020/09/322504418.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a><time class="tag" datetime="2013-12-13">2013-12-13</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-12-13-我厂.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-12-01-黑莓q10.html"
+                       title="黑莓Q10">
+                        黑莓Q10
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="61202-f412pza6mou.png" src="../assets/2019/09/458869651.png"></p>
+<!--more-->
+<p><img alt="82567-0avixceux65c.png" src="../assets/2019/09/489835276.png">
+<img alt="50291-nffngwb7hvm.png" src="../assets/2019/09/777064488.png">
+<img alt="09727-tg1czmv6pfn.png" src="../assets/2019/09/3097018514.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-hei-mei-q10.html">黑莓Q10</a><time class="tag" datetime="2013-12-01">2013-12-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-12-01-黑莓q10.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-09-25-买了个艺卓的显示器，eizo-l685-18.5-吋.html"
+                       title="买了个艺卓的显示器，EIZO_L685_18.5_吋">
+                        买了个艺卓的显示器，EIZO_L685_18.5_吋
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="01579-zyoa9nq1fqf.png" src="../assets/2019/09/3213187076.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-yi-zhuo.html">艺卓</a><time class="tag" datetime="2013-09-25">2013-09-25</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-09-25-买了个艺卓的显示器，eizo-l685-18.5-吋.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-09-22-买了台黑莓-q10.html"
+                       title="买了台黑莓_Q10">
+                        买了台黑莓_Q10
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p><img alt="59540-e33s8w5iehc.png" src="../assets/2019/09/1019973703.png">
+<img alt="79549-ps6378hmwl.png" src="../assets/2019/09/230163006.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-hei-mei-q10.html">黑莓Q10</a><time class="tag" datetime="2013-09-22">2013-09-22</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-09-22-买了台黑莓-q10.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-09-10-偶遇郑州城市之光书店.html"
+                       title="偶遇郑州城市之光书店">
+                        偶遇郑州城市之光书店
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p><img alt="71038-7fccnrzvz5e.png" src="../assets/2019/09/4150004119.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-shu-dian.html">书店</a><time class="tag" datetime="2013-09-10">2013-09-10</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-09-10-偶遇郑州城市之光书店.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-08-25-开始使用-galaxy-nexus-三星-i9250了.html"
+                       title="开始使用_Galaxy_Nexus_三星_i9250了">
+                        开始使用_Galaxy_Nexus_三星_i9250了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p><img alt="71125-q6qy859kb98.png" src="../assets/2019/09/38038860.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-galaxy-nexus.html">Galaxy Nexus</a><time class="tag" datetime="2013-08-25">2013-08-25</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-08-25-开始使用-galaxy-nexus-三星-i9250了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-08-08-公司一瞥.html"
+                       title="公司一瞥">
+                        公司一瞥
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-7">
+            </div>
+            <script type="application/x-template" id="post-source-7"><p><img alt="35673-jh9g0r5bose.png" src="../assets/2019/09/427099989.png">
+<img alt="58727-z1wtf94jwh.png" src="../assets/2019/09/2666934005.png"></p>
+<!--more-->
+<p><img alt="07648-7quj24phmcq.png" src="../assets/2019/09/2966916346.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a><time class="tag" datetime="2013-08-08">2013-08-08</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-08-08-公司一瞥.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-05-27-中天泰和-bim-中文网官网设计.html"
+                       title="中天泰和_BIM_中文网官网设计">
+                        中天泰和_BIM_中文网官网设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-8">
+            </div>
+            <script type="application/x-template" id="post-source-8"><p><img alt="78145-nfhsq2cbltj.png" src="../assets/2020/10/1045989778.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2013-05-27">2013-05-27</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-05-27-中天泰和-bim-中文网官网设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-05-22-公司门外一瞥.html"
+                       title="公司门外一瞥">
+                        公司门外一瞥
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-9">
+            </div>
+            <script type="application/x-template" id="post-source-9"><p><img alt="59038-kjzihjc1tch.png" src="../assets/2019/09/2354285462.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a><time class="tag" datetime="2013-05-22">2013-05-22</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-05-22-公司门外一瞥.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-05-01-翻出来一台-palm-pre-plus.html"
+                       title="翻出来一台_Palm_Pre_Plus">
+                        翻出来一台_Palm_Pre_Plus
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-10">
+            </div>
+            <script type="application/x-template" id="post-source-10"><p>大屏智能手机充斥市场的年代，越来越怀念全键盘手机所给人带来的那种踏实的手感了，也想过收一台9900来用的，但是黑莓那该死的匮乏的应用简直让人想想就蛋疼，之前看过一些安卓的全键盘机（例如me632），外观基本满意，本想入一台的，但是想了想……不能刷android4.0，要来何用！RIM过两天就要发布的搭载BB10系统的Z10，微博上炒的一片火热，可是抛弃了全键盘的黑莓怎么也不能让人提起那种劲儿了。还有一款N系列的机器，虽然有了QWERT键盘，但是少了光学触摸板和拨号键，想一想说用键盘打完字后还要按一下屏幕去选字就觉得有点残念。从抽屉里翻出一台Palm Pre Plus，充上电竟然还能用，不禁开始怀念那些手机瞧在颗粒上咔嚓咔嚓响的日子。
+<img alt="22263-4iw6kwexqcr.png" src="../assets/2019/09/2419015393.png"></p>
+<!--more-->
+<p><img alt="97462-649tfmidoug.png" src="../assets/2019/09/3161633254.png">
+<img alt="69105-0xoktfxau2s.png" src="../assets/2019/09/2792403874.png">
+<img alt="02079-4xf34ky1dls.png" src="../assets/2019/09/454465304.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-palm-pre-pluszai.html">Palm Pre Plus在</a><time class="tag" datetime="2013-05-01">2013-05-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-05-01-翻出来一台-palm-pre-plus.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-04-30-公司的名片设计好了.html"
+                       title="公司的名片设计好了">
+                        公司的名片设计好了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-11">
+            </div>
+            <script type="application/x-template" id="post-source-11"><p><img alt="14707-bela5t75jef.png" src="../assets/2019/09/682470580.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a><time class="tag" datetime="2013-04-30">2013-04-30</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-04-30-公司的名片设计好了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-04-24-陈汗《滴水观音》图书封面装帧设计.html"
+                       title="陈汗《滴水观音》图书封面装帧设计">
+                        陈汗《滴水观音》图书封面装帧设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-12">
+            </div>
+            <script type="application/x-template" id="post-source-12"><p><img alt="37969-ivxakl9j80g.png" src="../assets/2020/10/1075085116.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a>              <a class="tag"  rel="tag" href="./tag-ping-mian-she-ji.html">平面设计</a><time class="tag" datetime="2013-04-24">2013-04-24</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-04-24-陈汗《滴水观音》图书封面装帧设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-04-03-乐读小说网整站设计.html"
+                       title="乐读小说网整站设计">
+                        乐读小说网整站设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-13">
+            </div>
+            <script type="application/x-template" id="post-source-13"><p><img alt="99015-0v8lr6vgf4i.png" src="../assets/2020/10/1192469124.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2013-04-03">2013-04-03</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-04-03-乐读小说网整站设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-04-01-瑞安自驾.html"
+                       title="瑞安自驾">
+                        瑞安自驾
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-14">
+            </div>
+            <script type="application/x-template" id="post-source-14"><p><img alt="69268-8kvng65d8oh.png" src="../assets/2019/09/824699086.png">
+<img alt="34551-m4fezilu8yr.png" src="../assets/2019/09/16722430.png"></p>
+<!--more-->
+<p><img alt="35461-z5jfenc9o6m.png" src="../assets/2019/09/1622989825.png">
+喜欢这种夹杂着喧闹的安静的海。
+<img alt="74421-3u9vvppxqaj.png" src="../assets/2019/09/3568515547.png">
+<img alt="73552-018iufjj0ecmj.png" src="../assets/2019/09/1529849678.png">
+<img alt="71672-gvpajax7ng.png" src="../assets/2019/09/3678156837.png">
+会有一霎那的时间在想说，要不就留在这村子里生活一阵子吧。
+<img alt="54517-nl8pfc8n.png" src="../assets/2019/09/240548824.png">
+这个需要特别说一下，我小时候看过一篇小说，内容忘记了，但是里面描写过一个夜景，就是这样子的。
+站在外边可以看到窗里面粉红色的灯光，屋内都是二三十年前的摆设，想像一下，特别暧昧。
+<img alt="86943-1lwxasety34.png" src="../assets/2019/09/11928493.png">
+<img alt="68306-n0chktr4f4.png" src="../assets/2019/09/250624961.png">
+<img alt="31728-b6rgcrg6wna.png" src="../assets/2019/09/3195712171.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-lu-xing.html">旅行</a><time class="tag" datetime="2013-04-01">2013-04-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-04-01-瑞安自驾.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-03-31-爱享乐购购物返利网页面设计.html"
+                       title="爱享乐购购物返利网页面设计">
+                        爱享乐购购物返利网页面设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-15">
+            </div>
+            <script type="application/x-template" id="post-source-15"><p><img alt="25910-bn91pqnpfll.png" src="../assets/2020/10/977579029.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2013-03-31">2013-03-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-03-31-爱享乐购购物返利网页面设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-03-31-重新用起黑莓手机了.html"
+                       title="重新用起黑莓手机了">
+                        重新用起黑莓手机了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-16">
+            </div>
+            <script type="application/x-template" id="post-source-16"><p><img alt="52697-usqf3361bum.png" src="../assets/2019/09/13676780.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-hei-mei.html">黑莓</a><time class="tag" datetime="2013-03-31">2013-03-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-03-31-重新用起黑莓手机了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-03-30-友乐园门户网站设计.html"
+                       title="友乐园门户网站设计">
+                        友乐园门户网站设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-17">
+            </div>
+            <script type="application/x-template" id="post-source-17"><p><img alt="14528-q4a6f5z4ed.png" src="../assets/2020/10/1312186306.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2013-03-30">2013-03-30</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-03-30-友乐园门户网站设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-03-26-拿到驾照之后，第一次开这么远.html"
+                       title="拿到驾照之后，第一次开这么远">
+                        拿到驾照之后，第一次开这么远
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-18">
+            </div>
+            <script type="application/x-template" id="post-source-18"><p><img alt="56340-y14sn3lnmw7.png" src="../assets/2019/09/1607491291.png">
+<img alt="09061-r7ewm49cji9.png" src="../assets/2019/09/2259264072.png">
+<img alt="84076-nsde76yzoz.png" src="../assets/2019/09/3669335136.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-zi-jia.html">自驾</a>              <a class="tag"  rel="tag" href="./tag-rui-an.html">瑞安</a><time class="tag" datetime="2013-03-26">2013-03-26</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-03-26-拿到驾照之后，第一次开这么远.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-03-22-二十四岁的某一天.html"
+                       title="二十四岁的某一天">
+                        二十四岁的某一天
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-19">
+            </div>
+            <script type="application/x-template" id="post-source-19"><p><img alt="76691-0491i7dssxqp.png" src="../assets/2019/09/3558474422.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-zi-pai.html">自拍</a><time class="tag" datetime="2013-03-22">2013-03-22</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-03-22-二十四岁的某一天.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <a id="first_page" href="./index.html">&#60;&#60;</a>
+                <a id="prev_page" href="./
+                        index14.html">&#60;</a>
+                        <a href="./index11.html">11</a>
+                        <a href="./index12.html">12</a>
+                        <a href="./index13.html">13</a>
+                        <a href="./index14.html">14</a>
+                        <span class="a active">15</span>
+                        <a href="./index16.html">16</a>
+                        <a href="./index17.html">17</a>
+                        <a href="./index18.html">18</a>
+                        <a href="./index19.html">19</a>
+                <a id="next_page" href="./index16.html">&#62;</a>
+                <a id="last_page" href="./index21.html">&#62;&#62;</a>
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

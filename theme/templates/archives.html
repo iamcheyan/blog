@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content_title %}{{ SITENAME }} — Archives{% endblock %}
+
+{%- block content %}
+    {#      <h1>Archives</h1>#}
+    <div class="all-post">
+        {% for article in articles %}
+            {% if loop.first or article.date.strftime('%Y') != articles[loop.index0 - 1].date.strftime('%Y') %}
+                <div class="box">
+                <h2>{{ article.date.strftime('%Y') }}</h2>
+                <ul>
+            {% endif %}
+        <li>
+            <a rel="bookmark"
+               href="{{ SITEURL }}/{{ article.url }}"
+               title="{{ article.title|striptags }}を見る">
+                {{ article.title }}
+            </a>
+            {%- if article.tags %}
+                {#              <br />#}
+                {%- for tag in article.tags %}
+                    <a class="tag" rel="tag" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}
+                {% endif %}
+                    {#              <a href="{{ SITEURL }}/archives.html?tag={{ tag }}" class="tag" rel="tag" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %} {% endif %}#}
+                {% endfor -%}
+            {% endif -%}
+        </li>
+        {% if loop.last or article.date.strftime('%Y') != articles[loop.index0 + 1].date.strftime('%Y') %}
+            </ul>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content -%}

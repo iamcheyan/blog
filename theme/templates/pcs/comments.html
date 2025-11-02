@@ -1,0 +1,145 @@
+{% macro comments_styles() %}
+    {% if PELICAN_COMMENT_SYSTEM %}
+        {# NOTE:
+ # Instead of using this macro copy these styles in your main css file
+ # This marco is only here to allow a quickstart with nice styles
+ #}
+
+    {% endif %}
+{% endmacro %}
+
+<!-- {% macro comments_form() %}
+    {% if PELICAN_COMMENT_SYSTEM %}
+        <section id="pcs-comment-form">
+            <h2>添加新评论</h2>
+            <form action="#">
+                {#		<legend>Add a Comment</legend>#}
+                <input type="hidden" id="pcs-comment-form-input-replyto">
+                <fieldset>
+                    <label for="pcs-comment-form-input-name" style="display: none; ">Name</label>
+                    <input id="pcs-comment-form-input-name" type="text" placeholder="怎么称呼您？"/>
+                </fieldset>
+                {#		<fieldset>#}
+                {#			<label for="pcs-comment-form-input-website">Website</label>#}
+                {#			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />#}
+                {#		</fieldset>#}
+                <fieldset>
+                    <label for="pcs-comment-form-input-textarea" style="display: none; ">Your Comment</label>
+                    <textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;"
+                              placeholder="请输入您要交流的内容…"></textarea>
+                    <p>注意：评论会以邮件形式发送给我</p>
+                    <div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+                </fieldset>
+
+                <button type="submit"
+                        id="pcs-comment-form-button-submit"
+                        {# Piwik Track click on comment button
+				onclick="javascript:_paq.push(['trackEvent', 'comment', '{{ article.title }}', document.getElementById('pcs-comment-form-input-textarea').value]);" #}
+                >发送评论邮件
+                </button>
+
+                {% if PELICAN_COMMENT_SYSTEM_FEED and article %}
+                    <a href="{{ SITEURL }}/{{ PELICAN_COMMENT_SYSTEM_FEED|format(article.slug) }}" target="_blank">
+                        Comment Atom Feed
+                    </a>
+                {% endif %}
+            </form>
+        </section>
+    {% endif %}
+{% endmacro %} -->
+
+{% macro comments_with_form() %}
+    {% if PELICAN_COMMENT_SYSTEM %}
+        <section id="pcs-comments">
+            <header>
+                <h2>
+                    {% if article.comments_count > 0 %}
+                        {{ article.comments_count }}
+                    {% endif %}
+                    Comments</h2>
+            </header>
+            {% if article.comments %}
+                <ul class="comment">
+                    {% for comment in article.comments recursive %}
+                        <li id="comment-{{ comment.slug }}">
+                            <div class="comment-left">
+                                <img src="theme/img/avatar.jpg"
+                                     alt="Avatar"
+                                     height="28"
+                                     width="28">
+                            </div>
+                            <div class="comment-body">
+                                <div class="reply">
+                                    {#						<a role="button" href="{{ SITEURL }}/{{ article.url }}#comment-{{comment.slug}}" rel="bookmark" title="Permalink to this comment">Permalink</a>#}
+                                    <button onclick="CommentSystem.setReply('{{ comment.slug | urlencode }}', '{{ comment.author | urlencode }}');">
+                                        回复
+                                    </button>
+                                </div>
+                                <h4>
+                                    {% if comment.metadata['website'] %}
+                                        <a href="{{ SITEURL }}/{{ comment.metadata['website'] }}">{{ comment.author }}</a>
+                                    {% else %}
+                                        {{ comment.author }}
+                                    {% endif %}
+                                </h4>
+                                <span>
+						Posted on
+						<time datetime="{{ comment.date.isoformat() }}"
+                              title="{{ comment.date.isoformat() }}">{{ comment.locale_date }}</time>
+					</span>
+                                <div class="pcs-comment-content" {# class used as id in comments.js#}>
+                                    {{ comment.content }}
+                                </div>
+                                {% if comment.replies %}
+                                    <hr>
+                                    <ul>
+                                        {{ loop(comment.replies) }}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+
+            {% endif %}
+            {{ comments_form() }}
+        </section>
+    {% endif %}
+{% endmacro %}
+
+
+{% macro comments_js(user, domain, includeJquery=True) %}
+    {% if PELICAN_COMMENT_SYSTEM %}
+        {#	{% if includeJquery %}#}
+        {#		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>#}
+        {#	{% endif %}#}
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/comments.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                CommentSystem.email_user = "{{ user }}";
+                CommentSystem.email_domain = "{{ domain }}";
+                CommentSystem.display_replyto_html = function (comment_content, article_slug, author) {
+                    return ''
+                        + '<button class="replay_button" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+                        + '×'
+                        + '</button>'
+                        + '<p>This comment will be posted as a reply to \'<a title="' + comment_content + '" href="{{ SITEURL }}/#comment-' + article_slug + '">' + author + '</a>\'</p>';
+                };
+
+                $('#pcs-comment-form').on("submit",
+                    function (event) {
+                        event.preventDefault();
+                        $(location).attr('href', CommentSystem.getMailtoLink("{{ article.slug }}"));
+                    }
+                );
+            });
+        </script>
+    {% endif %}
+{% endmacro %}
+
+{% macro comments_quickstart(user, domain) %}
+    {{ comments_styles() }}
+    {{ comments_with_form() }}
+    {{ comments_js(user, domain) }}
+{% endmacro %}

@@ -1,0 +1,109 @@
+<!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        {#        <form id="search" method="get" action="search.html?q=" role="search" target="_blank">#}
+        {#            <input type="text" name="q" class="text" placeholder="输入关键字搜索" value="">#}
+        {#            <button type="submit" class="submit">搜索</button>#}
+        {#        </form>#}
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="{{ SITEURL }}/index.html">ホーム</a></li>
+        {#              <li><a href="{{ SITEURL }}/categories.html">カテゴリー</a></li>#}
+        <li><a href="{{ SITEURL }}/archives.html">アーカイブ</a></li>
+        {#              <li><a href="{{ SITEURL }}/tags.html">タグ</a></li>#}
+        {% if MENUITEMS %}
+            {% for name, uri in MENUITEMS %}
+                <li><a href="{{ SITEURL }}/{{ uri|format(SITEURL) }}">{{ name }}</a></li>
+            {% endfor %}
+        {% endif %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+                <li><a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</nav>
+<nav>
+
+{#            <nav>#}
+{#            <ul>#}
+{#              <li><a class="icon brightness" href="{{ SITEURL }}/javascript:;">亮度切换</a></li>#}
+{#              <li><a class="icon " href="{{ SITEURL }}/javascript:;">语言切换</a></li>#}
+{#            </ul>#}
+{#          </nav>#}
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+        {% if FEED_ATOM %}
+            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_ATOM }}">Flux ATOM</a></li>
+        {% endif %}
+        {% if FEED_RSS %}
+            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_RSS }}">Flux RSS</a></li>
+        {% endif %}
+        {% if SOCIAL %}
+            {% for name, url in SOCIAL %}
+                <li><a href="{{ url }}">{{ name }}</a></li>
+            {% endfor %}
+        {% endif %}
+        {% if LINKS %}
+            {% for name, url in LINKS %}
+                <li><a href="{{ url }}">{{ name }}</a></li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+{#            <nav class="tags">#}
+{#                <h3>Tags</h3>#}
+{#                <ul>#}
+{#                  {% for category, n in categories %}#}
+{#                  <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ n|count }})</li>#}
+{#                  {% endfor %}#}
+{#                  {% for tag, articles in tags %}#}
+{#                  <li data-count="{{ articles|count }}" title="{{ articles|count }} article(s)"><a class="tag"  href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>#}
+{#                      ({{ articles|count}} )#}
+{#                  </li>#}
+{#                  {% endfor %}#}
+{#                </ul>#}
+{#            </nav>#}
+
+{#          {% if categories %}#}
+{#          <nav>#}
+{#            <h3>分类</h3>#}
+{#            <ul>#}
+{#            {% for cat, null in categories %}#}
+{#              <li{%- if cat == category %} class="active"{% endif -%}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>#}
+{#            {% endfor %}#}
+{#            </ul>#}
+{#          </nav>#}
+{#          {% endif %}#}
+
+
+<!-- end includes/sidebar.html -->

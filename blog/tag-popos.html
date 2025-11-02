@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com - popOS! - </title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./popos-tabby.html"
+                       title="Pop!_OS 22.04 LTS 部署 Tabby">
+                        Pop!_OS 22.04 LTS 部署 Tabby
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p><img alt="Pop!_OS 22.04 LTS 部署 Tabby " src="../../assets/popOS%E4%B8%8B%E9%83%A8%E7%BD%B2Tabby.gif"></p>
+<p>Tabby 是一个自托管的 AI 编码助手，为 GitHub Copilot 提供开源和本地替代方案。 
+简单来说，就是一个可以部署在本地的 Copilot 服务。<br>
+我的笔记本是英特尔QC7，它自带一块 NVIDIA GeForce GTX 1660 Ti 显卡，刚好可以用来进行本地运算。 </p>
+<h2>安装依赖</h2>
+<p>如果你也安装是集成 NVIDIA 的 popOS，那么默认便安装好了显卡驱动。<br>
+之后只需要安装 CUDA 即可，这一部分 system76 的官网有 <a href="https://support.system76.com/articles/cuda/#not-running-pop_os">非常详细的教程</a>，这也是我喜欢这个发行版的原因，system76 这个公司是很认真地在做这个系统，并且要靠它赚钱。  </p>
+<h2>拉取镜像</h2>
+<p>前面依赖安装完成后，便可以拉取 Tabby 的 Docker 镜像了。<br>
+使用 <a href="https://tabby.tabbyml.com/docs/installation/docker">Docker 启动 Tabby 有两种模式</a>，一种使用 CPU，一种使用 GPU。 
+我这里选择 GPU :</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+</code></pre></div>
+
+<p>然后我得到了以下报错：</p>
+<div class="highlight"><pre><span></span><code><span class="m">2023</span>-11-25T17:15:43.168198Z<span class="w">  </span>INFO<span class="w"> </span>tabby::serve:<span class="w"> </span>crates/tabby/src/serve/mod.rs:146:<span class="w"> </span>Starting<span class="w"> </span>server,<span class="w"> </span>this<span class="w"> </span>might<span class="w"> </span>takes<span class="w"> </span>a<span class="w"> </span>few<span class="w"> </span>minutes...
+CUDA<span class="w"> </span>error<span class="w"> </span><span class="m">100</span><span class="w"> </span>at<span class="w"> </span>/root/workspace/crates/llama-cpp-bindings/llama.cpp/ggml-cuda.cu:478:<span class="w"> </span>no<span class="w"> </span>CUDA-capable<span class="w"> </span>device<span class="w"> </span>is<span class="w"> </span>detected
+current<span class="w"> </span>device:<span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+
+<p>这一步我搞了好久，百思不得其解。 <br>
+最后在 gpt 的帮助下，我加上了<code>--privileged</code>参数，它可以赋予容器访问宿主机上所有设备的特权。<br>
+通过这个参数可以让容器具有更高的权限，实现对 GPU 设备的访问。 <br>
+所以启动命令如下：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+</code></pre></div>
+
+<p>得到如下反馈：
+<img alt="Toddy" src="../../assets/popos_taddy.png"></p>
+<p>这时打开 <a href="http://localhost:8080/">http://localhost:8080/</a> 就可以看到 Tabby 的后台了。</p>
+<h2>集成 VS CODE</h2>
+<p>在 vs code 的扩展里搜 Tabby，安装后右下角会显示 Tabby 的图标。<br>
+每次写代码时，只用写注释即可，Tabby 会自动补全代码，并给出预览，如果觉得代码可用，按下<code>tab</code>键即可上屏。</p>
+<h3>开机启动</h3>
+<p>创建一个新的systemd服务单元文件。</p>
+<p>使用以下命令创建一个名为<code>tabbyml.service</code>的文件：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/tabbyml.service
+</code></pre></div>
+
+<p>在打开的文件中，输入以下内容：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>TabbyML<span class="w"> </span>Docker<span class="w"> </span>Service
+<span class="nv">Requires</span><span class="o">=</span>docker.service
+<span class="nv">After</span><span class="o">=</span>docker.service
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Restart</span><span class="o">=</span>always
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div>
+
+<p>使用以下命令重新加载systemd服务配置：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>tabbyml.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>tabbyml.service
+</code></pre></div>
+
+<h3>Tabby 配置参数</h3>
+<div class="highlight"><pre><span></span><code><span class="err">##</span><span class="w"> </span><span class="n">Tabby代理配置文件</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">在线文档</span><span class="err">：</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">tabby</span><span class="p">.</span><span class="n">tabbyml</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">configuration</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以取消注释并编辑下面的值</span><span class="err">，</span><span class="n">以更改默认设置</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">此文件中的配置优先级低于IDE设置</span><span class="err">。</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">服务器</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以在此处设置服务器端点和可选的身份验证令牌</span><span class="err">（</span><span class="n">如果需要</span><span class="err">）。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">server</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;http://localhost:8080&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">http或https</span><span class="w"> </span><span class="n">URL</span>
+<span class="err">#</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;your-token-here&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">如果设置了令牌</span><span class="err">，</span><span class="n">请求头Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Bearer $token&quot;</span><span class="n">将自动添加</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">您可以添加自定义请求头</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">server.requestHeaders</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">Header1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Value1&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">在此处列出您的自定义标头</span>
+<span class="err">#</span><span class="w"> </span><span class="n">Header2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Value2&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">值可以是字符串</span><span class="err">、</span><span class="n">数字或布尔值</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">自动完成</span>
+<span class="err">##</span><span class="w"> </span><span class="err">（</span><span class="n">自</span><span class="w"> </span><span class="mf">1.1.0</span><span class="w"> </span><span class="n">版起</span><span class="err">）</span><span class="n">您可以在此处设置自动完成请求的超时时间</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">请注意</span><span class="err">，</span><span class="n">服务器端也有一个超时配置</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">completion</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4000</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="mi">4</span><span class="n">秒</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">日志</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以在此处设置日志级别</span><span class="err">。</span><span class="n">日志文件位于</span><span class="o">~/</span><span class="p">.</span><span class="n">tabby</span><span class="o">-</span><span class="n">client</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">目录下</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">logs</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;silent&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="ss">&quot;silent&quot;</span><span class="err">、</span><span class="ss">&quot;error&quot;</span><span class="n">或</span><span class="ss">&quot;debug&quot;</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">匿名使用追踪</span>
+<span class="err">##</span><span class="w"> </span><span class="n">Tabby会收集匿名使用数据并发送给Tabby团队</span><span class="err">，</span><span class="n">以帮助改进我们的产品</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您的代码</span><span class="err">、</span><span class="n">生成的自动完成或任何敏感信息永远不会被跟踪或发送</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">有关数据收集的详细信息</span><span class="err">，</span><span class="nl">请参阅https</span><span class="p">:</span><span class="o">//</span><span class="n">tabby</span><span class="p">.</span><span class="n">tabbyml</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">configuration#usage</span><span class="o">-</span><span class="n">collection</span>
+<span class="err">##</span><span class="w"> </span><span class="n">感谢您的贡献</span><span class="err">。</span><span class="n">但是</span><span class="err">，</span><span class="n">如果您不希望参与</span><span class="err">，</span><span class="n">请在此处禁用匿名使用追踪</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">anonymousUsageTracking</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">设置为true以禁用</span>
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-popos.html">popOS!</a>              <a class="tag"  rel="tag" href="./tag-tabby.html">Tabby</a>              <a class="tag"  rel="tag" href="./tag-gpt.html">GPT</a>              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a><time class="tag" datetime="2023-11-26">2023-11-26</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./popos-tabby.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+                     <span id="first_page" class="a inactive">&#60;</span> -->
+                        <span class="a active">1</span>
+                <!-- <span id="next_page" class="a inactive">&#62;</span>
+                     <span id="next_page" class="a inactive">&#62;&#62;</span> -->
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

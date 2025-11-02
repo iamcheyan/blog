@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com - Surface Go - </title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2021-04-13-surface-go-+-ubuntu-20-lts.html"
+                       title="Surface_Go_+_Ubuntu_20_LTS">
+                        Surface_Go_+_Ubuntu_20_LTS
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p>Surface Go 低配版硬盘太小，装个 Win10 比较占空间，换了 Ubuntu，感觉好用多了，触摸屏和多点手势都可以使用，轻办公没有问题。
+驱动在这里<a href="https://github.com/linux-surface/linux-surface">下载</a>。
+<img alt="2021-04-13 23-29-03 的屏幕截图.png" src="../assets/2021/04/558298380.png"><!--more-->
+<img alt="2021-04-13 23-27-01 的屏幕截图.png" src="../assets/2021/04/1348347033.png"><img alt="2021-04-13 23-28-43 的屏幕截图.png" src="../assets/2021/04/2564606636.png"><img alt="2021-04-13 23-28-04 的屏幕截图.png" src="../assets/2021/04/378991767.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a><time class="tag" datetime="2021-04-13">2021-04-13</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2021-04-13-surface-go-+-ubuntu-20-lts.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-10-22-开会是一件漫长又无聊的事.html"
+                       title="开会是一件漫长又无聊的事">
+                        开会是一件漫长又无聊的事
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="92359-mq77bpv89g.png" src="../assets/2020/10/1594700379.png"></p>
+<!--more-->
+<p><img alt="55319-3l3lnehoniz.png" src="../assets/2020/10/3300461361.png">
+<img alt="21030-wf921rxdv0k.png" src="../assets/2020/10/3570917768.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a>              <a class="tag"  rel="tag" href="./tag-gan-wu.html">感悟</a><time class="tag" datetime="2020-10-22">2020-10-22</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-10-22-开会是一件漫长又无聊的事.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-01-19-收到了返修-surface-go，谈一下微软的售后体验.html"
+                       title="收到了返修_Surface_GO，谈一下微软的售后体验">
+                        收到了返修_Surface_GO，谈一下微软的售后体验
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="21284-8ya69zqpavj.png" src="../assets/2019/09/65571479.png"></p>
+<!--more-->
+<p><img alt="93015-s93mo65g7y.png" src="../assets/2019/09/2413976882.png">
+<img alt="85149-tgr62bzvkc.png" src="../assets/2019/09/4189757282.png">Surface GO 的 TypeC 接口忽然失灵了，不能充电，也不能转接，就跟死了一样，尝试过网上能搜到的所有方法，均不能奏效。初步怀疑是我使用了劣质的 TypeC 扩展坞所导致。无奈只能返修，返修的话是直接在微软官网提交订单，之后联邦快递会上门来取件，只拿走有问题的机器，键盘和电源就不用给他们。
+<img alt="29552-hylnf9me86c.png" src="../assets/2019/09/3586143406.png">维修速度还挺快，我一月六号提交订单，一月十九号就寄回来了。
+返修带的这个包装还挺有意思的，是用一层薄膜把机器保护，不像其它快递总是缠得一层又一层。
+但是！没修好！这次机器的 TypeC 接口能使用 USB 了，但依然不能充电，无论使用充电宝还是直接电源，均无效。
+这样的话，出门就必须带着原装的磁吸接口充电器了。
+再次给微软售后打电话，售后建议我……就这样凑合用吧。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a>              <a class="tag"  rel="tag" href="./tag-fan-xiu.html">返修</a><time class="tag" datetime="2020-01-19">2020-01-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-01-19-收到了返修-surface-go，谈一下微软的售后体验.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-05-21-廉价的-surfacego-替代品：华硕transformer-mini-t102.html"
+                       title="廉价的_SurfaceGo_替代品：华硕Transformer_Mini_T102">
+                        廉价的_SurfaceGo_替代品：华硕Transformer_Mini_T102
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="18199-apf40k02apa.png" src="../assets/2020/09/401552133.png">
+<img alt="18565-czjoufqmwwd.png" src="../assets/2020/09/3142563288.png"></p>
+<!--more-->
+<p>华硕 T102ha 二合一平板电脑，最大亮点可能就是重量了吧，单机600克，带键盘700多克。
+10.1吋，尺寸 17 x 25.9 x 1.3厘米，厚度8.2毫米重量和尺寸和 surfaceGo 相当，但价格闲鱼上也就六七百块钱左右，可是一分价钱一分货，阿童木的处理器也就看个乐，性能比较捉急，干不了重活，但做为随身便携本，记录个东西上上网很方便。键盘按键虽然小，但该有的键都有，不缺斤少两，回弹也还可以。
+电池能够连续使用4-6小时。机身接口有标准USB，micro USB，micro HDMI，Micro SD和耳机插孔。
+亮点是 Micro USB 的充电口，可以以使用手机充电器、移动电源，甚至笔记本电脑的 USB 接口直接充电。
+这个还是很方便的，基本不挑充电环境，充满电后，电池能够连续使用4-6小时。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a>              <a class="tag"  rel="tag" href="./tag-hua-shuo-t102ha.html">华硕T102ha</a><time class="tag" datetime="2019-05-21">2019-05-21</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-05-21-廉价的-surfacego-替代品：华硕transformer-mini-t102.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2018-12-31-surface-go：除了接口少以外，哪儿都好.html"
+                       title="Surface_GO：除了接口少以外，哪儿都好">
+                        Surface_GO：除了接口少以外，哪儿都好
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p><img alt="55558-6lz8m5evvy3.png" src="../assets/2019/09/4029844744.png">
+折腾了一圈，最终还是买了 Surface GO。</p>
+<!--more-->
+<p>首先说说，第一感觉就是轻，600多克的重量太美好了，怎么拿着都舒服。屏幕够用，看不出像素点，大小也刚刚好。键盘不错，没有缺心眼的地方，每一个按键都在它改在的地方，不需要适应，手放上去，自然而然地就有生产力。
+性能没有要求，这么一个设备，就是用来打字上网的。
+<img alt="32222-8z102griv6r.png" src="../assets/2019/09/2497163515.png">但必须吐槽的就是这个接口太少，我搞不明白，既然已经有 TypeC 了，为啥还非得带着这个长长的磁吸接口？哪怕你换俩C口都行啊，这样一个可以用来充满电，一个可以用来外接显示器。
+最好是能跟戴尔5285一样，两个C口，一个A口，这样还能外接一个扩展坞。
+<img alt="78752-2cvrfal6nc3.png" src="../assets/2019/09/3161037435.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a><time class="tag" datetime="2018-12-31">2018-12-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2018-12-31-surface-go：除了接口少以外，哪儿都好.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+                     <span id="first_page" class="a inactive">&#60;</span> -->
+                        <span class="a active">1</span>
+                <!-- <span id="next_page" class="a inactive">&#62;</span>
+                     <span id="next_page" class="a inactive">&#62;&#62;</span> -->
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

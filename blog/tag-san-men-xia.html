@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com - 三门峡 - </title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2018-02-20-家里下雪了.html"
+                       title="家里下雪了">
+                        家里下雪了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p><img alt="55764-5k72n4uuew8.png" src="../assets/2019/09/4074821767.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2018-02-20">2018-02-20</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2018-02-20-家里下雪了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2018-02-19-小城黄昏.html"
+                       title="小城黄昏">
+                        小城黄昏
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="90027-kmor6ylk1g.png" src="../assets/2019/09/438805890.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2018-02-19">2018-02-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2018-02-19-小城黄昏.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2017-10-06-她，它，他.html"
+                       title="她，它，他">
+                        她，它，他
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="38169-ut0kba4mh98.png" src="../assets/2019/09/1335717167.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a>              <a class="tag"  rel="tag" href="./tag-guo-qian-qian.html">郭钱钱</a><time class="tag" datetime="2017-10-06">2017-10-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2017-10-06-她，它，他.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2015-01-01-新的一年.html"
+                       title="新的一年">
+                        新的一年
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="49169-39vp1h3pgbf.png" src="../assets/2020/09/2932070709.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2015-01-01">2015-01-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2015-01-01-新的一年.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-08-30-家里下雨了.html"
+                       title="家里下雨了">
+                        家里下雨了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p><img alt="84439-nyo3k5s7jko.png" src="../assets/2019/09/675866983.png">
+<img alt="72429-q35bffcmnp.png" src="../assets/2019/09/321116309.png">
+<img alt="35972-305fb02z3ck.png" src="../assets/2019/09/350830299.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2014-08-30">2014-08-30</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-08-30-家里下雨了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-08-04-讲讲北漂几年，又回到小城市生活的感受.html"
+                       title="讲讲北漂几年，又回到小城市生活的感受">
+                        讲讲北漂几年，又回到小城市生活的感受
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p><img alt="33979-gmm103yfvo8.png" src="../assets/2020/09/2132417965.png">在北京呆了四五年，工作时主要做产品设计及前端开发方向，标准的 IT 从业者。
+2013 年回老家创业，跟朋友一起做了个小广告公司，以接北上广的 IT 外包项目为生。老家是河南小城，三四线城市，生活和创业成本都很低，租了个 40 平的房子办公，每月房租 1200（之前是每个月 800，不过地段不太好 ），不含人力，算了下每年成本大概在 2W 左右……
+这点钱要是想在北京开公司肯定是不可能的。</p>
+<!--more-->
+<p><img alt="98516-0tdl09ivl1y.png" src="../assets/2020/09/3543734373.png">从家到公司走路上班需要15分钟左右，骑车就5分钟吧，不过还是觉得很远，但某次在地图上量了下，发现这个距离其实只相当于在北京时从住处到地铁站的距离。
+<img alt="00907-pci0xa7wc5a.png" src="../assets/2020/09/3589561513.png">在家里时，感受最深的变化是生活规律了，工作早十晚四，每周双休，偶尔加班，下班之后走 5 分钟到健身房，锻炼后再走 15 分钟回家，一般到家时父母都做好饭了，吃完饭陪他们看上两三个小时电视就睡觉。偶尔朋友约出来玩，出门打个车 10 分钟左右就到，基本上无论做什么都毫无「距离感」，从来不担心晚上太晚了赶不上末班车回家，生活非常简单轻松。相比起来，在北京时，早上7点起床，洗漱完挤公交换地铁到公司 9 点左右，上上网看看新闻磨叽一会就午饭了，一般下午才进入工作状态，一忙起来常常就忘了时间，而且大部分公司加班成性，晚上 8 点下班都跟做贼一样，正常时间到家一般都在晚上 10 点左右了，拖拖拉拉到一两点睡觉，基本上一天也干不了别的事了，每天都过的很匆忙。收入的话，家里的同学朋友多是在企事业单位上班，工资 1200 - 2500 左右，大部分都是家里备好了房和车，所以这个数字过日子是完全没什么问题，不过基本上大家都没什么存款（家里条件特别好的除外）。反观北京，应届生差不多起薪都在 4000 往上了（只说互联网公司，别的行业不了解），有个三五年经验的话多跳几次槽基本上税前都能在 8000 - 1W 左右，但这个收入负担完房租水电什么再加上杂七杂八的消费，存钱似乎也很难。虽然北京跟家里的收入相差很大，但除了房价外，个人感觉其他消费基本上没啥区别，只是小城市相当选择少一点，消费不够便捷。例如看电影，家里就一两个电影院，排期倒是全国同步，票价 30 左右，3D 的 50 ，没有 iMax，也不能网上选坐。可以逛的地方就那么两三条街，吃饭的地儿到是比较多，但常去的就几家，朋友聚餐人均 50 - 100 左右， KTV 里一瓶罐装啤酒 30 块简直就是在抢钱，买衣服的话地淘宝质量的地摊货均价 100 左右，专卖店五百一千一件衣服很正常（所以上次一女性朋友说她拿了一个月工资买了一条 1500 的裙子我还是惊诧了很久…）。
+<img alt="62426-3v0f7lo8t4x.png" src="../assets/2020/09/3948567468.png">北京就不用讲了，选择极其多样性（市场竞争也比较惨烈，微信 19 块电影票什么的，再加上团购，有时候甚至会觉得比家里还便宜…），消费极其便捷现代化，水电费啥的都能网上交，甚至自从物美支付宝钱包扫码付款 9 折后我逛超市连钱包都不带了…但也因此花钱的频率极高，钱包不知不觉就空了。讲到我个人，因为是做 IT 的，又有点行业资源，经验和人脉积累也算较充足，所以经常能接到一些外包的小项目，均单价在五千到两万之间（再大的项目就不是一两个人能做的了，也得转包给其他公司），对于一个基础生活成本较低的小城市来讲，隔三差五的来点这种项目，收入基本还算满意，但我依然不太能够接受经常一两千块钱买双鞋子衣服什么的做法……不过最近我又回到北京了，跟一个朋友在做一个创业项目，这几个月明显就感觉到了「紧迫感」，以前在家里的话，客户结一次帐感觉可以撑很长时间，偶尔还能存下点钱。而现在……上周刚结完帐这周看着银行卡就开始困惑钱都花在哪去了。哦，还有一点就是家里的快递除了顺丰，基本上都不上楼，只能下楼自取。忍不住要表扬下顺丰，真心好，服务标准全国统一，送件到户，上门取货，态度也极好，巴枪人手必备，扫码支付啥的统统不在话下，以至于我经常在公司跟快递员打交道时有种「人在北京」的错觉。
+<img alt="34821-vcv45zf7vsm.png" src="../assets/2020/09/665077437.png">最后，我觉得，如果已经北漂了（或者去其他城市），那就好好利用起来在这里的匆忙时光（说白了大家都明白要想留在北京并「活的很好」有时候来讲是「不太现实」的），毕竟北上广相对其他地方，能够接触的资源当然会更广一些，所以多留意收集这些资源，以后回家创业或者工作都是绝对有帮助的……当然，其实这话本身就是废话，毕竟只要你生活在世界的任何一个地方，都要有可以谋生的一技之长。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2014-08-04">2014-08-04</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-08-04-讲讲北漂几年，又回到小城市生活的感受.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-01-12-新年的一天.html"
+                       title="新年的一天">
+                        新年的一天
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p><img alt="11607-1pej5i5mtxq.png" src="../assets/2019/09/2094035126.png">
+<img alt="80532-2w5kved7zdw.png" src="../assets/2019/09/4147370129.png">
+<img alt="79068-o8b4h0na6r.png" src="../assets/2019/09/2289859926.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2014-01-12">2014-01-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-01-12-新年的一天.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+                     <span id="first_page" class="a inactive">&#60;</span> -->
+                        <span class="a active">1</span>
+                <!-- <span id="next_page" class="a inactive">&#62;</span>
+                     <span id="next_page" class="a inactive">&#62;&#62;</span> -->
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

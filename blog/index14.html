@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com</title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-06-19-跟张康蹦在南京先锋书店.html"
+                       title="跟张康蹦在南京先锋书店">
+                        跟张康蹦在南京先锋书店
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p><img alt="61728-uwp2cgtad3n.png" src="../assets/2019/09/2841213746.png">
+<img alt="51920-ahmivvuamg.png" src="../assets/2019/09/150074860.png">
+<img alt="33657-05haqwcbl2gw.png" src="../assets/2019/09/468805354.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-lu-xing.html">旅行</a>              <a class="tag"  rel="tag" href="./tag-nan-jing.html">南京</a><time class="tag" datetime="2014-06-19">2014-06-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-06-19-跟张康蹦在南京先锋书店.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-06-15-复古的一天.html"
+                       title="复古的一天">
+                        复古的一天
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="86038-p4ahlmeuaol.png" src="../assets/2019/09/410913159.png">
+<img alt="51740-xqagg7jymy.png" src="../assets/2019/09/1355274148.png">
+<img alt="80517-cv0iv6reyeh.png" src="../assets/2019/09/120237981.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+<time class="tag" datetime="2014-06-15">2014-06-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-06-15-复古的一天.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-06-01-橄榄传媒.html"
+                       title="橄榄传媒">
+                        橄榄传媒
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="01506-my6j9u0fhj.png" src="../assets/2020/09/1095432209.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a><time class="tag" datetime="2014-06-01">2014-06-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-06-01-橄榄传媒.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-05-19-华兴园.html"
+                       title="华兴园">
+                        华兴园
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="62661-9qw9y5jl8dp.png" src="../assets/2019/09/2495471407.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+<time class="tag" datetime="2014-05-19">2014-05-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-05-19-华兴园.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-05-07-金山岭长城自驾.html"
+                       title="金山岭长城自驾">
+                        金山岭长城自驾
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p>5月份跟厉向晨一起爬了趟金山岭长城，其实也是他考到驾照（C2）后的一次练车，从北京开到了河北，我发现厉总开车有个好习惯，就是不骂人，不像我很多其他朋友，平时还好，但是一开车就骂人，骂行人不会走路，骂其他司机不会开车，骂马路设计不合理，好像全世界就他会开车一样。当然，我后来想了想，也可能是因为厉总手生，还不敢太嚣张的关系，希望他以后也能做一个有车德的好司机。
+<img alt="40655-3vhk72vplqb.png" src="../assets/2019/09/1265255820.png"></p>
+<!--more-->
+<p><img alt="27794-obfzkgzpd9g.png" src="../assets/2019/09/525100925.png">
+<img alt="35316-n4bfw9dnzt.png" src="../assets/2019/09/2310176127.png">
+<img alt="55592-594irbvrfxu.png" src="../assets/2019/09/3929039988.png">
+<img alt="75892-pr8b5ooa5kf.png" src="../assets/2019/09/615060079.png">
+<img alt="19099-bv8gr2mt7sl.png" src="../assets/2019/09/452550824.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-she-ying.html">摄影</a>              <a class="tag"  rel="tag" href="./tag-lu-xing.html">旅行</a><time class="tag" datetime="2014-05-07">2014-05-07</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-05-07-金山岭长城自驾.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-05-06-通州一瞥.html"
+                       title="通州一瞥">
+                        通州一瞥
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p><img alt="66490-mlyvnnka5s.png" src="../assets/2019/09/2601644753.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+<time class="tag" datetime="2014-05-06">2014-05-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-05-06-通州一瞥.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-05-05-跟厉总爬金山岭长城.html"
+                       title="跟厉总爬金山岭长城">
+                        跟厉总爬金山岭长城
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p><img alt="84671-b31030xngtm.png" src="../assets/2019/09/117557826.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+<time class="tag" datetime="2014-05-05">2014-05-05</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-05-05-跟厉总爬金山岭长城.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-04-23-买了一块上海牌手表，型号8120，棕色.html"
+                       title="买了一块上海牌手表，型号8120，棕色">
+                        买了一块上海牌手表，型号8120，棕色
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-7">
+            </div>
+            <script type="application/x-template" id="post-source-7"><p><img alt="05301-jqvmkfuak7.png" src="../assets/2019/09/1029968561.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-shou-biao.html">手表</a><time class="tag" datetime="2014-04-23">2014-04-23</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-04-23-买了一块上海牌手表，型号8120，棕色.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-04-02-换了新的办公室，真开心还没有倒闭.html"
+                       title="换了新的办公室，真开心还没有倒闭">
+                        换了新的办公室，真开心还没有倒闭
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-8">
+            </div>
+            <script type="application/x-template" id="post-source-8"><p><img alt="75759-pxzp4uz6nio.png" src="../assets/2019/09/1608927816.png">
+<img alt="83307-7gdb9emff97.png" src="../assets/2019/09/520842220.png">
+<img alt="01409-cyztygudp2.png" src="../assets/2019/09/873518287.png">
+<img alt="16456-glj84g4wbvp.png" src="../assets/2019/09/1627027911.png">
+<img alt="54410-f4u2ox8z7o8.png" src="../assets/2019/09/325699536.png">
+<img alt="59586-z42brlow28q.png" src="../assets/2019/09/1183600495.png">
+<img alt="96381-bu5hpnbxayd.png" src="../assets/2019/09/1180158621.png">
+<img alt="00580-jmcawwibh4b.png" src="../assets/2019/09/1492897612.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a><time class="tag" datetime="2014-04-02">2014-04-02</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-04-02-换了新的办公室，真开心还没有倒闭.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-31-hhkb-lite-2-for-mac-键盘.html"
+                       title="HHKB_lite_2_for_Mac_键盘">
+                        HHKB_lite_2_for_Mac_键盘
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-9">
+            </div>
+            <script type="application/x-template" id="post-source-9"><p><img alt="56640-lnljxhwmbbp.png" src="../assets/2019/09/1708913422.png">
+<img alt="26691-59zaho95kk8.png" src="../assets/2019/09/450105861.png"></p>
+<!--more-->
+<p><img alt="99781-lmcke7zyd3.png" src="../assets/2019/09/2382688611.png">
+<img alt="25682-15qzefxbtpn.png" src="../assets/2019/09/1152004603.png">
+<img alt="17803-3h3vptk5ie3.png" src="../assets/2019/09/615308891.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-jian-pan.html">键盘</a>              <a class="tag"  rel="tag" href="./tag-hhkb.html">HHKB</a><time class="tag" datetime="2014-03-31">2014-03-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-31-hhkb-lite-2-for-mac-键盘.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-29-公司要搬家了.html"
+                       title="公司要搬家了">
+                        公司要搬家了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-10">
+            </div>
+            <script type="application/x-template" id="post-source-10"><p><img alt="69326-re2rqbrbf9q.png" src="../assets/2019/09/2351430901.png"></p>
+<!--more-->
+<p>换一个更好的办公室。
+<img alt="65217-n552oor6j7o.png" src="../assets/2019/09/2991858902.png">
+<img alt="58226-qmmmz7xwkwb.png" src="../assets/2019/09/2974429250.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a><time class="tag" datetime="2014-03-29">2014-03-29</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-29-公司要搬家了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-16-25岁.html"
+                       title="25岁">
+                        25岁
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-11">
+            </div>
+            <script type="application/x-template" id="post-source-11"><p>2014-03-16
+活着是一段很漫长的旅途，沿途得到的和失去的都一样宝贵，我珍惜曾经曾经历过的种种。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-gan-kai.html">感慨</a><time class="tag" datetime="2014-03-16">2014-03-16</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-16-25岁.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-15-松下gm1几天下来的使用感受.html"
+                       title="松下GM1几天下来的使用感受">
+                        松下GM1几天下来的使用感受
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-12">
+            </div>
+            <script type="application/x-template" id="post-source-12"><p><img alt="24006-rwupy2a3wli.png" src="../assets/2020/09/4161353190.png"></p>
+<!--more-->
+<p>在决定入GM1之前，我在富士的几个机型中犹豫了很久，之前是想入花2000左右的价格入一台富士x20旁轴随便玩玩，选择富士的原因主要还是因为……富士的相机差不多都是以复古造型为主，而我对这造型完全没有抵抗力，做为一个摄影技术般般只是为了日常记录使用的人，我主要还是看重机器的外观和便携性。入了GM1的直接原因还是因为看了春卷老师的<a href="http://www.tudou.com/programs/view/fJ62cCnRw5g/">视频评测</a>，虽然人都说pchome枪比较多，但是个人感觉春卷老师的相机评测做的还算是比较真诚的。玩了几天，简单的说下感受。</p>
+<!--more-->
+<h3>携带感受体积确实很小，很轻，相当于拿了一罐可乐的重量。单手掌握没问题，完全不用挂绳。日常出门的时候收起镜头直接塞在外套口袋里就成，毫无存在感。尺寸嘛，大概就跟一个烟盒差不多大小。### 镜头搭配镜头使用的是M43镜头，可选的镜头非常多，详见《<a href="http://www.four-thirds.org/cn/microft/lense.html"><strong>M43系统镜头列表</strong></a>》。机身标配的是个<strong>12-32mm F3.5-5.6饼干变焦镜头</strong>，使用感受还行，主要感觉就是小，但是镜头没有变焦环，我又不习惯机身自带的触摸对焦，所以接下来打算入一颗<a href="http://detail.tmall.com/item.htm?spm=a1z0k.6846101.1130973605.d4915205.XHjTliid=12919196218_u=iglptie2f04"><strong>奥林巴斯</strong><strong> 45mm f1.8</strong></a><strong>的镜头用来拍静物。</strong>推荐阅读：《<a href="http://wanke.etao.com/product/600000000008126.html?spm=a230r.1.15.3.uG5V3Utbpm=20140318">一淘玩客：镜头选购指南</a>》</h3>
+<h3>缺点因为我对相机没什么过高要求，所以几天的使用下来，觉得机器的最大问题就是待机时间短，电池竟然只有600毫安时，网上说待机300张，我没有具体计算过，反正感觉连续使用的话两三个小时撑死。更让人不爽的是机器这机器不能连USB充电，也不能直充，也就是说只能用座充充电（厉总的NEX5竟然还可以使用移动电源充电）。机器的接口使用miniUSB，不是现在常见的microUSB口，所以如果要拷照片到电脑里还必须要额外的再携带一根线（所以我现在只用读卡器）。然后就是连接WIFI的过程比较烦碎，传输速度慢，不稳定，原没有网上评测里说的那么顺畅（理想场景是边按快门拍摄边WIFI传送到电脑），因为使用来实在不是很方便，又极其耗电，所以这功能基本上成了鸡肋。### 总结及其他相机推荐总结下来的话这机器基本上还是符合我个人便于携带的需求，但现在4300+的价格实在是太贵，性价比不高，感觉如果在3200上下是比较合适的。</h3>
+<p><img alt="89888-a3uh210ypxf.png" src="../assets/2020/09/3665688354.png">
+<img alt="04109-ux1863hep8m.png" src="../assets/2020/09/2039791166.png"></p>
+<p>&amp;&amp;&amp;</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-song-xia-gm1.html">松下GM1</a><time class="tag" datetime="2014-03-15">2014-03-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-15-松下gm1几天下来的使用感受.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-15-用-gm1-扫了趟街.html"
+                       title="用_GM1_扫了趟街">
+                        用_GM1_扫了趟街
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-13">
+            </div>
+            <script type="application/x-template" id="post-source-13"><p><img alt="08364-3m6hhbe2gor.png" src="../assets/2019/09/939855959.png">
+<img alt="81294-l68j5jj47wd.png" src="../assets/2019/09/2417865977.png">
+<img alt="83139-izshyh1zc6q.png" src="../assets/2019/09/2099305163.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-song-xia-gm1.html">松下GM1</a><time class="tag" datetime="2014-03-15">2014-03-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-15-用-gm1-扫了趟街.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-12-买了一台松下-gm1-微单.html"
+                       title="买了一台松下_GM1_微单">
+                        买了一台松下_GM1_微单
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-14">
+            </div>
+            <script type="application/x-template" id="post-source-14"><p><img alt="52110-rfm778lqt6.png" src="../assets/2019/09/3554038290.png"></p>
+<!--more-->
+<p><img alt="04728-b0idusrr5i6.png" src="../assets/2019/09/1607536302.png">
+<img alt="46087-q9p2regk72o.png" src="../assets/2019/09/3128352340.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-song-xia-gm1.html">松下GM1</a><time class="tag" datetime="2014-03-12">2014-03-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-12-买了一台松下-gm1-微单.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-03-04-创业感悟：跟转包公司打交道的两件小事.html"
+                       title="创业感悟：跟转包公司打交道的两件小事">
+                        创业感悟：跟转包公司打交道的两件小事
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-15">
+            </div>
+            <script type="application/x-template" id="post-source-15"><p>2014-03-04
+最近遇到的一个事情，上海某广告公司（甲方）接了一个客户的会展的全案项目，把其中视频包装和宣传片制作这部分的活儿转包给了我们，以比较低的价格成交——这块我们倒是没什么异议，毕竟跟一线城市的同类公司比起来，我们的优势就在于人力价格极低，北京一般小规模的外包公司人员单价差不多都500一天起了，算下来随便一个小活张嘴就敢要到好几万了，价格高的原因不外乎是因为成本高、员工工资房租水电再加上税收公积金等乱七八糟的费用，每个月算下来也是一大笔钱，所以我们经常自己打趣到我们提供的就是廉价劳动力服务——这也是我们目前的唯一竞争力。扯远了，继续说这个项目，项目本身没有多少钱，甲方老板是个我在网上认识了挺久的朋友，平时相处还成，这个项目的总款项我不知道，也不便问，因为项目转包的过程一般是不会让乙方（就是我们）直接跟客户接触的，一是怕影响客户资源，二也是避免客户对我们透漏项目真实报价，所以整个过程中我们完全没有接触到客户，所有的活都是由我们交付到甲方，由甲方跟客户沟通，汇总意见最终反馈到我们手中，然后我们按甲方的意见进行修改再次交付。
+于是，在这个二道贩子的繁琐过程中我们就遇到了几个状况。</p>
+<!--more-->
+<p><strong>没有完全明确项目款项的交付方式</strong>
+一般在沟通完项目需求后，我们会无偿给客户出几套方案供客户选择，如果客户满意，则开始合作并打预付款，如果修改多次还不能满足客户要求，那说明我们能力有限，我们也不好意思张嘴要钱，合作就此作罢，大家都不吃亏。
+这次因为对方也是做广告公司的，所以一开始我们在付款方式上就没有过多商论，以为按流程走就行，前后出了几个高精度的视频小样（几乎已经算是可交付的成片了），甲方和客户都确定了项目可以开工，于是按流程我们要求甲方支付预付款，这时甲方却说这个项目是他们先垫资进行，等项目结算后他们跟客户统一结算再打给我们……做为一个吃过各种亏的狗逼小公司，形形色色五花八门的奇葩理由我见得多了，什么客户资金周转困难老板没空会计出差出纳蹲监狱等等各种理由忽悠我们先干活后给钱，这次我们自然不能答应，于是甲方公司说如果不答应的话那就不合作，之前我们所做的所有小样都作废——虽然我们对此早有心理准备，但碍于朋友面子我们还是纠结了一下，最后只得说说作废就作废吧，现在吃点小亏总比以后竹篮打水一场空强。甲方见我们态度如此强硬，估计又是项目催的紧（我是觉得他们是实在找不到比我们更便宜的公司了），于是在当天晚上忿忿然的支付了预付款。<strong>沟通需求的时候，没有完全明确客户变更需求后的责任划分</strong>
+在项目进行中还遇到了一个问题，客户项目是在3中旬交工，我们已经完成了总项目的差不多70%，这时甲方公司忽然提出一个事，说客户说其中的几个视频中的某一个他们不要了，让我们在结算尾款时不能将这笔钱计算在内，那个视频是我们基本上已经制作完毕并跟甲方确定过的，我们不答应，强调说需求我们双方确定的，现在甲方公司跟客户之间所产生的需求变更的风险不能转嫁给我们承担，但甲方不依不饶，说这个项目是甲方替客户垫资的，项目结束后客户没有使用这个片子，那么甲方也没钱给我们……我们一边庆幸说幸好之前用强硬的手段迫使甲方在支付了六十的预付款，否则按甲方的人品，如果项目结束后甲方说这些片子客户一个都没用那我们几乎就他妈的要血本无归了。因为项目还在进行中，所以暂时也不方便多说什么，不过反正创业这些日子，形形色色的人也算接触了不少，也有些感触，基本上就是人心难测，防不胜防，但无论事情最终会做到怎么样子，我希望我还是真诚的，至少我一直坚信人心不都是黑的，也希望身边的朋友或者前辈们能过多多理解，别太刁难我，毕竟大家出来混也都是有成本的，柴米油盐酱醋茶，吃饭睡觉打豆豆，哪个不要钱啊。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a><time class="tag" datetime="2014-03-04">2014-03-04</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-03-04-创业感悟：跟转包公司打交道的两件小事.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-02-28-推荐一款氛围背景音乐软件：sleep-pillow.html"
+                       title="推荐一款氛围背景音乐软件：Sleep_Pillow">
+                        推荐一款氛围背景音乐软件：Sleep_Pillow
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-16">
+            </div>
+            <script type="application/x-template" id="post-source-16"><p>![Sleep-pillow.jpg][1]</p>
+<!--more-->
+<p>小时候喜欢听收音机，当时有一台可以定时开关机的机器，塞在枕头下，每天早上5点半定时开，一般都是河南电台90.0，几乎全天都是音乐，半梦半醒时听到枕头下的音乐，有时候会跟梦交织在一起，梦里每一个场景忽然都有了背景音乐，甚是奇妙。Sleep Pillow 是一款中文名睡枕，顾名思义是用来助眠的，这类的应用很多了，不过我用它来主要是做为写东西写代码时的背景音乐，公司窗户的隔音很差，思路经常会被公交和喇叭声打断，用这个带上耳机听听海浪的声音感觉还是蛮惬意的（当然，如果有时间话还是脚踏实地的去旅行看看真的海吧）。其实同类的应用已经多不胜数了，推荐它的主要原因就是它的软件设计的很直观，而且音效丰富，够用。软件全平台，Mac 免费。
+下载地址：https://itunes.apple.com/cn/app/id597419160?mt=12  [1]: ../assets/2020/10/3841272742.jpg</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-ios.html">iOS</a><time class="tag" datetime="2014-02-28">2014-02-28</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-02-28-推荐一款氛围背景音乐软件：sleep-pillow.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-02-14-翟爷和阿娇终于结婚了.html"
+                       title="翟爷和阿娇终于结婚了">
+                        翟爷和阿娇终于结婚了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-17">
+            </div>
+            <script type="application/x-template" id="post-source-17"><p><img alt="08744-0x20ilize2ud.png" src="../assets/2019/09/900978588.png">2014年2月12日，我在郑州参加了大学同学翟爷和阿娇的婚礼，我曾在无数的日记中提到过他们，因为似乎我短暂的大学时光就仅存下这几个名字。我对校园的青春记忆仅存留在高中，如果有可能的话，我倒是希望能够多怀念怀念那段在郑州的日子，虽然至今我对郑州都还是好感为零，不知道是郑州影响了我的学校还是我的学校影响了我对郑州的评价……
+总之，如果不是因为阿贺和翟爷这几个居住在郑州的好友，那么我可能永远不太会再想主动跟郑州有任何关联。</p>
+<!--more-->
+<p>翟爷是我的大学室友，栾川人，农村户口，因为我高二时曾经在栾川写生，呆过一个月，所以当他介绍他来自栾川时我顿时就对他有了莫名的好感。现在想想，当时的他是一个很有逼格的文青，喜欢经常泡图书馆，看一些很深奥的书……和电影，例如贾樟柯的《小武》，他经常一个人在宿舍放这让人昏昏欲睡的片子，每次我看到十分钟的时候就睡着了，当我睡醒时发觉他还在看，一边看一边介绍给其他来我们宿舍串门的哥们说你看这片子真好看，那哥们盯着屏幕上DV一般的成像和沉闷的剧情看了一会说，算了算了，这个就算了，哥们你那还有别的片儿吗？穿衣服的不穿衣服的都成。泡图书馆的话他也要看一些心理学和设计学的书，心理学我到现在都看不懂，记得他曾经推荐我看过一本讲《积极心理学》的书，说看完后会提升我的幸福指数，我翻了几页，没觉得幸福指数有毛提升，倒看的我直打哈欠，便换他挑的其他几本设计学的书，没翻几页，就翻出一个裸体女郎来，再换一本，人体摄影，连翻几本，接连如此，这倒是瞬间让我觉得幸福指数提升不少。阿娇是我们班的小姑娘，郑州本地人，是一个极其善良且不计得失的女孩——我觉得这几个词是至今为止我对她最贴切的评价，她人缘很好，跟男孩女孩相处的都不错，我想，哪怕后来她没有跟翟爷在一起，到现在每到我想起我短暂的大学时光时，我应该都会想到她，因为很多年都没有遇到过这种相处起来让人觉得很舒服的女孩了。他们在一起时第一时间并没有告诉我，我是从另外一个好友那儿听来的，当时我已经在北京工作了，朋友告诉我，我说真的假的，他说应该是，我猜的。我一边鄙夷他的八卦一边在QQ上问翟爷的八卦，可是很长时间他都是没有正面回答过我。现在想想，他并不是不想回答，应该只是对自己的未来和对他们的未来都不太有信心吧。后来，某次我回郑州，他俩一起接待了我，也算是对这段关系有了一个交代。
+<img alt="09032-lnqdzm6hmus.png" src="../assets/2019/09/3353290648.png">我不太好多说他们之间因为家庭条件的关系而给了翟爷多少的压力和阻力，只是现在每当回想起他们我总能想到那天深夜他哭着给我打来的那个电话，那个因为那天晚上他跟她的家长见面的寒酸的饭局所导致的不愉快和因为被农村户口和城镇户口伤害的男人的尊严，他哭着谴责人生的操蛋和无奈，痛骂自己的赚不到钱的无奈和哭诉饭桌上人家姐姐姐夫事业的各种辉煌的成就所给他带来的刺痛，末了，他哭累了，说，我还是不想放弃，怎么办。
+现在想想，我真的很庆幸我当时没有劝他放弃。后来某天，他们领结婚证时我正在为一次工作的变动而焦躁不已，当他在QQ上告诉我这个消息时我也并没有假兮兮的像某些狗血电影里讲的那样“被朋友的欢乐而感染”，我问他说你要怎样面对领证之后的事情的规划和房子车子现实的无奈呢，他的喜悦被我狭隘的个人情感泼了一盆冷水，之后好长时间都再没有跟我有过联系。之后无论是在网上还是现实中，每次见面他跟我永恒的话题都是如何才能够赚到钱，不要很多很多钱，只用够他在郑州买房买车买尊严就行，再不济，哪怕够他办一场风光体面的婚礼都行。在他结婚的前一天，我陪他跟婚庆公司的人一起布置场景，我问他花了多少钱，他说去青岛拍了婚纱照，把父母亲戚从老家接过来订了N多宾馆，请婚庆公司，订酒店等等等等，算了半天他不算了，说好多好多钱，他说这话的时候脸上一半是轻松一半是沉重，完事他说，妈的我本来以为钱够了，现在想想，接下来我还得在郑州买个房呢。做为朋友，我也只是一个正处在创业初期每天要为了几百几千的项目款要跟客户装各种孙子，挂完电话再操他们各种大爷的，永远不知什么时候才能看见希望的人，我帮不上什么忙，唯一能做的就是真诚的祝福他们，他们的这段感情给了我莫大的震撼，他们的故事很平凡，但却远比电影里来的更要精彩和深刻，我想，就跟书上说的一样，我真的希望能跟这样的人成为可以倾谈一生的朋友。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+<time class="tag" datetime="2014-02-14">2014-02-14</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-02-14-翟爷和阿娇终于结婚了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-01-12-新年的一天.html"
+                       title="新年的一天">
+                        新年的一天
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-18">
+            </div>
+            <script type="application/x-template" id="post-source-18"><p><img alt="11607-1pej5i5mtxq.png" src="../assets/2019/09/2094035126.png">
+<img alt="80532-2w5kved7zdw.png" src="../assets/2019/09/4147370129.png">
+<img alt="79068-o8b4h0na6r.png" src="../assets/2019/09/2289859926.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-san-men-xia.html">三门峡</a><time class="tag" datetime="2014-01-12">2014-01-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-01-12-新年的一天.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-01-02-橄榄传媒公司介绍画册.html"
+                       title="橄榄传媒公司介绍画册">
+                        橄榄传媒公司介绍画册
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-19">
+            </div>
+            <script type="application/x-template" id="post-source-19"><p><img alt="89603-ozy35pnxwt.png" src="../assets/2020/09/1432108595.png">
+<img alt="97080-vwiwg8675wc.png" src="../assets/2020/09/3372963837.png">
+<img alt="21234-x2g4sbf4rdm.png" src="../assets/2020/09/187032983.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chuang-ye.html">创业</a>              <a class="tag"  rel="tag" href="./tag-gan-lan-chuan-mei.html">橄榄传媒</a><time class="tag" datetime="2014-01-02">2014-01-02</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-01-02-橄榄传媒公司介绍画册.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <a id="first_page" href="./index.html">&#60;&#60;</a>
+                <a id="prev_page" href="./
+                        index13.html">&#60;</a>
+                        <a href="./index10.html">10</a>
+                        <a href="./index11.html">11</a>
+                        <a href="./index12.html">12</a>
+                        <a href="./index13.html">13</a>
+                        <span class="a active">14</span>
+                        <a href="./index15.html">15</a>
+                        <a href="./index16.html">16</a>
+                        <a href="./index17.html">17</a>
+                        <a href="./index18.html">18</a>
+                <a id="next_page" href="./index15.html">&#62;</a>
+                <a id="last_page" href="./index21.html">&#62;&#62;</a>
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

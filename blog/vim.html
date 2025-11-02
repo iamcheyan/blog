@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>簡単なモダンな VIM の設定 — iamcheyan.com</title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+
+    <meta name="author" content="cheyan"/>
+    <meta name="keywords" content="VIM"/>
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <article class="post" id="page-main" role="main">
+    <header class="post-header">
+        <h1>
+            <a rel="bookmark"
+               href="./vim.html"
+               title="簡単なモダンな VIM の設定">
+                簡単なモダンな VIM の設定
+            </a>
+        </h1>
+    </header>
+    <div class="post-content">
+        <p><img alt="VIM" src="../../assets/VIM.jpg"></p>
+<p><strong>最小限のパラメータで、VIM をモダンなエディタのように使える簡単な設定です。マウス操作ができ、一般的なショートカットキーでテキストを編集できます。</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot; 基本设置</span>
+<span class="s2">set nocompatible          &quot;</span><span class="w"> </span>使用vim而非vi
+<span class="nb">set</span><span class="w"> </span>wildmenu<span class="w">              </span><span class="s2">&quot; 按TAB键时命令行自动补齐</span>
+<span class="s2">set ignorecase smartcase  &quot;</span><span class="w"> </span>搜索时忽略大小写，但在有大写字母时匹配大小写
+<span class="nb">set</span><span class="w"> </span>number<span class="w"> </span>relativenumber<span class="w"> </span><span class="s2">&quot; 显示相对行号和当前行号</span>
+<span class="s2">set visualbell t_vb=      &quot;</span><span class="w"> </span>禁止响铃和闪烁
+<span class="nb">set</span><span class="w"> </span>ruler<span class="w">                 </span><span class="s2">&quot; 显示当前光标位置</span>
+<span class="s2">set autoread              &quot;</span><span class="w"> </span>文件在Vim之外修改过，自动重新读入
+<span class="nb">set</span><span class="w"> </span>autowrite<span class="w">             </span><span class="s2">&quot; 设置自动保存内容</span>
+<span class="s2">set autochdir             &quot;</span><span class="w"> </span>当前目录随着被编辑文件的改变而改变
+<span class="nb">set</span><span class="w"> </span><span class="nv">mouse</span><span class="o">=</span>a<span class="w">               </span><span class="s2">&quot; 开启鼠标支持</span>
+<span class="s2">set shiftwidth=4 tabstop=4 expandtab &quot;</span><span class="w"> </span>设置缩进为4个空格
+<span class="nb">set</span><span class="w"> </span>smartindent<span class="w">           </span><span class="s2">&quot; 启用智能缩进</span>
+<span class="s2">set autoindent            &quot;</span><span class="w"> </span>参考上一行的缩进方式进行自动缩进
+<span class="nb">set</span><span class="w"> </span>smarttab<span class="w">              </span><span class="s2">&quot; 启用智能TAB键</span>
+<span class="s2">set hlsearch incsearch    &quot;</span><span class="w"> </span>开启搜索结果的高亮显示和实时搜索
+<span class="nb">set</span><span class="w"> </span>noswapfile<span class="w"> </span>nobackup<span class="w"> </span>nowritebackup<span class="w"> </span><span class="s2">&quot; 禁用交换文件和备份文件</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>设置backspace键功能
+<span class="nb">set</span><span class="w"> </span><span class="nv">backspace</span><span class="o">=</span>eol,start,indent
+<span class="s2">&quot; 设置backspace键在任何模式下都进入编辑模式并删除字符</span>
+<span class="s2">nnoremap &lt;BS&gt; i&lt;BS&gt;</span>
+<span class="s2">vnoremap &lt;BS&gt; i&lt;BS&gt;</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>tab设为4个空格
+<span class="nb">set</span><span class="w"> </span><span class="nv">tabstop</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">softtabstop</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span><span class="w"> </span>expandtab
+<span class="nb">set</span><span class="w"> </span>smarttab
+<span class="s2">&quot; 新一行与上一行的缩进一致</span>
+<span class="s2">set autoindent</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>性能优化
+<span class="nb">set</span><span class="w"> </span>lazyredraw<span class="w">            </span><span class="s2">&quot; 提高宏执行速度</span>
+<span class="s2">set ttyfast               &quot;</span><span class="w"> </span>加快终端连接速度
+
+<span class="s2">&quot; 编码设置</span>
+<span class="s2">set encoding=utf-8</span>
+<span class="s2">set fileencoding=utf-8</span>
+<span class="s2">set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>设置键绑定，使其与现代编辑器一致
+<span class="s2">&quot; 撤销和重做</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-z&gt; u</span>
+<span class="s2">inoremap &lt;silent&gt; &lt;C-z&gt; &lt;C-o&gt;u</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-y&gt; &lt;C-r&gt;</span>
+<span class="s2">inoremap &lt;silent&gt; &lt;C-y&gt; &lt;C-o&gt;&lt;C-r&gt;</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>复制、剪切和粘贴
+vnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-c&gt;<span class="w"> </span><span class="s2">&quot;+y</span>
+<span class="s2">vnoremap &lt;silent&gt; &lt;C-x&gt; &quot;</span>+d
+nnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-v&gt;<span class="w"> </span><span class="s2">&quot;+p</span>
+<span class="s2">inoremap &lt;silent&gt; &lt;C-v&gt; &lt;C-r&gt;+</span>
+<span class="s2">cnoremap &lt;silent&gt; &lt;C-v&gt; &lt;C-r&gt;+</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>强制退出（不保存）
+nnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-q&gt;<span class="w"> </span>:q!&lt;CR&gt;
+inoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-q&gt;<span class="w"> </span>&lt;Esc&gt;:q!&lt;CR&gt;
+
+<span class="s2">&quot; 全选</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-a&gt; ggVG</span>
+<span class="s2">inoremap &lt;silent&gt; &lt;C-a&gt; &lt;Esc&gt;ggVG</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>保存
+nnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-s&gt;<span class="w"> </span>:update&lt;CR&gt;
+inoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>&lt;C-s&gt;<span class="w"> </span>&lt;Esc&gt;:update&lt;CR&gt;a
+
+<span class="s2">&quot; 查找</span>
+<span class="s2">nnoremap &lt;C-f&gt; /</span>
+<span class="s2">inoremap &lt;C-f&gt; &lt;Esc&gt;/</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>在查找状态下切换搜索选项
+cnoremap<span class="w"> </span>&lt;C-n&gt;<span class="w"> </span>&lt;C-g&gt;
+cnoremap<span class="w"> </span>&lt;C-m&gt;<span class="w"> </span>&lt;C-t&gt;
+
+<span class="s2">&quot; 全局替换</span>
+<span class="s2">nnoremap &lt;C-h&gt; :%s///g&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</span>
+<span class="s2">inoremap &lt;C-h&gt; &lt;Esc&gt;:%s///g&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>确保回车键在替换操作时可以正常工作
+cnoremap<span class="w"> </span>&lt;expr&gt;<span class="w"> </span>&lt;CR&gt;<span class="w"> </span>getcmdtype<span class="o">()</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s1">&#39;[/?]&#39;</span><span class="w"> </span>?<span class="w"> </span><span class="s1">&#39;&lt;CR&gt;&#39;</span><span class="w"> </span>:<span class="w"> </span><span class="s1">&#39;&lt;C-]&gt;&lt;CR&gt;&#39;</span>
+
+<span class="s2">&quot; 窗口分割快捷键</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-l&gt; :vsplit&lt;CR&gt;&lt;C-w&gt;l</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-j&gt; :vsplit&lt;CR&gt;&lt;C-w&gt;h</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-i&gt; :split&lt;CR&gt;&lt;C-w&gt;k</span>
+<span class="s2">nnoremap &lt;silent&gt; &lt;C-k&gt; :split&lt;CR&gt;&lt;C-w&gt;j</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>显示行号
+<span class="nb">set</span><span class="w"> </span>number
+<span class="s2">&quot; 高亮显示当前行</span>
+<span class="s2">set cursorline</span>
+<span class="s2">&quot;</span><span class="w"> </span>让一行的内容不换行
+<span class="nb">set</span><span class="w"> </span>nowrap
+<span class="s2">&quot; 距窗口边缘还有多少行时滚动窗口</span>
+<span class="s2">set scrolloff=8</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>显示不可见字符
+<span class="nb">set</span><span class="w"> </span>list<span class="w"> </span><span class="nv">listchars</span><span class="o">=</span>tab:»·,trail:·,extends:&gt;,precedes:&lt;
+<span class="s2">&quot; 在底部显示命令</span>
+<span class="s2">set showcmd</span>
+<span class="s2">&quot;</span><span class="w"> </span>允许在未保存的缓冲区间切换
+<span class="nb">set</span><span class="w"> </span>hidden
+<span class="s2">&quot; 设置分割窗口在下方和右侧打开</span>
+<span class="s2">set splitbelow splitright</span>
+
+<span class="s2">&quot;</span><span class="w"> </span>代码颜色主题
+syntax<span class="w"> </span><span class="nb">enable</span><span class="w">              </span><span class="s2">&quot; 开启语法高亮并优化性能</span>
+<span class="s2">if has(&#39;termguicolors&#39;)</span>
+<span class="s2">    set termguicolors</span>
+<span class="s2">endif</span>
+<span class="s2">&quot;</span><span class="w"> </span>设置颜色主题
+colorscheme<span class="w"> </span>evening
+</code></pre></div>
+    </div>
+    <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-vim.html">VIM</a><time class="tag" datetime="2024-08-10">2024-08-10</time>    </div>
+    <ul class="neighbors">
+            <li>
+                前の記事：
+                <a href="./fedora-hibernate.html">
+                    Fedora 下 hibernate 休眠配置
+                </a>
+            </li>
+            <li>
+                次の記事：
+                <a href="./linux-win11-vpn.html">
+                    Linux のホストマシンで仮想マシンの Windows の VPN 接続を使用する
+                </a>
+            </li>
+    </ul>
+
+
+            </article> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

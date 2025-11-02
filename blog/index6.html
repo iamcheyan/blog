@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com</title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-15-工程师随身玩具：gpd-micro-pc.html"
+                       title="工程师随身玩具：GPD_Micro_PC">
+                        工程师随身玩具：GPD_Micro_PC
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p>![17907-z97epj837dj.png][1]</p>
+<!--more-->
+<p>N4100的处理器，日常上上网还行，看哔站1080没问题，鲁大师大概跑了四五万分左右。(../assets/2019/09/1482318607.png)这个机器最大的亮点是搭载了标准的HDMI接口，外接显示器很方便。键盘手感太硬，敲击段落感不明显，放在桌子上打字，还是拿起来打字，都很别扭，盲打基本无望。  [1]: ../assets/2019/09/1482318607.png</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-gpd-micro-pc.html">GPD Micro PC</a><time class="tag" datetime="2020-07-15">2020-07-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-15-工程师随身玩具：gpd-micro-pc.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-14-将不同硬件配置的-linux-系统，克隆到另一台电脑上.html"
+                       title="如何将不同硬件配置的 Linux 系统，克隆到另一台电脑上？">
+                        如何将不同硬件配置的 Linux 系统，克隆到另一台电脑上？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p>视频教程
+<img alt="53150-40qmis4o9x6.png" src="../assets/2019/09/1921339824.png">重装Linux系统是一件极其消耗生命的事情，尤其是像我这种经常换电脑的人，每次重装、格盘、换源、更新、装软件……
+一套流程走下来，一两天就过去了。
+所以，做一个简单的教程，能直接帮我把已经安装好的系统，直接“迁移”到另一台电脑上。<a href="https://www.bilibili.com/video/BV1Bf4y117YW">视频教程</a></p>
+<!--more--></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-wine.html">Wine</a>              <a class="tag"  rel="tag" href="./tag-xi-tong-ke-long.html">系统克隆</a><time class="tag" datetime="2020-07-14">2020-07-14</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-14-将不同硬件配置的-linux-系统，克隆到另一台电脑上.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-12-有哪些-windows-软件可以在-linux-下完美运行？.html"
+                       title="有哪些_Windows_软件可以在_Linux_下完美运行？">
+                        有哪些_Windows_软件可以在_Linux_下完美运行？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="2020-09-13_15-19.png" src="../assets/2019/09/1054459534.png">做了一个<a href="https://www.bilibili.com/video/BV1zA411e7jp">视频</a>，检验一下有哪些Windows软件可以在Linux下完美运行。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-wine.html">Wine</a>              <a class="tag"  rel="tag" href="./tag-shi-pin.html">视频</a><time class="tag" datetime="2020-07-12">2020-07-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-12-有哪些-windows-软件可以在-linux-下完美运行？.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-01-8吋折叠便携本，驰为-minibook-使用体验.html"
+                       title="8吋折叠便携本，驰为_MiniBook_使用体验">
+                        8吋折叠便携本，驰为_MiniBook_使用体验
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="77523-s4eiyxrwgki.png" src="../assets/2019/09/2308264427.png">我对迷你笔记本电脑总是有着莫名的执着，前后买过GPD、壹号本、神奇小本等机器。
+购入驰为MiniBook，主要是看上了性价比，M3-8100Y+16G的配置，别家都得四千多，驰为的两三千就能拿下。
+使用了一阵子，简单说说体验。</p>
+<!--more-->
+<p>首先表扬键盘，按键敲击的段落感很明显，键粒大，有笔记本的感觉。
+接下来，吐槽键盘：键位设计脑残，非标注的WASD按键，太往偏左了，导致每次想打A时，都敲成了S，总之，左边那一排的位置都很别扭，用了很久都还是不习惯，这样也就导致在很长一段时间内，不能盲打。
+<img alt="12385-gq0gk4rzf9b.png" src="../assets/2019/09/3926531411.png">
+<img alt="23972-fh1fft3mm1p.png" src="../assets/2019/09/1101248928.png">性能的话，鲁大师跑了一下，十万分出头，这个成绩差不多相当于x250（i5-5200U）的跑分，日常办公肯定是够了，但狂飙起来，风扇声音也很大，散热比GPD P2 MAX要好，后者跑起来，基本就不能摸，能把手烫成猪蹄。我使用Linux，装Manjaro的话，触摸屏没有驱动（我看网上有人搞定了），其它都正常，正常使用的话大概五六个小时。接口左右两个USB-A口，一个接扩展坞，一个备用，还行。
+使用TypeC充电，好评，标配45W充电器，不过我没用过它那个充电器。
+顺便吐槽一下这机器的MiniHDMI借口，你说你做到这种厚度了（比普通笔记本还厚），为啥不用标准HDMI口？导致每次出门还得带一根转接线，有点不便。
+<img alt="42154-v6z4lgc5ouo.png" src="../assets/2019/09/1184143054.png">
+日常上班时是这样的，外接显示器打开干活，下班了直接合起来，塞手提袋里回家，还是比较惬意的。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-chi-wei-minibook.html">驰为MiniBook</a><time class="tag" datetime="2020-07-01">2020-07-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-01-8吋折叠便携本，驰为-minibook-使用体验.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-06-06-一个不写代码的普通人，在linux下是怎么生活的？.html"
+                       title="一个不写代码的普通人，在Linux下是怎么生活的？">
+                        一个不写代码的普通人，在Linux下是怎么生活的？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p><img alt="Screenshot_20200528_144507.png" src="../assets/2019/09/3515081699.png">很多人问我为什么用Linux系统，软件那么少，不是瞎折腾么。
+于是就做了一个<a href="https://www.bilibili.com/video/BV1tt4y1y7re">视频</a>，展示一下我的日常。</p>
+<!--more--></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-shi-pin-ce-ping.html">视频测评</a><time class="tag" datetime="2020-06-06">2020-06-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-06-06-一个不写代码的普通人，在linux下是怎么生活的？.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-06-06-开始使用-kdenlive-在哔哩哔哩做些-linux-教程视频.html"
+                       title="开始使用_Kdenlive_在哔哩哔哩做些_Linux_教程视频">
+                        开始使用_Kdenlive_在哔哩哔哩做些_Linux_教程视频
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p><img alt="Screenshot_20200605_235542.png" src="../assets/2020/09/Screenshot_20200605_235542.png"></p>
+<p>[可以关注我的B站链接][2]  </p>
+<div class="highlight"><pre><span></span><code>[2]: https://space.bilibili.com/249302794
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-kdenlive.html">Kdenlive</a><time class="tag" datetime="2020-06-06">2020-06-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-06-06-开始使用-kdenlive-在哔哩哔哩做些-linux-教程视频.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-05-15-第四本书《区块链风云》知乎盐选上线.html"
+                       title="第四本书《区块链风云》知乎盐选上线">
+                        第四本书《区块链风云》知乎盐选上线
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p><img alt="87915-ewgq7nbeoi8.png" src="../assets/2019/09/676640864.png">
+<a href="https://www.zhihu.com/xen/market/remix/paid_column/1233821888189095936">专栏订阅地址</a></p>
+<!--more-->
+<p>声明：本故事只为向读者科普区块链的基本概念和运作原理，并不鼓励（更不赞成）大家投资区块链（及虚拟币），在这场击鼓传花的游戏中，希望你不要成为食物链底端的牺牲品。珍爱生命，远离数字货币。
+纸书今年年底出版。
+<img alt="区块链风云知乎专栏推广图.jpg" src="../assets/2019/09/2674631949.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-qu-kuai-lian-feng-yun.html">区块链风云</a>              <a class="tag"  rel="tag" href="./tag-zhi-hu-zhuan-lan.html">知乎专栏</a>              <a class="tag"  rel="tag" href="./tag-xin-shu-yu-gao.html">新书预告</a><time class="tag" datetime="2020-05-15">2020-05-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-05-15-第四本书《区块链风云》知乎盐选上线.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-05-05-在备用机上装了一把-kubuntu.html"
+                       title="在备用机上装了一把_Kubuntu">
+                        在备用机上装了一把_Kubuntu
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-7">
+            </div>
+            <script type="application/x-template" id="post-source-7"><p><img alt="74453-l2ievt6vwr.png" src="../assets/2020/09/3648509250.png">第一感受就是莫名其妙的 BUG 一堆，有时候开机都会弹出错误提示，稳定性不如 Manjaro，至少后者我用再升龙克隆N次，迁移到N台机器上，都能稳定运行，从不出错。
+第二感觉是软件少，尤其是对用惯 Arch 系的玩家来讲，Ubuntu 的各种软件源能把人烦死，每次重装系统后，都会被添加 PPA 源的阴影深深笼罩……</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-kde.html">KDE</a><time class="tag" datetime="2020-05-05">2020-05-05</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-05-05-在备用机上装了一把-kubuntu.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-03-23-跟风上岛：动物之森.html"
+                       title="跟风上岛：动物之森">
+                        跟风上岛：动物之森
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-8">
+            </div>
+            <script type="application/x-template" id="post-source-8"><p><img alt="54422-q4m1awxqqb.png" src="../assets/2020/09/2486649719.png">最近这卡带真是炒疯了，价格猛涨，最后闲鱼上花 365 收了一张。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-dong-wu-zhi-sen.html">动物之森</a>              <a class="tag"  rel="tag" href="./tag-nintendo-switch.html">Nintendo Switch</a><time class="tag" datetime="2020-03-23">2020-03-23</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-03-23-跟风上岛：动物之森.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-03-15-短发少女.html"
+                       title="短发少女">
+                        短发少女
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-9">
+            </div>
+            <script type="application/x-template" id="post-source-9"><p><img alt="96969-pdble7bh5sn.png" src="../assets/2020/09/2001255357.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-ta.html">她</a><time class="tag" datetime="2020-03-15">2020-03-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-03-15-短发少女.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-02-19-回到北京上班了，希望老天爷能留我一条狗命.html"
+                       title="回到北京上班了，希望老天爷能留我一条狗命">
+                        回到北京上班了，希望老天爷能留我一条狗命
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-10">
+            </div>
+            <script type="application/x-template" id="post-source-10"><p><img alt="55636-fz968jv80yi.png" src="../assets/2020/09/287717616.png">
+三十一岁的小郭，在新冠肆虐的日子里，继续为生活所奔波。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-zi-pai.html">自拍</a><time class="tag" datetime="2020-02-19">2020-02-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-02-19-回到北京上班了，希望老天爷能留我一条狗命.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-02-13-近乎完美：博阅-mars-电纸书阅读器.html"
+                       title="近乎完美：博阅_Mars_电纸书阅读器">
+                        近乎完美：博阅_Mars_电纸书阅读器
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-11">
+            </div>
+            <script type="application/x-template" id="post-source-11"><p><img alt="99844-j78k1u0bgd.png" src="../assets/2020/10/3567826887.png"></p>
+<!--more-->
+<p>感觉还是需要一个电子书阅读器，一番挑拣，最后选了博阅的这款机器，因为它使用无锁安卓，可以自由安装应用，并且有冷暖光，且冷暖光的亮度都可以单独调节，我最喜欢把冷光调最低，暖光调最高，这样看着十分柔和，眼睛舒服。
+博阅这款支持内存卡，存点漫画看比较方便，但还是感觉这个屏有点小，看漫画字有点费劲，机器刷新率一般，难免还是有拖影。博阅的系统优化得不错，无线传输很方便。
+<img alt="60015-9pyoaoekrf.png" src="../assets/2020/10/3258166863.png">当然，最喜欢的还是闲时自动关机的功能，大部分买电子书阅读器，吃灰的时间巨多，常常是打开看一会放下，自动待机就把电耗光了，下次想用的时候，打开还得再充电，博阅这个一会不实用，就会自动关机。下次打开还有电，十分舒适。
+但是，这机器最大的问题是：非 TypeC 充电口，差评。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-bo-yue-mars.html">博阅 Mars</a>              <a class="tag"  rel="tag" href="./tag-mo-shui-ping.html">墨水屏</a>              <a class="tag"  rel="tag" href="./tag-dian-zi-shu.html">电子书</a>              <a class="tag"  rel="tag" href="./tag-yue-du-qi.html">阅读器</a><time class="tag" datetime="2020-02-13">2020-02-13</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-02-13-近乎完美：博阅-mars-电纸书阅读器.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-01-19-收到了返修-surface-go，谈一下微软的售后体验.html"
+                       title="收到了返修_Surface_GO，谈一下微软的售后体验">
+                        收到了返修_Surface_GO，谈一下微软的售后体验
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-12">
+            </div>
+            <script type="application/x-template" id="post-source-12"><p><img alt="21284-8ya69zqpavj.png" src="../assets/2019/09/65571479.png"></p>
+<!--more-->
+<p><img alt="93015-s93mo65g7y.png" src="../assets/2019/09/2413976882.png">
+<img alt="85149-tgr62bzvkc.png" src="../assets/2019/09/4189757282.png">Surface GO 的 TypeC 接口忽然失灵了，不能充电，也不能转接，就跟死了一样，尝试过网上能搜到的所有方法，均不能奏效。初步怀疑是我使用了劣质的 TypeC 扩展坞所导致。无奈只能返修，返修的话是直接在微软官网提交订单，之后联邦快递会上门来取件，只拿走有问题的机器，键盘和电源就不用给他们。
+<img alt="29552-hylnf9me86c.png" src="../assets/2019/09/3586143406.png">维修速度还挺快，我一月六号提交订单，一月十九号就寄回来了。
+返修带的这个包装还挺有意思的，是用一层薄膜把机器保护，不像其它快递总是缠得一层又一层。
+但是！没修好！这次机器的 TypeC 接口能使用 USB 了，但依然不能充电，无论使用充电宝还是直接电源，均无效。
+这样的话，出门就必须带着原装的磁吸接口充电器了。
+再次给微软售后打电话，售后建议我……就这样凑合用吧。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a>              <a class="tag"  rel="tag" href="./tag-fan-xiu.html">返修</a><time class="tag" datetime="2020-01-19">2020-01-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-01-19-收到了返修-surface-go，谈一下微软的售后体验.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-01-06-下雪了.html"
+                       title="下雪了">
+                        下雪了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-13">
+            </div>
+            <script type="application/x-template" id="post-source-13"><p><img alt="18357-7tyn3f44aj.png" src="../assets/2020/10/1238095091.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-sheng-huo.html">生活</a><time class="tag" datetime="2020-01-06">2020-01-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-01-06-下雪了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-12-31-2019-年就要结束了.html"
+                       title="2019_年就要结束了">
+                        2019_年就要结束了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-14">
+            </div>
+            <script type="application/x-template" id="post-source-14"><p><img alt="07069-03l26uobs4k5.png" src="../assets/2020/09/604705413.png"></p>
+<!--more-->
+<p><img alt="58457-6pge7v814nd.png" src="../assets/2020/09/1570242822.png">
+<img alt="98202-9k161ozzjs8.png" src="../assets/2020/09/1952498964.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-lu-xing.html">旅行</a>              <a class="tag"  rel="tag" href="./tag-ta.html">她</a>              <a class="tag"  rel="tag" href="./tag-shen-zhen.html">深圳</a><time class="tag" datetime="2019-12-31">2019-12-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-12-31-2019-年就要结束了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-12-30-深圳民宿.html"
+                       title="深圳民宿">
+                        深圳民宿
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-15">
+            </div>
+            <script type="application/x-template" id="post-source-15"><p><img alt="87459-4wcszoqqatt.png" src="../assets/2020/10/320563083.png"></p>
+<!--more-->
+<p><img alt="98631-s71lnftfg1f.png" src="../assets/2020/10/725077106.png">
+<img alt="99665-ddsrytu4fgw.png" src="../assets/2020/10/1107586395.png">
+<img alt="04268-5pp5fod8ci7.png" src="../assets/2020/10/3834549169.png">我媳妇还是挺会挑地方的。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-lu-xing.html">旅行</a>              <a class="tag"  rel="tag" href="./tag-shen-zhen.html">深圳</a><time class="tag" datetime="2019-12-30">2019-12-30</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-12-30-深圳民宿.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-12-26-对我意义最深刻的电脑：thinkpad-x220.html"
+                       title="对我意义最深刻的电脑：ThinkPad_X220">
+                        对我意义最深刻的电脑：ThinkPad_X220
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-16">
+            </div>
+            <script type="application/x-template" id="post-source-16"><p>![001.jpg][1]</p>
+<!--more-->
+<p><img alt="002.jpg" src="../assets/2020/11/1406407825.jpg">
+<img alt="003.jpg" src="../assets/2020/11/2075384595.jpg">
+<img alt="006.jpg" src="../assets/2020/11/3793854466.jpg">感谢你陪我走南闯北，写完第一二本书的日子。
+也是靠你，才赚来了那本书的版权费。
+笔芯。  [1]: ../assets/2020/11/484900044.jpg</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-thinkpad-x220.html">Thinkpad X220</a><time class="tag" datetime="2019-12-26">2019-12-26</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-12-26-对我意义最深刻的电脑：thinkpad-x220.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-12-04-it宅男的通勤差旅终极背包：欧格22l-37l两用背包.html"
+                       title="IT宅男的通勤差旅终极背包：欧格22L-37L两用背包">
+                        IT宅男的通勤差旅终极背包：欧格22L-37L两用背包
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-17">
+            </div>
+            <script type="application/x-template" id="post-source-17"><p><img alt="21531-nnnhxvngacd.png" src="../assets/2020/10/3666098728.png"></p>
+<!--more-->
+<p>之前的包烂了，想着换个新包，加上最近出差比较多，所以希望最好能容量大点，但也别太丑，挑了欧格的这款包，最大的特点是能扩容，平时扣起来是22L的通勤包，但关键时刻可以扩展开12厘米，成为一个37L的大包，相当于20寸拉杆箱的体积。还是蛮实用的，应付一下7天以内的短期差旅应该没问题。
+<img alt="26517-uwpgchhcmi8.png" src="../assets/2020/10/2691711360.png">
+<img alt="79727-4oi3j5ftvz.png" src="../assets/2020/10/1137567152.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-dian-nao-bao.html">电脑包</a><time class="tag" datetime="2019-12-04">2019-12-04</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-12-04-it宅男的通勤差旅终极背包：欧格22l-37l两用背包.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-12-01-组装了一台戴尔-venue-8-5855-4g+64g.html"
+                       title="组装了一台戴尔_Venue_8_5855_4G+64G">
+                        组装了一台戴尔_Venue_8_5855_4G+64G
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-18">
+            </div>
+            <script type="application/x-template" id="post-source-18"><p><img alt="43644-1g3glu8dmxr.png" src="../assets/2019/09/3562444274.png">
+出于对迷你本的喜欢，又刚好看到闲鱼有人在出这个板子，价格不贵，加上屏幕也才600块钱左右，自己配个壳子就能用，便入了一台。</p>
+<!--more-->
+<p>屏幕分辨率很渣，但好在屏幕小，1280*800的分辨率也够用，摄像头没有需求就没装。但CPU更渣，阿童木Z8550，也就只能上上网了，哔站看1080P都卡。单机重量控制的不错，380克，跟手机差不多重。
+<img alt="58115-s29jsl2gv2.png" src="../assets/2019/09/1252459604.png">
+<img alt="62919-n5bp7gqjhb.png" src="../assets/2019/09/2856303067.png">
+本来打算放家里当上网本用，后来才意识到这货只有一个TypeC接口，接键盘、显示器、鼠标、电源，又得需要一个给力的扩展坞，又是一笔不小的花费。残念。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-dai-er-5855.html">戴尔5855</a><time class="tag" datetime="2019-12-01">2019-12-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-12-01-组装了一台戴尔-venue-8-5855-4g+64g.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-10-31-腾讯口袋阅：只能给及格分的墨水屏阅读器.html"
+                       title="腾讯口袋阅：只能给及格分的墨水屏阅读器">
+                        腾讯口袋阅：只能给及格分的墨水屏阅读器
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-19">
+            </div>
+            <script type="application/x-template" id="post-source-19"><p><img alt="62133-zj5j6yoarx.png" src="../assets/2019/09/3717152331.png"></p>
+<!--more-->
+<p>买这个是想随时能掏出来看稿子，但又不想用手机那么费眼。墨水屏是个好东西，但它舒不舒服，我认为，主要靠背光，如果没有背光，那么你想看清楚墨水屏（或全反射屏）上的内容，就需要更使劲地挤眼睛，那样反而会加重视疲劳。在日间室外可能还好，但如果在家里，或亮度较低的区域，那么背光就显得十分有必要。背光分为白光和暖光，白光就是灯直接打进来，惨白惨白的，很刺眼。暖光就相对揉合，类似手机的夜间模式那种。所以，最好的墨水屏阅读器应该是：TypeC接口，然后白光加暖光的组合，可以自己根据使用场景，调节各光源的亮度，达到最舒适的护眼效果。口袋阅则不满足以上的标准，它使用 MicroUSB 接口，且只有一种白光，十分刺眼。
+很失望。PS：但好一点的是，它自带的书城里能搜到我出版的两本书。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-teng-xun-kou-dai-yue.html">腾讯口袋阅</a><time class="tag" datetime="2019-10-31">2019-10-31</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-10-31-腾讯口袋阅：只能给及格分的墨水屏阅读器.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <a id="first_page" href="./index.html">&#60;&#60;</a>
+                <a id="prev_page" href="./
+                        index5.html">&#60;</a>
+                        <a href="./index2.html">2</a>
+                        <a href="./index3.html">3</a>
+                        <a href="./index4.html">4</a>
+                        <a href="./index5.html">5</a>
+                        <span class="a active">6</span>
+                        <a href="./index7.html">7</a>
+                        <a href="./index8.html">8</a>
+                        <a href="./index9.html">9</a>
+                        <a href="./index10.html">10</a>
+                <a id="next_page" href="./index7.html">&#62;</a>
+                <a id="last_page" href="./index21.html">&#62;&#62;</a>
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block customcss %}
+{% endblock %}
+{% block title %}Search - {{ SITENAME }}{% endblock %}
+{% block content %}
+
+{#站内搜索#}
+<script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script src="{{ SITEURL }}/tipuesearch_content.js"></script>
+<script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.js"></script>
+<div class="container">
+    <h2 class="search_title">「<span></span>」の検索結果</h2>
+{#    <form>#}
+{#        <div class="tipue_search_group">#}
+{#            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search" title="At least 2 characters">#}
+{#                <button type="submit" class="tipue_search_button">#}
+{#                    <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">#}
+{#                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>#}
+{#                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>#}
+{#                    </svg>#}
+{#            </button>#}
+{#            <datalist id="search">#}
+{#              <option>sbxlm</option>#}
+{#              <option>linux</option>#}
+{#              <option>manjaro</option>#}
+{#            </datalist>#}
+{#        </div>#}
+{#    </form>#}
+    <div id="tipue_search_content"></div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tipue_search_input').tipuesearch(
+            {
+                'mode': 'json',
+                'showURL': true,        // 是否将URL显示在每个搜索结果中，默认值：true
+                'newWindow': false,       // 点击搜索结果时是否在新的浏览器选项卡中打开页面，默认值：false
+                'footerPages': 10,       // 页脚中显示的最大页面选择数，默认值：3
+                'minimumLength': 2,      // 搜索关键字中最小的字符长度，默认值：3
+                'wholeWords': false,     // 是否不使用英语以外的其他语言，默认值：true
+                'showTitleCount': true  // 是否将搜索结果的数量显示在浏览器选项卡的标题中，默认值：true
+            }
+        );
+        $("#tipue_search_input").focus();
+        // 搜索关键词提示
+        // 获取URL中的参数
+        var urlParams = new URLSearchParams(window.location.search);
+        var searchQuery = urlParams.get('q');
+
+        // 将搜索值写入<span></span>标签中
+        $('.search_title span').text(searchQuery);
+    });
+</script>
+
+{% endblock %}
+
+{% block customjs %}
+
+{% endblock %}

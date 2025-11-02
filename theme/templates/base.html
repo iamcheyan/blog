@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="{{ article.lang if article and article.lang else DEFAULT_LANG }}">
+
+<head>
+    {% block headers %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/theme.css" />
+    {#随机文章#}
+    <script src="{{ SITEURL }}/theme/js/random_articles.js"></script>
+    {#
+    <link id="theme" rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/dark.css" />#}
+    {#
+    <link rel="shortcut icon" type="image/png" href="{{ SITEURL }}/img/favicon.png" />#}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="{{ SITENAME }} — Flux Atom"
+        href="{{ SITEURL }}/{{ FEED_ATOM }}" />
+    {% if FEED_RSS %}
+    <link rel="alternate" type="application/rss+xml" title="{{ SITENAME }} — Flux RSS"
+        href="{{ SITEURL }}/{{ FEED_RSS }}" />
+    {% endif %}
+    {% endblock headers %}
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <{%- if article %}article class="post" {% else %}section {% endif -%}id="page-main" role="main">
+                {% block content %}
+                {% endblock content %}
+            </{%- if article %}article{% else %}section{% endif -%}> <!-- /#page-main -->
+
+            <aside id="page-side">
+                {%- include "includes/sidebar.html" -%}
+            </aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                {# 文章总数：390 /#}
+                <a href="{{ SITEURL }}/archives.html">すべての記事</a>&nbsp; /
+                <a href="{{ SITEURL }}/sitemap.xml" target="_blank">サイトマップ</a>
+                {# / <a href="{{ SITEURL }}/tags.html">全部标签</a>#}
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    {% endif %}
+    {#代码高亮#}
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/highlightjs.css" />
+    <script src="{{ SITEURL }}/theme/js/highlight.min.js"></script>
+    {#深色模式#}
+    <script src="{{ SITEURL }}/theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    {#输入效果#}
+    <script src="{{ SITEURL }}/theme/js/commentTyping.js"></script>
+</body>
+
+</html>

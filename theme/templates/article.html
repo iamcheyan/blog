@@ -1,0 +1,52 @@
+
+
+{%- if article.lang %}{% set DEFAULT_LANG = article.lang %}{% endif -%}
+{% extends "base.html" %}
+
+{% block headers %}
+    {{ super() }}
+    <meta name="author" content="{{ article.author or DEFAULT_AUTHOR }}"/>
+    <meta name="keywords" content="{{ article.tags|join(', ') }}"/>
+    {#    <link rel="stylesheet" media="not print" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css" /> #}
+{% endblock %}
+
+{% block title %}{{ article.title }} — {{ super() }}{% endblock %}
+
+{%- block content %}
+    <header class="post-header">
+        <h1>
+            <a rel="bookmark"
+               href="{{ SITEURL }}/{{ article.url }}"
+               title="{{ article.title|striptags }}">
+                {{ article.title }}
+            </a>
+        </h1>
+    </header>
+    <div class="post-content">
+        {#        <button class="hljs-copy-button" data-copied="false">Copy</button>#}
+        {{ article.content }}
+    </div>
+    <div class="meta">
+        {% include "includes/article_meta.html" %}
+    </div>
+    <ul class="neighbors">
+        {% if article.prev_article %}
+            <li>
+                前の記事：
+                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">
+                    {{ article.prev_article.title }}
+                </a>
+            </li>
+        {% endif %}
+        {% if article.next_article %}
+            <li>
+                次の記事：
+                <a href="{{ SITEURL }}/{{ article.next_article.url }}">
+                    {{ article.next_article.title }}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+
+
+{% endblock content -%}

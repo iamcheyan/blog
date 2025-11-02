@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com - 未境 - </title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2014-12-04-从头到尾都跟谁先把热气球放到太空一毛钱关系都没有.html"
+                       title="从头到尾都跟谁先把热气球放到太空一毛钱关系都没有">
+                        从头到尾都跟谁先把热气球放到太空一毛钱关系都没有
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p>我16岁还是17岁的时候，跟一堆小伙伴们莫名其妙的做了一本电子杂志，本来只是做着玩的，但后来搞着搞着大家竟然都把这个当成了一个事业，热情特别高涨搞的期期不落，现在想来真是挺不可思议。在做到第十期的时候，忽然在网上认识了一个湖南的出版商，姓 X ，说可以把我们的电子杂志刊印成实体书发行，我们做内容和排版设计，他公司做发行和市场，如果赚钱了可以分给我们。</p>
+<!--more-->
+<p>这对还在上初高中的我们来说简直是一个莫大的喜讯，我们甚至说只要东西能够出版，支付给参与者的稿酬就行，利润这边一毛不要，姓 X 的湖南出版商很痛快的答应了，说勇敢的少年们你们快去准备吧弄好了发给我这边去安排印刷和发行了别忘了我们的目标是星辰大海。当时， <a href="http://weibo.com/u/2967228080?topnav=1wvr=6topsug=1">@烟纵</a> 就提醒过我，说湖南这种做私人出版的小公司特别多，出一些没有版权，没有刊号，盗版内容，打一枪换一个地方，让我们留个心眼，至少签个合同，板上钉钉了再做，但当时我们觉得一帮学生似乎没有什么地位去跟出版商讨价还价，又急于求成，不在乎条条框框，只想着先把书做完了再说。于是我们很快就凑集来了许多稿子，<a href="http://weibo.com/u/1695828473?topnav=1wvr=6topsug=1">@熏</a> 和 <a href="http://weibo.com/u/1895772191?topnav=1wvr=6topsug=1">@小辛</a> 还专门为这个拍了很多照片，也设计了漂亮的封面（好吧至少在当时的审美看起来）和内页的装帧，所有的东西都和梦想一起打包进了 zip 格式的压缩包发给了姓 X 的湖南出版商，然后静静的等待它开花结果长成参天大树（多么没文化的又恶心人的小学生比喻句）。之后，等了很久，都没有那位姓 X 的湖南出版商的回应，论坛里每天都有小伙伴问我说事情怎样了，说好的杂志什么时候可以面市，我说可能需要再等等，再等等……等等等，等等等，等赶早班的公交等末班车的地铁等回老家的火车等喜欢的人的微信晚安等客户说好的回款和等姓 X 的湖南出版商的 QQ 头像亮起……等待绝逼是人生中最痛苦煎熬却又让人无可奈何的事情之一。这件事之后就无疾而终了，谁也不知道姓 X 的湖南出版商拿了那些该死的稿子之后做了什么——当然如果按照我现在的态度来看如果我收到这些稿子之后我会拍桌子骂道这他妈都是什么鸡 X 东西简直就是浪费老子时间——反正他没有骂我这是什么鸡 X 东西，也没有怪我浪费他老子的时间，更没有让那个打包进了梦想的 zip 格式的压缩包长成那个没文化的又恶心人的小学生比喻句。如同一个寂寞难耐的旷妇日复一日却得不到回应的哀嚎……这绝逼也是人生中最痛苦煎熬却又让人无可奈何的事情之一。后来小伙伴们也没有责怪过我，无非风萧萧兮易水寒竹篮打水一场空而已，反正在所有人看来……&gt; 年轻人空有的热情和劳动力都是一文不值且不值得去回应的对吧？以前的我可以完整体会 <a href="http://weibo.com/n/NIKOEDWARDS?from=feedloc=at">@NIKO EDWARDS</a> 收到优酷邮件后高兴的告诉每一个团队的小伙伴和亲朋好友跟他们分享自己即将到来的成就和喜悦的普大喜奔，再到一落千丈的失望以及觉得食言无能对不起大家的深深自责，而现在的我也可以完整体会优酷的王姓工作人员抱着呵呵耍猴不值一提的心态跟 NIKO 打交道的整个工作状态（其实老实讲王姓工作人员在邮件中的回复还比较客气，这样的人在日常工作中应该不会是一个让人讨厌的家伙），但我不能想象如果后来是我在市面上看到了某个用了我们的稿子却署着另外一个团队的名字的时候我会是一种怎样出离愤怒的状态。所以，这件事从头到尾都跟他妈的到底是谁先把热气球放到太空根本一毛钱关系都没有，这根本就是一群大公司在对一个没有话语权的年轻人耍流氓。<em>PS：延伸阅读：<a href="http://www.zhihu.com/question/26847096">《如何看待 NIKO EDWARDS...》</a>__第二个 PS：后来我们把那些稿子的摄影部分卖给了四川少年儿童出版社的一本叫《博客族》的杂志，并把卖到的 2000 块钱分给了作者，也算是让这事有了个交代。</em></p>
+<p>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&nbsp;</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a>              <a class="tag"  rel="tag" href="./tag-nikoedwards.html">NIKOEDWARDS</a><time class="tag" datetime="2014-12-04">2014-12-04</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2014-12-04-从头到尾都跟谁先把热气球放到太空一毛钱关系都没有.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-02-21-感觉自己成了快递小哥.html"
+                       title="感觉自己成了快递小哥">
+                        感觉自己成了快递小哥
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="06576-nyonobnhtsa.png" src="../assets/2019/09/1018238362.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-02-21">2013-02-21</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-02-21-感觉自己成了快递小哥.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-02-01-树同学又给《未境》第十九期拍了些照片.html"
+                       title="树同学又给《未境》第十九期拍了些照片">
+                        树同学又给《未境》第十九期拍了些照片
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p><img alt="93757-tcr5r5matre.png" src="../assets/2019/09/3301801597.png"></p>
+<!--more-->
+<p><img alt="25674-ho72yjjt6d.png" src="../assets/2019/09/2549115728.png">
+<img alt="77109-w3fjeq8kuhn.png" src="../assets/2019/09/4225025922.png">
+<img alt="20137-gru3xq8zh1t.png" src="../assets/2019/09/2971720631.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-02-01">2013-02-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-02-01-树同学又给《未境》第十九期拍了些照片.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-01-24-树同学给《未境》第十九期拍了些照片.html"
+                       title="树同学给《未境》第十九期拍了些照片">
+                        树同学给《未境》第十九期拍了些照片
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="68773-4owbhigz6uu.png" src="../assets/2019/09/1322188500.png">
+<img alt="08108-ux8v78kn2u8.png" src="../assets/2019/09/729127399.png"></p>
+<!--more-->
+<p><img alt="72657-5oz19ncj8a.png" src="../assets/2019/09/2264056795.png">
+<img alt="13016-hot8k6ntw9v.png" src="../assets/2019/09/1905363203.png">青春真好啊。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-01-24">2013-01-24</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-01-24-树同学给《未境》第十九期拍了些照片.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-01-21-羊皮纸.html"
+                       title="羊皮纸">
+                        羊皮纸
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p><img alt="91319-u7hltjnmu5n.png" src="../assets/2020/09/1726101170.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-01-21">2013-01-21</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-01-21-羊皮纸.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-01-19-独立杂志《未境》第十九期.html"
+                       title="独立杂志《未境》第十九期">
+                        独立杂志《未境》第十九期
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p>这本书献给6年间陪我们一路走来的每个人，献给那些在我们彼此的17岁留下宝贵青春记忆的伙伴们，献给那些见过的和没有见过面的网友们，献给我们的父母和爱人，献给那些或许已经来不及实现的只能留在记忆里的梦想，献给那些或许又充满无限可能的未来时光。希望这一切都有意义，希望可以感动到你们。
+<img alt="77121-tae97jwoias.png" src="../assets/2019/09/3114344037.png">
+<img alt="94432-5xfvij3kj0f.png" src="../assets/2019/09/2678543863.png"></p>
+<!--more-->
+<p><img alt="55849-qn3avyw6afe.png" src="../assets/2019/09/1597472526.png">
+<img alt="35122-qt4du21xx1.png" src="../assets/2019/09/1778721668.png">
+<img alt="54927-6n0fdn749ao.png" src="../assets/2019/09/1150987529.png">
+<img alt="89065-5zk7u2g5od5.png" src="../assets/2019/09/116347718.png">
+<img alt="56711-570ybw00kk2.png" src="../assets/2019/09/1016961955.png">
+<img alt="88540-3mcx0tejap6.png" src="../assets/2019/09/2544994775.png">
+<img alt="61126-wmjc2y5mi3r.png" src="../assets/2019/09/1924520990.png">
+<img alt="67075-zyxogrty6q.png" src="../assets/2019/09/1779522312.png">
+<img alt="87307-bkathb3zb6f.png" src="../assets/2019/09/2276711172.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-01-19">2013-01-19</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-01-19-独立杂志《未境》第十九期.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-01-09-收到《未境》第十九期的样书了.html"
+                       title="收到《未境》第十九期的样书了">
+                        收到《未境》第十九期的样书了
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p><img alt="19287-pjg66m5dogr.png" src="../assets/2019/09/3771335104.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-01-09">2013-01-09</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-01-09-收到《未境》第十九期的样书了.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2013-01-09-斗鸡眼.html"
+                       title="斗鸡眼">
+                        斗鸡眼
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-7">
+            </div>
+            <script type="application/x-template" id="post-source-7"><p><img alt="33874-e9u1drfiwcr.png" src="../assets/2020/09/2403162096.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2013-01-09">2013-01-09</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2013-01-09-斗鸡眼.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2012-08-01-今天我23岁，我幻想未来的形状.html"
+                       title="今天我23岁，我幻想未来的形状">
+                        今天我23岁，我幻想未来的形状
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-8">
+            </div>
+            <script type="application/x-template" id="post-source-8"><p>少不经事的年代总会把一切都想的很美好，嗯，没怎么长脑子的年纪都是很好骗的。
+<img alt="06223-57np9riu3kn.png" src="../assets/2019/09/3707049419.png"></p>
+<!--more-->
+<p>在上学时候无数次的幻想过未来的形状，各种张扬各种梦幻各种逍遥自在，其实后来才明白，那张扬梦幻逍遥自在的场景都是电视剧里的剧情。现在每天三点一线的生活，好容易熬出一个假期也是闷在家里懒得出门，似乎渐渐的对一切都没了激情。
+在物欲横流的年代里脑子里空荡荡的装满了房子车子票子
+好像北爱里石小猛那句台词：上大学时候的豪情壮志已经被时间慢慢地消磨了，现在的梦想越发显得具体，如今具体到只剩下一个38平米的房子。我也不想就这样放弃，但是有时候静下来想想，想想以前的自己，文章写的屎逼一样，烂的一塌糊涂，自己本就不是什么权威，还天天审别人的稿，想想就搞笑。
+如果我现在看见当时的我一定会笑话这傻逼孩子这么装逼将来一定没屁眼。现在还经常能看到很多人，明明什么都不是，做了一本电子杂志，放网上有了一丁点下载量，就搞的自己跟明星办签售会一样，事儿事儿的。
+未来是怎样的？
+我不知道。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2012-08-01">2012-08-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2012-08-01-今天我23岁，我幻想未来的形状.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2012-03-24-沐安殿关闭，杂志暂停.html"
+                       title="沐安殿关闭，杂志暂停">
+                        沐安殿关闭，杂志暂停
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-9">
+            </div>
+            <script type="application/x-template" id="post-source-9"><p>过去很长时间了，从17到22，好多好多年，今天我终于变成了一个每天只知疲于奔命忙碌生计的人。
+呆坐了很久，想了很多，越来越无法理解当时的那些热情和执着缘何而来。
+这是一种自己不愿承认和面对的失败。未来路还长，希望有天能够重新拾回梦想。
+谢谢每一个还记得到这里访问的人。By.澈言 / 20120324
+<img alt="84941-73p8p571brs.png" src="../assets/2020/10/2751599286.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-qian-duan-kai-fa.html">前端开发</a>              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a>              <a class="tag"  rel="tag" href="./tag-mu-an-dian.html">沐安殿</a>              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2012-03-24">2012-03-24</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2012-03-24-沐安殿关闭，杂志暂停.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2011-08-20-气象.html"
+                       title="气象">
+                        气象
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-10">
+            </div>
+            <script type="application/x-template" id="post-source-10"><p><img alt="37884-04r0zx2esizq.png" src="../assets/2020/10/3855741782.png"></p>
+<!--more-->
+<p><img alt="89432-uco1wkj475.png" src="../assets/2020/10/1480186092.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2011-08-20">2011-08-20</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2011-08-20-气象.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2011-04-01-veikin-未境-网站设计.html"
+                       title="VEIKIN_未境_网站设计">
+                        VEIKIN_未境_网站设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-11">
+            </div>
+            <script type="application/x-template" id="post-source-11"><p><img alt="80581-ug5id7f6y1m.png" src="../assets/2020/09/3959115218.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a>              <a class="tag"  rel="tag" href="./tag-kai-fa.html">开发</a>              <a class="tag"  rel="tag" href="./tag-she-ji.html">设计</a><time class="tag" datetime="2011-04-01">2011-04-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2011-04-01-veikin-未境-网站设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2011-01-15-城堡日志castleno16，-匿焰.html"
+                       title="城堡日志CastleNo16，_匿焰">
+                        城堡日志CastleNo16，_匿焰
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-12">
+            </div>
+            <script type="application/x-template" id="post-source-12"><p><img alt="16期 (2).jpg" src="../assets/2020/10/2431892779.jpg"></p>
+<!--more-->
+<p><img alt="16期 (1).jpg" src="../assets/2020/10/3814827450.jpg">
+<img alt="16期 (3).jpg" src="../assets/2020/10/3081539983.jpg">
+<img alt="16期 (4).jpg" src="../assets/2020/10/2613387504.jpg">
+<img alt="16期 (5).jpg" src="../assets/2020/10/47625640.jpg">
+<img alt="16期 (6).jpg" src="../assets/2020/10/1699706586.jpg">
+<img alt="16期 (7).jpg" src="../assets/2020/10/1827915849.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2011-01-15">2011-01-15</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2011-01-15-城堡日志castleno16，-匿焰.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2010-02-06-未境论坛-“沐安殿”-网站设计.html"
+                       title="未境论坛_“沐安殿”_网站设计">
+                        未境论坛_“沐安殿”_网站设计
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-13">
+            </div>
+            <script type="application/x-template" id="post-source-13"><p><img alt="53326-env1uiwiwb5.png" src="../assets/2020/09/113291736.png">
+<img alt="58154-yz5qo3lxcbl.png" src="../assets/2020/09/1597639085.png"></p>
+<!--more-->
+<p><img alt="73725-48q90mvdo23.png" src="../assets/2020/09/2547269781.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a>              <a class="tag"  rel="tag" href="./tag-she-ji.html">设计</a>              <a class="tag"  rel="tag" href="./tag-mu-an-dian.html">沐安殿</a>              <a class="tag"  rel="tag" href="./tag-wang-ye-she-ji.html">网页设计</a><time class="tag" datetime="2010-02-06">2010-02-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2010-02-06-未境论坛-“沐安殿”-网站设计.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-11-06-匿焰.html"
+                       title="匿焰">
+                        匿焰
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-14">
+            </div>
+            <script type="application/x-template" id="post-source-14"><p><img alt="16匿焰.jpg" src="../assets/2020/10/4251863578.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-11-06">2009-11-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-11-06-匿焰.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-08-12-城堡日志castleno15，渲染.html"
+                       title="城堡日志CastleNo15，渲染">
+                        城堡日志CastleNo15，渲染
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-15">
+            </div>
+            <script type="application/x-template" id="post-source-15"><p><img alt="15期 (1).jpg" src="../assets/2020/10/890892373.jpg">
+<img alt="15期 (2).jpg" src="../assets/2020/10/1898325530.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-08-12">2009-08-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-08-12-城堡日志castleno15，渲染.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-08-11-渲染.html"
+                       title="渲染">
+                        渲染
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-16">
+            </div>
+            <script type="application/x-template" id="post-source-16"><p><img alt="34805-jfk1a3ferq.png" src="../assets/2020/10/1536186349.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-08-11">2009-08-11</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-08-11-渲染.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-08-10-预告：渲染.html"
+                       title="预告：渲染">
+                        预告：渲染
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-17">
+            </div>
+            <script type="application/x-template" id="post-source-17"><p>![15渲染.jpg][1]  [1]: ../assets/2020/10/509505847.jpg</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-08-10">2009-08-10</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-08-10-预告：渲染.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-04-25-花殇.html"
+                       title="花殇">
+                        花殇
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-18">
+            </div>
+            <script type="application/x-template" id="post-source-18"><p><img alt="14期广告.JPG" src="../assets/2020/10/3631329279.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-04-25">2009-04-25</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-04-25-花殇.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2009-01-20-城堡日志castleno13，梦航.html"
+                       title="城堡日志CastleNo13，梦航">
+                        城堡日志CastleNo13，梦航
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-19">
+            </div>
+            <script type="application/x-template" id="post-source-19"><p><img alt="13期 (8).jpg" src="../assets/2020/10/369099974.jpg"></p>
+<!--more-->
+<p><img alt="13期 (1).jpg" src="../assets/2020/10/3054115075.jpg">
+<img alt="13期 (2).jpg" src="../assets/2020/10/2766620621.jpg">
+<img alt="13期 (3).jpg" src="../assets/2020/10/3180910248.jpg">
+<img alt="13期 (4).jpg" src="../assets/2020/10/970463088.jpg">
+<img alt="13期 (5).jpg" src="../assets/2020/10/3108987226.jpg">
+<img alt="13期 (6).jpg" src="../assets/2020/10/1419078856.jpg">
+<img alt="13期 (7).jpg" src="../assets/2020/10/886602769.jpg">
+<img alt="13期 (9).jpg" src="../assets/2020/10/4007963232.jpg">
+<img alt="13期 (10).jpg" src="../assets/2020/10/1048064732.jpg">
+<img alt="13期 (11).jpg" src="../assets/2020/10/1978817391.jpg">
+<img alt="13期 (12).jpg" src="../assets/2020/10/3082750358.jpg">
+<img alt="13期 (13).jpg" src="../assets/2020/10/3007855628.jpg">
+<img alt="13期 (14).jpg" src="../assets/2020/10/1092331102.jpg">
+<img alt="13期 (15).jpg" src="../assets/2020/10/115777631.jpg">
+<img alt="13期 (16).jpg" src="../assets/2020/10/764943212.jpg">
+<img alt="13期 (17).jpg" src="../assets/2020/10/1204456403.jpg">
+<img alt="13期 (18).jpg" src="../assets/2020/10/1803271816.jpg">
+<img alt="13期 (19).jpg" src="../assets/2020/10/3567553321.jpg">
+<img alt="13期 (20).jpg" src="../assets/2020/10/2932401017.jpg"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-wei-jing.html">未境</a><time class="tag" datetime="2009-01-20">2009-01-20</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2009-01-20-城堡日志castleno13，梦航.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+                     <span id="first_page" class="a inactive">&#60;</span> -->
+                        <span class="a active">1</span>
+                        <a href="./tag-wei-jing2.html">2</a>
+                <a id="next_page" href="./tag-wei-jing2.html">&#62;</a>
+                <a id="last_page" href="./tag-wei-jing2.html">&#62;&#62;</a>
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

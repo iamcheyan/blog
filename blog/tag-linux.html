@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>iamcheyan.com - Linux - </title>
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="./theme/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./theme/js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./theme/che.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <script src="./theme/js/random_articles.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico" />
+    <!--[if lte IE 8]>
+        <link rel="shortcut icon" type="image/x-icon" href="./theme/favicon.ico"/>
+        <![endif]-->
+    <link rel="alternate" type="application/atom+xml" title="iamcheyan.com — Flux Atom"
+        href="./" />
+</head>
+
+<body>
+    <div id="page">
+        <header id="page-head">
+            <div id="topbar">
+                <a href="?lang=ja" class="on">日本語</a>
+                <a href="?lang=zh-cn">中文</a>
+            </div>
+            <nav class="navbar" role="navigation">
+                <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
+                <ul class="a">
+                    <li class="i">
+                        <a href="app/pelican/blog/">ブログ</a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://github.com/iamcheyan/" target="_blank" aria-label="GitHub">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 76C273.6 76 76 273.6 76 512c0 192.8 125.2 356.4 298.8 414.2 21.8 4 29.8-9.4 29.8-20.8 0-10.2-0.4-44-0.6-79.8-121.6 26.4-147.4-51.6-147.4-51.6-19.8-50.2-48.4-63.6-48.4-63.6-39.6-27 3-26.4 3-26.4 43.8 3.2 66.8 45 66.8 45 38.8 66.6 101.8 47.4 126.6 36.2 3.8-28 15.2-47.4 27.6-58.4-97-11-199-48.4-199-215.6 0-47.6 17-86.6 44.8-117.2-4.6-11-19.4-55.2 4.2-115 0 0 36.6-11.8 120 44.8 34.8-9.6 72-14.4 109.2-14.6 37.2 0.2 74.4 5 109.2 14.6 83.2-56.6 119.8-44.8 119.8-44.8 23.6 59.8 8.8 104 4.2 115 27.8 30.6 44.8 69.6 44.8 117.2 0 167.6-102.2 204.4-199.6 215.2 15.6 13.4 29.4 39.8 29.4 80.2 0 57.8-0.6 104.4-0.6 118.6 0 11.6 7.8 25.2 30 20.8C822.8 868.2 948 704.8 948 512 948 273.6 750.4 76 512 76z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="i">
+                        <a class="icon"
+                            href="https://x.com/iamcheyan/" target="_blank" aria-label="Twitter">
+                            <svg width="32" height="32" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1024 194.6c-37.7 16.7-78.2 28-120.7 33.1 43.4-26 76.7-67.2 92.4-116.3-40.6 24.1-85.6 41.6-133.6 51-38.3-40.8-92.9-66.3-153.3-66.3-116 0-210 94-210 210 0 16.5 1.9 32.6 5.5 48-174.5-8.8-329.1-92.4-432.5-219.5-18.1 31-28.5 67-28.5 105.5 0 72.8 37.1 137.1 93.6 174.7-34.4-1.1-66.8-10.5-95.2-26.2v2.6c0 101.8 72.4 186.7 168.5 206-17.6 4.8-36.1 7.4-55.2 7.4-13.5 0-26.6-1.3-39.4-3.7 26.7 83.3 104.1 143.9 195.8 145.5-71.8 56.3-162.3 89.9-260.6 89.9-16.9 0-33.6-1-50-2.9 92.9 59.6 203.3 94.4 322 94.4 386.4 0 597.9-320.2 597.9-597.9 0-9.1-0.2-18.2-0.6-27.2 41-29.6 76.6-66.5 104.7-108.6z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="page-body">
+            <section id="page-main" role="main">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var templates = document.querySelectorAll('script[type="application/x-template"][id^="post-source-"]');
+        for (var i = 0; i < templates.length; i++) {
+            var tpl = templates[i];
+            var idx = tpl.id.replace('post-source-', '');
+            var target = document.getElementById('post-content-' + idx);
+            if (!target) continue;
+            var html = tpl.textContent || tpl.innerHTML || '';
+            var m = html.match(/<img\b[\s\S]*?>/i);
+            if (m && m[0]) {
+                target.innerHTML = m[0];
+            } else {
+                // 若无图片，回退为原始文本的前 140 字符
+                var text = html.replace(/<[^>]*>/g, '').trim();
+                target.textContent = text.slice(0, 140);
+            }
+        }
+    });
+    </script>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./linux-win11-vpn.html"
+                       title="Linux のホストマシンで仮想マシンの Windows の VPN 接続を使用する">
+                        Linux のホストマシンで仮想マシンの Windows の VPN 接続を使用する
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-0">
+            </div>
+            <script type="application/x-template" id="post-source-0"><p><img alt="Screenshot from 2024-09-26 20-49-18" src="../../assets/Screenshot from 2024-09-26 20-49-18.png"></p>
+<p>日本で中国のクライアントのサービスにアクセスするために、いろいろと比較した結果、最終的には<a href="https://x.com/iamcheyan/status/1822491047555142105">梯子を買いました</a>。</p>
+<p>しかし、このVPNはWindowsのクライアントしか提供されておらず、Linuxで使うのはかなり手間がかかります。</p>
+<p>この記事<a href="https://blog.zenggyu.com/posts/zh/2022-05-04-%E5%9C%A8%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84vpn%E8%BF%9E%E6%8E%A5/#fn2">「ホストマシンで仮想マシンのVPN接続を使う方法」</a> に従って設定しました。</p>
+<p>方法としては、まず仮想マシンに二つのネットワークカードを設定します。一つはNAT、もう一つはHost-Onlyです。Host-OnlyはVirtualBoxのネットワークマネージャーで事前に設定しておきます。</p>
+<p>その後、ホストオンリーネットワークにVPN接続を共有し、仮想マシンのVPNをvboxnet0のイーサネット 2（192.168.56.2）インターフェースを通してホストマシンに共有します。</p>
+<p>利便性を高めるために、次のスクリプトを書き、一連のアドレスを定義しました。実行前に仮想マシンをpingし、仮想マシンが起動していない場合はルーティングをクリアします。</p>
+<p>もし仮想マシンが起動していれば、ルートを定義または更新します。</p>
+<p>このように、仮想マシンがバックグラウンドで起動しているだけで、ホストマシンはシームレスにVPN経由で中国にアクセスできます。</p>
+<p>注意：Windows 11仮想マシンでIPフォワーディングを有効にする必要があります</p>
+<p>Windows 11が仮想マシンであるため、IPフォワーディングを有効にして、トラフィックが仮想マシンのVPNを通してホストマシンに転送されるようにする必要があります。</p>
+<p>Win + Rを押し、regeditと入力してレジストリエディタを開きます。
+以下のパスに移動します：</p>
+<div class="highlight"><pre><span></span><code>HKEY_LOCAL_MACHINE<span class="se">\S</span>YSTEM<span class="se">\C</span>urrentControlSet<span class="se">\S</span>ervices<span class="se">\T</span>cpip<span class="se">\P</span>arameters
+</code></pre></div>
+
+<p><code>IPEnableRouter</code> キーを見つけます（存在しない場合は手動で作成）、その値を 1 に設定します。</p>
+<p>変更を有効にするために、Windows 11 仮想マシンを再起動します。</p>
+<p>Debian ホスト上で、以下のコマンドを実行し、すべての対象ネットワークが仮想マシンの 192.168.56.2 を経由してルーティングされるようにします：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">39</span>.99.177.215<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.56.2<span class="w"> </span>dev<span class="w"> </span>vboxnet0<span class="w">   </span><span class="c1"># 添加路由</span>
+</code></pre></div>
+
+<p>このように表示されれば、ルートが正常に追加されたことを示します。</p>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>route<span class="w"> </span>get<span class="w"> </span><span class="m">39</span>.99.177.215<span class="w"> </span>
+<span class="m">39</span>.99.177.215<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.56.2<span class="w"> </span>dev<span class="w"> </span>vboxnet0<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.56.1<span class="w"> </span>uid<span class="w"> </span><span class="m">1000</span><span class="w"> </span>
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-vpn.html">VPN</a>              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-windows.html">Windows</a><time class="tag" datetime="2024-09-10">2024-09-10</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./linux-win11-vpn.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./popos-tabby.html"
+                       title="Pop!_OS 22.04 LTS 部署 Tabby">
+                        Pop!_OS 22.04 LTS 部署 Tabby
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-1">
+            </div>
+            <script type="application/x-template" id="post-source-1"><p><img alt="Pop!_OS 22.04 LTS 部署 Tabby " src="../../assets/popOS%E4%B8%8B%E9%83%A8%E7%BD%B2Tabby.gif"></p>
+<p>Tabby 是一个自托管的 AI 编码助手，为 GitHub Copilot 提供开源和本地替代方案。 
+简单来说，就是一个可以部署在本地的 Copilot 服务。<br>
+我的笔记本是英特尔QC7，它自带一块 NVIDIA GeForce GTX 1660 Ti 显卡，刚好可以用来进行本地运算。 </p>
+<h2>安装依赖</h2>
+<p>如果你也安装是集成 NVIDIA 的 popOS，那么默认便安装好了显卡驱动。<br>
+之后只需要安装 CUDA 即可，这一部分 system76 的官网有 <a href="https://support.system76.com/articles/cuda/#not-running-pop_os">非常详细的教程</a>，这也是我喜欢这个发行版的原因，system76 这个公司是很认真地在做这个系统，并且要靠它赚钱。  </p>
+<h2>拉取镜像</h2>
+<p>前面依赖安装完成后，便可以拉取 Tabby 的 Docker 镜像了。<br>
+使用 <a href="https://tabby.tabbyml.com/docs/installation/docker">Docker 启动 Tabby 有两种模式</a>，一种使用 CPU，一种使用 GPU。 
+我这里选择 GPU :</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+</code></pre></div>
+
+<p>然后我得到了以下报错：</p>
+<div class="highlight"><pre><span></span><code><span class="m">2023</span>-11-25T17:15:43.168198Z<span class="w">  </span>INFO<span class="w"> </span>tabby::serve:<span class="w"> </span>crates/tabby/src/serve/mod.rs:146:<span class="w"> </span>Starting<span class="w"> </span>server,<span class="w"> </span>this<span class="w"> </span>might<span class="w"> </span>takes<span class="w"> </span>a<span class="w"> </span>few<span class="w"> </span>minutes...
+CUDA<span class="w"> </span>error<span class="w"> </span><span class="m">100</span><span class="w"> </span>at<span class="w"> </span>/root/workspace/crates/llama-cpp-bindings/llama.cpp/ggml-cuda.cu:478:<span class="w"> </span>no<span class="w"> </span>CUDA-capable<span class="w"> </span>device<span class="w"> </span>is<span class="w"> </span>detected
+current<span class="w"> </span>device:<span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+
+<p>这一步我搞了好久，百思不得其解。 <br>
+最后在 gpt 的帮助下，我加上了<code>--privileged</code>参数，它可以赋予容器访问宿主机上所有设备的特权。<br>
+通过这个参数可以让容器具有更高的权限，实现对 GPU 设备的访问。 <br>
+所以启动命令如下：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+</code></pre></div>
+
+<p>得到如下反馈：
+<img alt="Toddy" src="../../assets/popos_taddy.png"></p>
+<p>这时打开 <a href="http://localhost:8080/">http://localhost:8080/</a> 就可以看到 Tabby 的后台了。</p>
+<h2>集成 VS CODE</h2>
+<p>在 vs code 的扩展里搜 Tabby，安装后右下角会显示 Tabby 的图标。<br>
+每次写代码时，只用写注释即可，Tabby 会自动补全代码，并给出预览，如果觉得代码可用，按下<code>tab</code>键即可上屏。</p>
+<h3>开机启动</h3>
+<p>创建一个新的systemd服务单元文件。</p>
+<p>使用以下命令创建一个名为<code>tabbyml.service</code>的文件：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/tabbyml.service
+</code></pre></div>
+
+<p>在打开的文件中，输入以下内容：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>TabbyML<span class="w"> </span>Docker<span class="w"> </span>Service
+<span class="nv">Requires</span><span class="o">=</span>docker.service
+<span class="nv">After</span><span class="o">=</span>docker.service
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Restart</span><span class="o">=</span>always
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.tabby:/data<span class="w"> </span>tabbyml/tabby<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>TabbyML/StarCoder-1B<span class="w"> </span>--device<span class="w"> </span>cuda
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div>
+
+<p>使用以下命令重新加载systemd服务配置：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>tabbyml.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>tabbyml.service
+</code></pre></div>
+
+<h3>Tabby 配置参数</h3>
+<div class="highlight"><pre><span></span><code><span class="err">##</span><span class="w"> </span><span class="n">Tabby代理配置文件</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">在线文档</span><span class="err">：</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">tabby</span><span class="p">.</span><span class="n">tabbyml</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">configuration</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以取消注释并编辑下面的值</span><span class="err">，</span><span class="n">以更改默认设置</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">此文件中的配置优先级低于IDE设置</span><span class="err">。</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">服务器</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以在此处设置服务器端点和可选的身份验证令牌</span><span class="err">（</span><span class="n">如果需要</span><span class="err">）。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">server</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;http://localhost:8080&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">http或https</span><span class="w"> </span><span class="n">URL</span>
+<span class="err">#</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;your-token-here&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">如果设置了令牌</span><span class="err">，</span><span class="n">请求头Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Bearer $token&quot;</span><span class="n">将自动添加</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">您可以添加自定义请求头</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">server.requestHeaders</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">Header1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Value1&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">在此处列出您的自定义标头</span>
+<span class="err">#</span><span class="w"> </span><span class="n">Header2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Value2&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">值可以是字符串</span><span class="err">、</span><span class="n">数字或布尔值</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">自动完成</span>
+<span class="err">##</span><span class="w"> </span><span class="err">（</span><span class="n">自</span><span class="w"> </span><span class="mf">1.1.0</span><span class="w"> </span><span class="n">版起</span><span class="err">）</span><span class="n">您可以在此处设置自动完成请求的超时时间</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">请注意</span><span class="err">，</span><span class="n">服务器端也有一个超时配置</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">completion</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4000</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="mi">4</span><span class="n">秒</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">日志</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您可以在此处设置日志级别</span><span class="err">。</span><span class="n">日志文件位于</span><span class="o">~/</span><span class="p">.</span><span class="n">tabby</span><span class="o">-</span><span class="n">client</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">目录下</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">logs</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;silent&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="ss">&quot;silent&quot;</span><span class="err">、</span><span class="ss">&quot;error&quot;</span><span class="n">或</span><span class="ss">&quot;debug&quot;</span>
+
+<span class="err">##</span><span class="w"> </span><span class="n">匿名使用追踪</span>
+<span class="err">##</span><span class="w"> </span><span class="n">Tabby会收集匿名使用数据并发送给Tabby团队</span><span class="err">，</span><span class="n">以帮助改进我们的产品</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">您的代码</span><span class="err">、</span><span class="n">生成的自动完成或任何敏感信息永远不会被跟踪或发送</span><span class="err">。</span>
+<span class="err">##</span><span class="w"> </span><span class="n">有关数据收集的详细信息</span><span class="err">，</span><span class="nl">请参阅https</span><span class="p">:</span><span class="o">//</span><span class="n">tabby</span><span class="p">.</span><span class="n">tabbyml</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">configuration#usage</span><span class="o">-</span><span class="n">collection</span>
+<span class="err">##</span><span class="w"> </span><span class="n">感谢您的贡献</span><span class="err">。</span><span class="n">但是</span><span class="err">，</span><span class="n">如果您不希望参与</span><span class="err">，</span><span class="n">请在此处禁用匿名使用追踪</span><span class="err">。</span>
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">anonymousUsageTracking</span><span class="o">]</span>
+<span class="err">#</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">设置为true以禁用</span>
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-popos.html">popOS!</a>              <a class="tag"  rel="tag" href="./tag-tabby.html">Tabby</a>              <a class="tag"  rel="tag" href="./tag-gpt.html">GPT</a>              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a><time class="tag" datetime="2023-11-26">2023-11-26</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./popos-tabby.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./使用-dotsync-汇总和同步配置文件.html"
+                       title="使用 Dotsync 汇总和同步配置文件">
+                        使用 Dotsync 汇总和同步配置文件
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-2">
+            </div>
+            <script type="application/x-template" id="post-source-2"><p>Linux 下的软件和系统的配置文件常常散落在各处。<br>
+比如 zsh 的配置文件存放在<code>~/.zshrc</code>，但 ssh 的配置却存放在<code>.ssh/config</code>，如何管理和同步它们是个很麻烦的事情。<br>
+最近在 Github 上找到了 <a href="https://github.com/dotsync/dotsync">dotsync</a>，它是一个跨平台的配置文件管理工具。 <br>
+它可以汇总本地的配置文件，使它们统一在某个目录下（通常是<code>~/.dotfiles</code>目录），然后使用软连接的方法指向原位置，这样当需要修改或者同步这些文件时，只需要在<code>~/.dotfiles</code>下修改即可。 </p>
+<p><img alt="Dotsync" src="../../assets/dotsync.png"></p>
+<h2>准备</h2>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.dotfiles<span class="w">    </span><span class="c1"># 创建配置存储目录</span>
+<span class="nb">cd</span><span class="w"> </span>~/.dotfiles<span class="w">  </span><span class="c1"># 切换到该目录</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dotphiles/dotsync.git<span class="w">  </span><span class="c1"># 拉取程序</span>
+</code></pre></div>
+
+<p><code>~/.dotfiles</code>目录存放了dotsync的主程序，以及配置文件，比如 vim 配置，git 配置等等。<br>
+将需要同步的文件都放在这里，需要注意的是，如果你的文件是在主目录下的隐藏文件，就要去掉文件名中的<code>.</code>，例如 .zshrc 文件需要更名为 zschrc。   </p>
+<h2>配置</h2>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.dotfiles/dotsyncrc<span class="w">   </span><span class="c1"># 配置 dotsync</span>
+</code></pre></div>
+
+<p>打开 dotsync 的配置文件，以下是一个示例，它支持单个文件同步和子目录级别的同步，但写法是不一样的，注意，hostname 写自己主机的名字。  </p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>files<span class="o">]</span>
+<span class="c1"># 在主目录下进行同步</span>
+dotsyncrc
+zshrc
+
+<span class="c1"># 在子目录级别进行同步</span>
+ssh/config:.ssh/config
+oh-my-zsh/editorconfig:.oh-my-zsh/.editorconfig
+<span class="o">[</span>endfiles<span class="o">]</span>
+
+<span class="c1"># hostname </span>
+<span class="o">[</span>hosts<span class="o">]</span>
+pop-os<span class="w"> </span><span class="nv">git</span><span class="o">=</span>ANY
+<span class="o">[</span>endhosts<span class="o">]</span>
+</code></pre></div>
+
+<h2>运行</h2>
+<p>使用以下命令生成配置文件的软连接：</p>
+<div class="highlight"><pre><span></span><code>~/.dotfiles/dotsync/bin/dotsync<span class="w"> </span>-L<span class="w"> </span>
+</code></pre></div>
+
+<p>运行后可以看到<code>~/.dotfiles/dotsyncrc</code>被软连接到了<code>~/.dotsyncrc</code>。 
+以后修改的话，只要到<code>~/.dotfiles/</code>中进行编辑即可。</p>
+<h3>以下是 dotsync 的命令解释：</h3>
+<div class="highlight"><pre><span></span><code>-I：初始化一台机器，配置其使用 dotsync。
+-L：将 dotfiles 符号链接到 $HOME 目录中。
+-u：更新到最新的 dotfiles 版本，不包括子模块。
+-U：更新到最新的 dotfiles 版本，包括子模块。
+-P：将本地更改推送回仓库（仅适用于 git）。
+-H host：在配置文件中指定的主机上执行操作，可以是“ALL”。
+-a：对所有已知机器更新 dotfiles。
+-A：对所有已知机器更新 dotfiles 和子模块。
+-r：使用 rsync 代替 git 进行同步。
+-f conf：使用指定的 dotsync 配置文件进行操作，默认为 &#39;~/.dotsyncrc&#39; 或 &#39;$DOTSYNCRC&#39;。
+-d dotfiles：指定 dotfiles 目录的路径，默认为 &#39;~/.dotfiles&#39;。
+-l：列出已配置的主机和 dotfiles。
+-c：在所有已知机器上运行任意 shell 命令。
+-g：类似于 -c，但仅在使用 git 的机器上运行。
+-v：显示详细信息。
+-h：显示帮助信息。
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-dotsync.html">Dotsync</a>              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a><time class="tag" datetime="2023-11-26">2023-11-26</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./使用-dotsync-汇总和同步配置文件.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2021-04-30-hp-chromebook-13-g1-安装-ubuntu-记录.html"
+                       title="Hp_chromebook_13_g1_安装_ubuntu_记录">
+                        Hp_chromebook_13_g1_安装_ubuntu_记录
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-3">
+            </div>
+            <script type="application/x-template" id="post-source-3"><p><img alt="2021-04-30 16-39-20屏幕截图.png" src="../assets/2021/04/3523822164.png"></p>
+<!--more-->
+<p>这个机器的亮点是3k屏+双typeC+低廉的价格（闲鱼价格在600-800之间），性价比超高。本来打算买回来在 ChromeOS 下通过 Linux 容器来满足日常使用（主要是Rime输入法），谁知到手后却发现这款机器不支持 Linux 容器，只好破解 BIOS ，完全安装 Ubuntu了。
+先启用开发者模式，然后安装第三方BIOS，入口在
+https://mrchromebox.tech/#fwscript系统版本选择 Ubuntu 18 LTS，因为只有这个版本可以打声音补丁声音补丁在这里下载，https://github.com/windirt/chromebook_sound安装完后记得禁用系统更新，一旦更新，则声音失效</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-chromebook.html">ChromeBook</a>              <a class="tag"  rel="tag" href="./tag-hp-chromebook-13-g1.html">Hp chromebook 13 g1</a><time class="tag" datetime="2021-04-30">2021-04-30</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2021-04-30-hp-chromebook-13-g1-安装-ubuntu-记录.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2021-04-13-surface-go-+-ubuntu-20-lts.html"
+                       title="Surface_Go_+_Ubuntu_20_LTS">
+                        Surface_Go_+_Ubuntu_20_LTS
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-4">
+            </div>
+            <script type="application/x-template" id="post-source-4"><p>Surface Go 低配版硬盘太小，装个 Win10 比较占空间，换了 Ubuntu，感觉好用多了，触摸屏和多点手势都可以使用，轻办公没有问题。
+驱动在这里<a href="https://github.com/linux-surface/linux-surface">下载</a>。
+<img alt="2021-04-13 23-29-03 的屏幕截图.png" src="../assets/2021/04/558298380.png"><!--more-->
+<img alt="2021-04-13 23-27-01 的屏幕截图.png" src="../assets/2021/04/1348347033.png"><img alt="2021-04-13 23-28-43 的屏幕截图.png" src="../assets/2021/04/2564606636.png"><img alt="2021-04-13 23-28-04 的屏幕截图.png" src="../assets/2021/04/378991767.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-surface-go.html">Surface Go</a><time class="tag" datetime="2021-04-13">2021-04-13</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2021-04-13-surface-go-+-ubuntu-20-lts.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2021-03-25-ubuntu20.04-开启休眠功能.html"
+                       title="ubuntu20.04_开启休眠功能">
+                        ubuntu20.04_开启休眠功能
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-5">
+            </div>
+            <script type="application/x-template" id="post-source-5"><p><img alt="2021-03-25 22-04-03 的屏幕截图.png" src="../assets/2021/03/3641478287.png"></p>
+<!--more-->
+<p>ubuntu 默认不开启休眠，如果不确定是否开了，可以先执行命令测试一下：    </p>
+<div class="highlight"><pre><span></span><code>sudo systemctl hibernate
+</code></pre></div>
+
+<p>命令运行后关机了，但重新开机后发现休眠没有起作用，还是关机，则确定未开启休眠。
+那就可以试着开启下了，先检查swap类型及大小要实现休眠，要求swap空间要大于等于系统内存。
+查看内存及swap大小：    </p>
+<div class="highlight"><pre><span></span><code>free -m
+</code></pre></div>
+
+<p>如果swap小于内存，需要先调整swap空间大小。</p>
+<p>查看swap类型：    </p>
+<div class="highlight"><pre><span></span><code>swapon -s
+</code></pre></div>
+
+<p>查找swap的UUID：    </p>
+<div class="highlight"><pre><span></span><code>grep swap /etc/fstab
+</code></pre></div>
+
+<p>修改grub配置    </p>
+<div class="highlight"><pre><span></span><code>sudo vi /etc/default/grub
+</code></pre></div>
+
+<p>找到 GRUB_LINE_LINUX_DEFAULT="quiet splash" 行，在 quiet splash 后添加： resume=UUID=××××</p>
+<p>这里可以添加分区名也可以添加UUID。</p>
+<p>最后结果为：    </p>
+<div class="highlight"><pre><span></span><code>GRUB_LINE_LINUX_DEFAULT=&quot;quiet splash resume=UUID=××××××&quot;
+</code></pre></div>
+
+<p>执行命令生效修改：    </p>
+<div class="highlight"><pre><span></span><code>sudo update-grub
+</code></pre></div>
+
+<p>执行休眠命令    </p>
+<div class="highlight"><pre><span></span><code>sudo systemctl hibernate
+</code></pre></div>
+
+<p>开机后发现休眠成功。</p>
+<p>注意事项：swap一定要大于等于内存容量，如果太少，要调整swap空间，用UUID指定swap位置。</p>
+<p><img alt="截屏-20210325220710-2064x1738.png" src="../assets/2021/03/1173053434.png">
+参考 https://blog.csdn.net/miaoyuyouran/article/details/107776184</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-hibernate.html">hibernate</a><time class="tag" datetime="2021-03-25">2021-03-25</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2021-03-25-ubuntu20.04-开启休眠功能.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-10-11-重建-manjaro-系统-efi-引导分区的方法.html"
+                       title="重建_Manjaro_系统_EFI_引导分区的方法">
+                        重建_Manjaro_系统_EFI_引导分区的方法
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-6">
+            </div>
+            <script type="application/x-template" id="post-source-6"><p>Modified: 2020-10-11</p>
+<p>Category:技术相关
+手贱搞坏了硬盘分区表，导致EFI分区消失，Windows 重建EFI分区的方法满大街都是，随便找个PE就可以，但 Manjaro 稍微费点功夫，特此记录。
+<img alt="09268-vg9t7eeary.png" src="../assets/2020/10/1941827945.png"></p>
+<!--more-->
+<p>以下需要 Root 权限，sudo -i 或命令前加 sudo。
+注意，Manjaro Live 系统的管理员密码是 <em>manjaro</em>（全小写）。先用 Manjaro 安装优盘进入 LIVE 环境，然后查看要引导系统的分区和efi分区的编号    sudo fdisk -l找到你的系统所在分区，和 EFI 分区挂载引导系统的分区    sudo mount /dev/sda2 /mnt挂载 EFI 分区到系统分区的 /boot/ef i目录    sudo mount /dev/sda1 /mnt/boot/efichroot到硬盘系统分区    manjaro-chroot /mnt安装grub    grub-install --target=x86_64-efi /dev/sda1  #target 默认是x86_64-efi
+    grub-grub-mkconfig -o /boot/grub/grub.cfg
+    update-grub</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-manjaro.html">Manjaro</a><time class="tag" datetime="2020-10-11">2020-10-11</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-10-11-重建-manjaro-系统-efi-引导分区的方法.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-09-22-双系统开机显示-grub-rescue（grub引导损坏）的解决办法.html"
+                       title="双系统开机显示_Grub_Rescue（Grub引导损坏）的解决办法">
+                        双系统开机显示_Grub_Rescue（Grub引导损坏）的解决办法
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-7">
+            </div>
+            <script type="application/x-template" id="post-source-7"><p><img alt="01308-f5mtpa14xb.png" src="../assets/2020/09/388844877.png"></p>
+<!--more-->
+<p>Windows 和 Linux 双系统的话，一般会由 Linux 的 Grub 来引导，但 Windows 更新偶尔会使 Grub 引导损坏，例如 Win10 的 2004 版本会创建一个新的恢复分区，导致 Grub 记录的分区数后移，开机显示 Grub Rescue，无法正确索引，黑屏画面如下：
+<img alt="42422-uxlkczvf5r9.png" src="../assets/2020/09/3351018259.png">所以，我们只需要把 Grub 的设置，指定到正确的那个 Linux 分区下就可以了。
+方法如下：    ls
+使用 ls 把全部的系统磁盘列出来，然后挨个查看，看那个磁盘下有 boot/grub 文件
+你像我图上，ls 之后，显示     (hd0) (hd0,gpt6) (hd0,gpt5) (hd0,gpt4) (hd0,gpt3) (hd0,gpt2) (hd0,gpt1)
+<img alt="27985-7bbbsf9cjx8.png" src="../assets/2020/09/1223473390.png">我先盲猜一下 (hd0,gpt6) 这个盘，于是：    ls (hd0,gpt6) 
+<img alt="68082-bglof1xk6dn.png" src="../assets/2020/09/1866323987.png">它显示 Filesystem is unknowm，即是说：这个盘并不是一个 Linux 分区，那就不是它了，那我们继续往下找，直到它显示    Filesystem is ext2
+<img alt="97854-q8tr09fqtd.png" src="../assets/2020/09/279705237.png">说明这个盘是 Linux 分区，我的是在 (hd0,gpt5) 然后，再看看它里面有没有启动文件：    ls (hd0,gpt6)/boot/
+<img alt="69987-30n51u2b4b3.png" src="../assets/2020/09/219976781.png">
+它返回了正确的文件列表，说明就是这个盘，那之后，我们把 Grub 的参数设置为这个盘，就可以启动了。先 set 一下，输出当前的设置看看：    set #输出当前设置
+<img alt="34417-lhurl3iob2s.png" src="../assets/2020/09/1127076868.png">可以看到，Grub 现在记录的是(hd0,gpt1)这个盘，所以，我们应该把它改为正确的(hd0,gpt5)    set root=(hd0,gpt5)
+    set prefix=(hd0,gpt5)/boot/grub/
+    insmod normal
+    normal
+<img alt="42521-luvcqrurdfs.png" src="../assets/2020/09/723589629.png">当敲完最后一个 normal 后，就会显示 Grub 的引导画面了，如下：
+<img alt="25650-ra2il1b57i.png" src="../assets/2020/09/922960801.png">选择 Manjaro Linux，即可正常进入系统，但进入系统后，别急，还得重新装一下 Grub，不然下次重启，你还得再操作一次上面的流程。进入系统后，打开终端，先更新下引导：    sudo update-grub看一下你的硬盘号：    sudo fdisk -l我这里是 /dev/nvme0n1，于是：    sudo grub-install /dev/nvme0n1再重启，Grub 引导就恢复正常了。
+<img alt="2020-09-21 23-00-15屏幕截图.png" src="../assets/2020/09/796716740.png"></p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-shuang-xi-tong.html">双系统</a><time class="tag" datetime="2020-09-22">2020-09-22</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-09-22-双系统开机显示-grub-rescue（grub引导损坏）的解决办法.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-08-16-在linux下，让-firefox-火狐支持-kde-的全局菜单.html"
+                       title="在Linux下，让_Firefox_火狐支持_KDE_的全局菜单">
+                        在Linux下，让_Firefox_火狐支持_KDE_的全局菜单
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-8">
+            </div>
+            <script type="application/x-template" id="post-source-8"><p><img alt="屏幕截图.jpg" src="../assets/2019/09/3187732861.jpg">
+Firefox 火狐浏览是支持 KDE 的全局菜单的，如果你的火狐缺失全局菜单，可能是少装了 <em>libdbusmenu-gtk3</em> 和 <em>libdbusmenu-gtk2</em> 这两个包。如果还不行的话，安装 <em>firefox-kde-opensuse</em>，一定可以。
+不明白的话，可以看 <a href="https://www.bilibili.com/video/BV11K411T7hj">这个视频</a>。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-quan-ju-cai-dan.html">全局菜单</a>              <a class="tag"  rel="tag" href="./tag-kde.html">KDE</a>              <a class="tag"  rel="tag" href="./tag-huo-hu.html">火狐</a><time class="tag" datetime="2020-08-16">2020-08-16</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-08-16-在linux下，让-firefox-火狐支持-kde-的全局菜单.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-08-03-完全教程：在-linux-下安装支持-gpu-加速的-photoshop.html"
+                       title="完全教程：在_Linux_下安装支持_GPU_加速的_PhotoShop_">
+                        完全教程：在_Linux_下安装支持_GPU_加速的_PhotoShop_
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-9">
+            </div>
+            <script type="application/x-template" id="post-source-9"><p><img alt="2020-09-13-20-38-58屏幕截图.jpg" src="../assets/2019/09/761189217.jpg">
+[视频教程]<a href="https://www.bilibili.com/video/BV1gD4y1U7Ax">2</a></p>
+<!--more-->
+<p>0、下载我搬运好的依赖文件
+1、安装wine
+2、把下载的依赖文件复制到~/.cache/winetricks
+3、打开终端，输入命令：    winetricks atmlib gdiplus msxml3 msxml6 vcrun2005 vcrun2005sp1 vcrun2008 ie6 fontsmooth-rgb gecko4、正常安装PhotoShop即可，后续的设置<a href="https://www.bilibili.com/video/BV1gD4y1U7Ax">请看视频</a>。相关软件下载：
+https://www.jianguoyun.com/p/DY4JLYUQu7TTCBjcp7QD
+（百度网盘不让传，只好传坚果云里了）。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-wine.html">Wine</a>              <a class="tag"  rel="tag" href="./tag-shi-pin-jiao-cheng.html">视频教程</a>              <a class="tag"  rel="tag" href="./tag-manjaro.html">Manjaro</a>              <a class="tag"  rel="tag" href="./tag-photoshop.html">Photoshop</a><time class="tag" datetime="2020-08-03">2020-08-03</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-08-03-完全教程：在-linux-下安装支持-gpu-加速的-photoshop.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-14-将不同硬件配置的-linux-系统，克隆到另一台电脑上.html"
+                       title="如何将不同硬件配置的 Linux 系统，克隆到另一台电脑上？">
+                        如何将不同硬件配置的 Linux 系统，克隆到另一台电脑上？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-10">
+            </div>
+            <script type="application/x-template" id="post-source-10"><p>视频教程
+<img alt="53150-40qmis4o9x6.png" src="../assets/2019/09/1921339824.png">重装Linux系统是一件极其消耗生命的事情，尤其是像我这种经常换电脑的人，每次重装、格盘、换源、更新、装软件……
+一套流程走下来，一两天就过去了。
+所以，做一个简单的教程，能直接帮我把已经安装好的系统，直接“迁移”到另一台电脑上。<a href="https://www.bilibili.com/video/BV1Bf4y117YW">视频教程</a></p>
+<!--more--></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-wine.html">Wine</a>              <a class="tag"  rel="tag" href="./tag-xi-tong-ke-long.html">系统克隆</a><time class="tag" datetime="2020-07-14">2020-07-14</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-14-将不同硬件配置的-linux-系统，克隆到另一台电脑上.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-07-12-有哪些-windows-软件可以在-linux-下完美运行？.html"
+                       title="有哪些_Windows_软件可以在_Linux_下完美运行？">
+                        有哪些_Windows_软件可以在_Linux_下完美运行？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-11">
+            </div>
+            <script type="application/x-template" id="post-source-11"><p><img alt="2020-09-13_15-19.png" src="../assets/2019/09/1054459534.png">做了一个<a href="https://www.bilibili.com/video/BV1zA411e7jp">视频</a>，检验一下有哪些Windows软件可以在Linux下完美运行。</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-wine.html">Wine</a>              <a class="tag"  rel="tag" href="./tag-shi-pin.html">视频</a><time class="tag" datetime="2020-07-12">2020-07-12</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-07-12-有哪些-windows-软件可以在-linux-下完美运行？.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-06-06-一个不写代码的普通人，在linux下是怎么生活的？.html"
+                       title="一个不写代码的普通人，在Linux下是怎么生活的？">
+                        一个不写代码的普通人，在Linux下是怎么生活的？
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-12">
+            </div>
+            <script type="application/x-template" id="post-source-12"><p><img alt="Screenshot_20200528_144507.png" src="../assets/2019/09/3515081699.png">很多人问我为什么用Linux系统，软件那么少，不是瞎折腾么。
+于是就做了一个<a href="https://www.bilibili.com/video/BV1tt4y1y7re">视频</a>，展示一下我的日常。</p>
+<!--more--></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-shi-pin-ce-ping.html">视频测评</a><time class="tag" datetime="2020-06-06">2020-06-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-06-06-一个不写代码的普通人，在linux下是怎么生活的？.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-06-06-开始使用-kdenlive-在哔哩哔哩做些-linux-教程视频.html"
+                       title="开始使用_Kdenlive_在哔哩哔哩做些_Linux_教程视频">
+                        开始使用_Kdenlive_在哔哩哔哩做些_Linux_教程视频
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-13">
+            </div>
+            <script type="application/x-template" id="post-source-13"><p><img alt="Screenshot_20200605_235542.png" src="../assets/2020/09/Screenshot_20200605_235542.png"></p>
+<p>[可以关注我的B站链接][2]  </p>
+<div class="highlight"><pre><span></span><code>[2]: https://space.bilibili.com/249302794
+</code></pre></div></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-kdenlive.html">Kdenlive</a><time class="tag" datetime="2020-06-06">2020-06-06</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-06-06-开始使用-kdenlive-在哔哩哔哩做些-linux-教程视频.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2020-05-05-在备用机上装了一把-kubuntu.html"
+                       title="在备用机上装了一把_Kubuntu">
+                        在备用机上装了一把_Kubuntu
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-14">
+            </div>
+            <script type="application/x-template" id="post-source-14"><p><img alt="74453-l2ievt6vwr.png" src="../assets/2020/09/3648509250.png">第一感受就是莫名其妙的 BUG 一堆，有时候开机都会弹出错误提示，稳定性不如 Manjaro，至少后者我用再升龙克隆N次，迁移到N台机器上，都能稳定运行，从不出错。
+第二感觉是软件少，尤其是对用惯 Arch 系的玩家来讲，Ubuntu 的各种软件源能把人烦死，每次重装系统后，都会被添加 PPA 源的阴影深深笼罩……</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-kde.html">KDE</a><time class="tag" datetime="2020-05-05">2020-05-05</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2020-05-05-在备用机上装了一把-kubuntu.html">続きを読む</a>
+            </div>
+        </article>
+        <article class="post">
+            <header class="post-header">
+                <h1>
+                    <a rel="bookmark"
+                       href="./2019-03-01-通过-crouton-在-chromebook-上安装-ubuntu-子系统.html"
+                       title="通过_Crouton_在_ChromeBook_上安装_Ubuntu_子系统">
+                        通过_Crouton_在_ChromeBook_上安装_Ubuntu_子系统
+                    </a>
+                </h1>
+
+            </header>
+
+            <div class="post-content js-first-image" id="post-content-15">
+            </div>
+            <script type="application/x-template" id="post-source-15"><p><img alt="99218-o6pufc3nes.png" src="../assets/2019/09/3027295670.png">提示：全程需要科学上网先打开开发者模式，网上按你的机型搜下就有，本文演示的机型是联想500E。</p>
+<!--more-->
+<p>-
+1.下载：https://goo.gl/fd3zc，获得 Crouton
+在 ChromeBook 上进入 Downloads 目录，执行    sh ./crouton -x之后在 Downloads 目录下可以看到 crouton.unbundled2. 进入crouton.unbundle/targets/，用文本编辑工具打开audio文件，
+第47行：    ( wget -O "$archive" "$urlbase/$ADHD_HEAD.tar.gz" 2&gt;&amp;1 \ || echo "Error fetching CRAS" ) | tee "$log"改为：    ( wget -O "$archive" "http://t.cn/R46YOzM" 2&gt;&amp;1 \ || echo "Error fetching CRAS" ) | tee "$log"这一步很重要，因为原来那个地址失效了，所以需要改到国内搬运的地址。3.安装xfce，这一步会花很长时间，约一个小时左右，中间可能会因为网络问题而失败，失败后再次执行命令就行    sudo sh ~/Downloads/crouton -r trusty -t xfce -m http://mirrors.aliyun.com/ubuntu/注意，如果你的机器，使用的是 ARM 处理器，例如三星 ChromeBook Plus，则你需要使用这个命令：    sudo sh ~/Downloads/crouton -r trusty -t xfce -m http://mirrors.ustc.edu.cn/ubuntu-ports其中，xfce可以换成 unity 、kde、xfce、lxde等环境
+4.耐心等待crouton部署完成，有一步是需要你输入用户名密码，当你看到那一步，就代表安装要成功了5.安装插件（可选） - extension，配合chrome浏览器的crouton extension扩展，可以实现chromeos与chroot环境共享剪切板
+ - crouton extension扩展安装地址：https://goo.gl/OVQOEt，方便与chroot共享剪切板
+<img alt="46680-hu17ol3d876.png" src="../assets/2019/09/989934599.png">-
+<strong>常用命令</strong>
+启动Ubuntu子系统    sudo startxfce4如果你想卸载掉Ubuntu，则先退出Ubuntu，然后在 ChromeOS 的 Shell 里执行，注意，evilchroot为你安装的版本:    sudo delete-chroot evilchroot-
+<strong>中文化</strong>
+1、安装中文字体    apt-cache search wqy一般会找到三四款文泉驿字体，挑一个自己喜欢的安装
+比如 <code>sudo apt-get install fonts-wqy-microhei</code>
+2、安装中文包    sudo apt-get install language-pack-zh-hant language-pack-zh-hans
+3、配置环境变量
+执行sudo vim /etc/environment，在文件中增加语言和编码的设置：    LANG="zh_CN.UTF-8"
+    LANGUAGE="zh_CN:zh:en_US:en"4、安装fcitx    sudo apt-get install fcitx5、如果你喜欢搜狗输入法，也可以到官网下载 pinyin.sogou.com/linux/?r=pinyin
+注意区分32位和64位，方法是在terminal下输入getconf LONG_BIT看结果。返回32就是32bit，64就是64bi
+6、安装
+terminal下进入下载到的deb文件所在的目录，运行
+dpkg -i xxx.deb（xxx.deb替换为下载到的文件名）
+之后 sudo apt-get -f install 修复依赖
+7、配置
+fcitx框架默认没有被系统启用，需要手动设置一下
+vim ~/.xinitrc编辑.xinittrc文件，内容为    export LANG=zh_CN.UTF-8
+    export LANGUAGE=zh_CN:en_US
+    export LC_CTYPE=en_US.UTF-8
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS="@im=fcitx"
+同样地vim ~/.xprofile，也加入上面的内容
+之后sudo vim /etc/profile
+在末尾添加    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx注销后重新进入ubuntu，应该可以用ctrl+空格来切换到搜狗拼音了
+8、应用设置
+sudo dpkg-reconfigure locales
+-
+<strong>备份与恢复</strong>
+注意，这个备份的只是 Ubuntu 系统    sudo edit-chroot -b这个会自动打包放在Downloads文件夹，但是一定要把这个<strong><em>*</em></strong>.tar.gz拷贝到别处或者上传云盘，否则万一chrome OS崩溃，这个文件夹的东西就全没了。
+恢复：
+原作者给出的是这个：sudo sh ~/Downloads/crouton -f mybackup.tar.gz
+但是我把备份的<strong><em>*</em>.tar.gz放到Downloads文件夹里没有成功，总是显示gz文件找不到，后来改成了这样可以顺利安装了：    sudo sh -e ~/Downloads/crouton -f ~/Downloads/</strong><strong>*</strong>*.tar.gz上面的步骤执行玩不出错的话应该会提示输入用户名密码，如果出错的话因为用的是sh -e，所以会中断在错误的地方，bing一下看看是什么问题，对症解决在这之后，terminal下面输入sudo startxfce4，一般就能开启chroot ubuntu了按住ctrl+alt+shift加前进后退（类似F1、F2的位置），可以在chrome os和ubuntu下来回切换</p></script>
+            <div class="meta">
+<!-- includes/article_meta.html -->
+              <a class="tag"  rel="tag" href="./tag-linux.html">Linux</a>              <a class="tag"  rel="tag" href="./tag-lian-xiang-chromebook-100e.html">联想 ChromeBook 100E</a>              <a class="tag"  rel="tag" href="./tag-chromebook.html">ChromeBook</a>              <a class="tag"  rel="tag" href="./tag-shua-ji.html">刷机</a><time class="tag" datetime="2019-03-01">2019-03-01</time>            </div>
+            <div class="post-footer">
+                <a class="readmore" href="./2019-03-01-通过-crouton-在-chromebook-上安装-ubuntu-子系统.html">続きを読む</a>
+            </div>
+        </article>
+        <nav id="pagination">                <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+                     <span id="first_page" class="a inactive">&#60;</span> -->
+                        <span class="a active">1</span>
+                <!-- <span id="next_page" class="a inactive">&#62;</span>
+                     <span id="next_page" class="a inactive">&#62;&#62;</span> -->
+</nav>            </section> <!-- /#page-main -->
+
+            <aside id="page-side"><!-- begin includes/sidebar.html -->
+<nav>
+    <div class="site-search kit-hidden-tb">
+        <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
+                   title="At least 2 characters">
+            <button type="submit" class="tipue_search_button">
+                <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                          clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <datalist id="search">
+                <option>sbxlm</option>
+                <option>linux</option>
+                <option>manjaro</option>
+            </datalist>
+        </form>
+    </div>
+</nav>
+<nav>
+    <h3>ページ</h3>
+    <ul>
+        <li><a href="./index.html">ホーム</a></li>
+        <li><a href="./archives.html">アーカイブ</a></li>
+    </ul>
+</nav>
+<nav>
+
+
+<nav>
+    <h3>友達の家</h3>
+    <ul>
+                <li><a href="http://www.imhan.com">寒泥</a></li>
+                <li><a href="http://blog.dimpurr.com/">钉子の次元</a></li>
+                <li><a href="https://plumz.me/">Plumz</a></li>
+                <li><a href="https://lutaonan.com/">RandyBlog</a></li>
+                <li><a href="https://dingyu.me/blog">丁宇 | DING Yu</a></li>
+                <li><a href="https://mrzan.xyz">Mr.Zan</a></li>
+                <li><a href="https://litterhougelangley.life/blog">HOUGE MADNESS BLOG</a></li>
+                <li><a href="https://www.s31bz.com/">S31BZ</a></li>
+    </ul>
+</nav>
+<h3>ランダム記事</h3>
+<ul id="random-articles"></ul>
+</nav>
+
+
+
+<!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+        </div> <!-- /#page-body -->
+
+        <footer id="footer" role="contentinfo">
+            <span>
+                Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                &nbsp; /
+                <a href="./archives.html">すべての記事</a>&nbsp; /
+                <a href="./sitemap.xml" target="_blank">サイトマップ</a>
+            </span>
+            <span>
+                © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+            </span>
+        </footer>
+    </div> <!-- /#page -->
+    <link rel="stylesheet" type="text/css" href="./theme/css/highlightjs.css" />
+    <script src="./theme/js/highlight.min.js"></script>
+    <script src="./theme/js/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '32px',
+            right: '32px',
+            time: '0.5s',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        };
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <script src="./theme/js/commentTyping.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block headers %}
+{{ super() }}
+{% endblock headers %}
+
+{% block title %}{{ super() }} — tags{% endblock title %}
+
+{%- block content %}
+      <h1>全てのタグ</h1>
+      <ul id="tag-cloud">
+      {% for category, n in categories %}
+      <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ n|count }})</li>
+      {% endfor %}
+      {% for tag, articles in tags %}
+      <li data-count="{{ articles|count }}" title="{{ articles|count }} article(s)"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count}} )</li>
+      {% endfor %}
+    </ul>
+{% endblock content -%}
