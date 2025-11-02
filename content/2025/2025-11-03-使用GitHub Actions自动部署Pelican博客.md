@@ -4,7 +4,7 @@ slug: 2025-11-03-使用GitHub Actions自动部署Pelican博客到GitHub Pages
 datetime: 2025-11-03 00:00
 date: 2025-11-03 00:00
 summary: 记录如何将Pelican静态博客部署到GitHub Pages，并通过GitHub Actions实现自动化构建和部署流程。
-tags: GitHub Pages GitHub Actions Pelican 博客部署
+tags: GitHub Actions, Pelican
 cover_image_url: 
 ---
 
