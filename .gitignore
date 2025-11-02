@@ -41,7 +41,7 @@ env/
 vnew/
 
 # Pelican 生成的静态文件
-content/
+blog/
 output/
 *.pid
 *.processinfo
