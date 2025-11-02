@@ -15,9 +15,8 @@
             if (m && m[0]) {
                 target.innerHTML = m[0];
             } else {
-                // 若无图片，回退为原始文本的前 140 字符
-                var text = html.replace(/<[^>]*>/g, '').trim();
-                target.textContent = text.slice(0, 140);
+                // 若无图片，则不显示任何内容
+                target.innerHTML = '';
             }
         }
     });
