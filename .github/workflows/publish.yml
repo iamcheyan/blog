@@ -30,6 +30,10 @@ jobs:
         run: |
           pelican content -s publishconf.py
 
+      - name: Create CNAME file for custom domain
+        run: |
+          echo "iamcheyan.com" > blog/CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
