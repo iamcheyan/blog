@@ -69,3 +69,6 @@ logs/
 *.tmp
 *.temp
 *.cache
+
+# Pelican 处理过的文件
+*.processed
