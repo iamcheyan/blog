@@ -8,8 +8,8 @@ from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 # GitHub Pages URL: https://iamcheyan.github.io/blog/
-# Custom domain: https://iamcheyan.com
-SITEURL = 'https://iamcheyan.com'
+# Custom domain: https://blog.iamcheyan.com
+SITEURL = 'https://blog.iamcheyan.com'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
