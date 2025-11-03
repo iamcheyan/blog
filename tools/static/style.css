@@ -105,7 +105,7 @@ main { flex: 1; display: flex; min-height: 0; gap: 10px; padding: 10px; padding-
 }
 .EasyMDEContainer .CodeMirror pre { padding: 0; }
 .EasyMDEContainer .CodeMirror-scroll { overscroll-behavior: contain; }
-.EasyMDEContainer .cm-s-easymde .CodeMirror-line { padding-bottom: 2px; }
+.EasyMDEContainer .cm-s-easymde .CodeMirror-line { padding-bottom: 2px; padding-left: 20px;}
 .cm-s-easymde .cm-header { color: #0f172a; font-weight: 700; }
 .cm-s-easymde .cm-strong { color: #0f172a; font-weight: 700; }
 .cm-s-easymde .cm-em { color: #334155; font-style: italic; }
@@ -123,7 +123,7 @@ main { flex: 1; display: flex; min-height: 0; gap: 10px; padding: 10px; padding-
   background: #f9fafb;
   /* 使用 inset 阴影模拟左侧竖线，不改变文本排版，避免光标位移 */
   box-shadow: inset 4px 0 0 #9ca3af;
-  padding-left: 20px;
+  padding-left: 0;
 }
 .EasyMDEContainer .CodeMirror .cm-front-matter .cm-header {
   /* 在 front matter 中强制使用普通字号/字重渲染（避免 h1/h2 放大） */
