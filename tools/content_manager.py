@@ -103,6 +103,26 @@ def static_files(filename):
     return send_from_directory((Path(__file__).parent / 'static'), filename)
 
 
+@app.route('/assets/<path:filename>')
+def assets_files(filename):
+    """为编辑器预览提供图片等静态资源。
+
+    优先从内容目录下的 assets 提供（content/assets），
+    若不存在则回退到项目根目录的 assets。
+    """
+    content_assets = BASE_DIR / 'content' / 'assets'
+    root_assets = BASE_DIR / 'assets'
+    # 优先 content/assets
+    candidate = content_assets / filename
+    if candidate.exists() and candidate.is_file():
+        return send_from_directory(content_assets, filename)
+    # 回退根目录 assets
+    candidate = root_assets / filename
+    if candidate.exists() and candidate.is_file():
+        return send_from_directory(root_assets, filename)
+    return jsonify({'error': 'asset not found'}), 404
+
+
 @app.route('/api/tree')
 def api_tree():
     return jsonify(build_tree(CONTENT_DIR))
