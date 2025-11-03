@@ -33,6 +33,10 @@ CATEGORY_SAVE_AS = ''
 TAG_URL = 'tag-{slug}.html'
 TAG_SAVE_AS = 'tag-{slug}.html'
 
+# 标签列表页面
+TAGS_URL = 'tags.html'
+TAGS_SAVE_AS = 'tags.html'
+
 THEME = "theme"    # 主题
 OUTPUT_PATH = 'blog/'   # 生成文件的输出位置
 STATIC_PATHS = [
@@ -52,7 +56,7 @@ PLUGINS=['tipue_search',    # 静态搜索
          # "optimize_images", # 图片压缩
          ]
 
-DIRECT_TEMPLATES = ['index', 'archives', 'search']
+DIRECT_TEMPLATES = ['index', 'archives', 'search', 'tags']
 # YUICOMPRESSOR_EXECUTABLE = 'yui-compressor'
 
 # 静态评论

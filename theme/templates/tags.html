@@ -4,16 +4,76 @@
 {{ super() }}
 {% endblock headers %}
 
-{% block title %}{{ super() }} — tags{% endblock title %}
+{% block title %}
+{{ super() }}
+{# 动态切换页面 title 字段的语言 #}
+<script>
+(function(){
+    var lang = '';
+    if (window.location.search.indexOf('lang=zh-cn') !== -1) lang = 'zh-cn';
+    var tagTitle = (lang === 'zh-cn') ? '标签' : 'tags';
+    document.title = document.title.replace(/ — .+$/, '') + ' — ' + tagTitle;
+})();
+</script>
+{% endblock title %}
 
 {%- block content %}
-      <h1>全てのタグ</h1>
-      <ul id="tag-cloud">
+<script>
+(function(){
+    // 检查URL是否有 lang=zh-cn
+    var lang = '';
+    if (window.location.search.indexOf('lang=zh-cn') !== -1) lang = 'zh-cn';
+    // 语言切换高亮 <a>
+    document.addEventListener('DOMContentLoaded', function() {
+        var zhLink = document.querySelector('#topbar a[href="/tags.html?lang=zh-cn"]');
+        var jpLink = document.querySelector('#topbar a[href="/tag-ri-ben-yu.html"]');
+        if (lang === 'zh-cn') {
+            zhLink && zhLink.classList.add('on');
+            jpLink && jpLink.classList.remove('on');
+        } else {
+            jpLink && jpLink.classList.add('on');
+            zhLink && zhLink.classList.remove('on');
+        }
+    });
+
+    if (lang === 'zh-cn') {
+        // 替换h1文本和tag count单位
+        document.addEventListener('DOMContentLoaded', function() {
+            var h1 = document.querySelector('#page-main h1');
+            if(h1) h1.textContent = '全部标签';
+            var tagCloud = document.getElementById('tag-cloud');
+            if(tagCloud) {
+                var items = tagCloud.querySelectorAll('li');
+                items.forEach(function(li){
+                    var a = li.querySelector('a');
+                    var m = li.textContent.match(/\((\d+)\s*.*\)/);
+                    if(a && m && m[1]) {
+                        // 兼容分类/标签
+                        var n = m[1];
+                        a.nextSibling && (a.nextSibling.textContent = '（' + n + ' 篇）');
+                    }
+                    // tooltip
+                    if(li.title) li.title = n + ' 篇文章';
+                });
+            }
+        });
+    }
+})();
+</script>
+    <h1>全てのタグ</h1>
+    <ul id="tag-cloud">
       {% for category, n in categories %}
       <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ n|count }})</li>
       {% endfor %}
+      {# 将 tags 字典转换为列表并按文章数量排序 #}
+      {% set tags_list = [] %}
       {% for tag, articles in tags %}
-      <li data-count="{{ articles|count }}" title="{{ articles|count }} article(s)"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count}} )</li>
+        {% set _ = tags_list.append((tag, articles|count)) %}
+      {% endfor %}
+      {% for tag, count in tags_list|sort(attribute='1', reverse=true) %}
+      <li data-count="{{ count }}" title="{{ count }} article(s)">
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ count }} )
+      </li>
       {% endfor %}
     </ul>
 {% endblock content -%}

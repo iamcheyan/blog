@@ -43,16 +43,29 @@ def set_neighbors(articles, next_name, prev_name):
                     get_translation(prv, translation.lang))
 
 def neighbors(generator):
-    set_neighbors(generator.articles, 'next_article', 'prev_article')
+    # Pelican 的 generator.articles 已经是按日期排序的，直接使用
+    # 但为了避免修改原始列表，创建一个副本
+    articles_list = list(generator.articles)
+    set_neighbors(articles_list, 'next_article', 'prev_article')
 
     for category, articles in generator.categories:
-        articles.sort(key=lambda x: x.date, reverse=True)
+        # 确保按日期排序，使用安全的排序方法
+        try:
+            articles.sort(key=lambda x: x.date if hasattr(x, 'date') and x.date is not None else None, reverse=True)
+        except (TypeError, AttributeError):
+            # 如果排序失败，跳过该分类
+            continue
         set_neighbors(
             articles, 'next_article_in_category', 'prev_article_in_category')
 
     if hasattr(generator, 'subcategories'):
         for subcategory, articles in generator.subcategories:
-            articles.sort(key=lambda x: x.date, reverse=True)
+            # 确保按日期排序，使用安全的排序方法
+            try:
+                articles.sort(key=lambda x: x.date if hasattr(x, 'date') and x.date is not None else None, reverse=True)
+            except (TypeError, AttributeError):
+                # 如果排序失败，跳过该子分类
+                continue
             index = subcategory.name.count('/')
             next_name = 'next_article_in_subcategory{}'.format(index)
             prev_name = 'prev_article_in_subcategory{}'.format(index)

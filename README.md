@@ -105,6 +105,22 @@ pip install -r requirements.txt
 
 ### 本地预览
 
+#### 使用 app.py（推荐）
+
+```bash
+# 激活虚拟环境
+source venv/bin/activate  # macOS/Linux（venv）
+# 或
+conda activate pelican    # conda
+
+# 一键启动（自动构建 + 自动重载 + 本地服务器）
+python app.py -p 8001
+
+# 访问 http://localhost:8001 查看预览
+```
+
+#### 手动命令
+
 ```bash
 # 激活虚拟环境
 source venv/bin/activate  # macOS/Linux（venv）
@@ -182,22 +198,116 @@ cover_image_url:
 
 ## 常用命令
 
+### 方式一：使用 app.py（推荐，最简单）
+
+`app.py` 是一个便捷脚本，可以自动完成构建和启动本地服务器的全部流程。
+
+#### 基本用法
+
 ```bash
-# 本地预览（自动重载）
-pelican --autoreload --listen -p 8001
+# 激活虚拟环境
+source venv/bin/activate
 
-# 本地预览（指定端口）
-pelican --listen -p 8001
+# 自动构建并启动服务器（默认端口 8000，启用自动重载）
+python app.py
 
-# 生成静态文件
+# 指定端口
+python app.py -p 8001
+
+# 禁用自动重载
+python app.py --no-reload
+
+# 跳过构建步骤，直接启动服务器（适用于已构建的情况）
+python app.py --skip-build
+
+# 使用生产环境配置构建并启动
+python app.py --config publishconf.py
+```
+
+#### 完整参数说明
+
+```bash
+python app.py [选项]
+
+选项:
+  -p, --port PORT       指定服务器端口号（默认: 8000）
+  --no-reload          禁用自动重载模式（文件变化时不自动重新构建）
+  --skip-build          跳过构建步骤，直接启动服务器
+  --config CONFIG       指定 Pelican 配置文件（默认: pelicanconf.py）
+  -h, --help           显示帮助信息
+```
+
+#### 使用场景
+
+1. **日常开发预览（推荐）**：
+   ```bash
+   python app.py -p 8001
+   ```
+   自动构建并启动服务器，文件变化时自动重新构建，最适合日常开发。
+
+2. **快速预览（已构建）**：
+   ```bash
+   python app.py --skip-build -p 8001
+   ```
+   如果已经构建过，可以直接启动服务器，节省时间。
+
+3. **生产环境测试**：
+   ```bash
+   python app.py --config publishconf.py -p 8000
+   ```
+   使用生产环境配置构建，测试部署前的最终效果。
+
+4. **稳定模式（不自动重载）**：
+   ```bash
+   python app.py --no-reload -p 8001
+   ```
+   禁用自动重载，适合在演示或长时间查看时使用。
+
+### 方式二：手动命令
+
+```bash
+# 激活虚拟环境
+source venv/bin/activate
+
+# 生成静态文件（开发环境）
 pelican content
 
-# 使用生产配置生成
+# 本地预览（指定端口，需要先构建）
+# 先运行: pelican content
+# 然后运行: pelican --listen -p 8001
+
+# 本地预览（自动重载）
+# 这会自动构建并监听文件变化
+pelican --autoreload --listen -p 8001
+
+# 使用生产配置生成（用于部署）
 pelican content -s publishconf.py
 
 # 压缩图片（如果存在脚本）
 python compress_images.py
 ```
+
+### 开发服务器警告说明
+
+运行 `pelican --listen` 时如果看到类似这样的警告：
+```
+WARNING  Unable to find `/theme/css/theme.css` or variations:
+```
+
+这是因为开发服务器需要从输出目录（`blog/`）提供静态文件。解决方法：
+
+1. **推荐方式**：使用 `--autoreload` 选项，它会自动构建：
+   ```bash
+   pelican --autoreload --listen -p 8001
+   ```
+
+2. **手动方式**：先构建再启动服务器：
+   ```bash
+   pelican content          # 先构建
+   pelican --listen -p 8001  # 再启动服务器
+   ```
+
+这些警告不会影响网站功能，但如果想消除警告，按上述方式操作即可。
 
 ## 注意事项
 
