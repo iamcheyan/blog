@@ -4,7 +4,7 @@ slug: win11-4k-taskbar
 datetime: 2024-09-11 00:00
 date: 2024-09-11 00:00
 summary: win11-4k-taskbar
-tags: windows
+tags: windows, 日本語
 cover_image_url: 
 ---
 ![windows_11photo_2024-09-11_16-41-45](../../assets/windows_11photo_2024-09-11_16-41-45.jpg)

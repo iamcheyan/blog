@@ -4,7 +4,7 @@ slug: ldme6
 datetime: 2024-09-26 00:00
 date: 2024-09-26 00:00
 summary: ldme6
-tags: debian, linux mint, lmde
+tags: debian, linux mint, lmde, 日本語
 cover_image_url: 
 ---
 ![Screenshot from 2024-09-26 19-12-03](../../assets/Screenshot from 2024-09-26 19-12-03.png)

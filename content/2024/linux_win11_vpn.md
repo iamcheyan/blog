@@ -4,7 +4,7 @@ slug: linux-win11-vpn
 datetime: 2024-09-10 00:00
 date: 2024-09-10 00:00
 summary: 
-tags: VPN, Linux, Windows
+tags: VPN, Linux, Windows, 日本語
 cover_image_url: 
 ---
 ![Screenshot from 2024-09-26 20-49-18](../../assets/Screenshot from 2024-09-26 20-49-18.png)
