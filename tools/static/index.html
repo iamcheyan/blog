@@ -40,6 +40,8 @@
     const btnRename = document.getElementById('btn-rename');
     const btnDelete = document.getElementById('btn-delete');
     const btnNew = document.getElementById('btn-new');
+    const LAST_OPEN_KEY = 'cm_last_open_path';
+    const PREVIEW_STATE_KEY = 'cm_preview_state';
     let currentPath = '';
     const editor = new EasyMDE({
       element: document.getElementById('editor'),
@@ -74,6 +76,41 @@
 
     // 为编辑器内的 YAML Front Matter 添加行样式
     const cm = editor.codemirror;
+    const containerEl = document.querySelector('.EasyMDEContainer');
+
+    // 记忆预览与并排的状态
+    function readPreviewState() {
+      try {
+        const raw = localStorage.getItem(PREVIEW_STATE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+    function writePreviewState() {
+      try {
+        const sideActive = !!containerEl.querySelector('.editor-preview-active-side');
+        const previewActive = !!containerEl.querySelector('.editor-preview');
+        // 更可靠的判断：类名
+        const hasSide = containerEl.classList.contains('side-by-side');
+        const state = { sideBySide: hasSide || sideActive, preview: containerEl.classList.contains('preview-active') || !!containerEl.querySelector('.editor-preview-active') };
+        localStorage.setItem(PREVIEW_STATE_KEY, JSON.stringify(state));
+      } catch (e) {}
+    }
+    function applyPreviewState() {
+      const st = readPreviewState();
+      if (!st) return;
+      // EasyMDE 提供的切换方法需对比当前状态后再触发
+      const isSide = containerEl.classList.contains('side-by-side');
+      if (!!st.sideBySide !== isSide) {
+        editor.toggleSideBySide();
+      }
+      const isPreview = containerEl.classList.contains('preview-active');
+      if (!!st.preview !== isPreview) {
+        editor.togglePreview();
+      }
+    }
+
+    const previewObserver = new MutationObserver(() => writePreviewState());
+    previewObserver.observe(containerEl, { attributes: true, attributeFilter: ['class'], subtree: true });
     let fmRange = { start: -1, end: -1 };
     function markFrontMatter() {
       // 清除旧样式
@@ -179,12 +216,16 @@
       currentPath = path;
       filePathEl.textContent = path;
       editor.value(content);
+      // 记住最近打开
+      try { localStorage.setItem(LAST_OPEN_KEY, path); } catch (e) {}
       // 切换文件后同步 front matter 高亮
       setTimeout(() => {
         try { editor.codemirror && editor.codemirror.refresh(); } catch (e) {}
         try { editor.codemirror && editor.codemirror.execCommand('goDocStart'); } catch (e) {}
         try { editor.codemirror && editor.codemirror.focus(); } catch (e) {}
         if (typeof markFrontMatter === 'function') markFrontMatter();
+        // 应用上次预览状态
+        applyPreviewState();
       }, 0);
     }
 
@@ -325,6 +366,11 @@
       toast('已删除', 'success');
       editor.value('');
       filePathEl.textContent = '';
+      // 清除最近打开
+      try {
+        const last = localStorage.getItem(LAST_OPEN_KEY);
+        if (last === currentPath) localStorage.removeItem(LAST_OPEN_KEY);
+      } catch (e) {}
       currentPath = '';
       await loadTree();
     };
@@ -337,7 +383,14 @@
       }
     });
 
-    loadTree();
+    // 首次加载树并尝试打开上次的文件
+    (async () => {
+      await loadTree();
+      try {
+        const last = localStorage.getItem(LAST_OPEN_KEY);
+        if (last) openFile(last);
+      } catch (e) {}
+    })();
   </script>
 </body>
 </html>
