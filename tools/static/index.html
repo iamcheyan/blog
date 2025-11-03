@@ -5,23 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>内容管理工具</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <link rel="stylesheet" href="/static/style.css">
   <style>
-    html, body { height: 100%; margin: 0; }
-    body { display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial; }
-    header { padding: 10px 12px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; }
-    header .left { font-weight: 600; }
-    header .right button { padding: 6px 10px; border: 1px solid #d1d5db; background: #111827; color: #fff; border-radius: 6px; cursor: pointer; }
-    main { flex: 1; display: flex; min-height: 0; }
-    .sidebar { width: 320px; border-right: 1px solid #e5e7eb; overflow: auto; padding: 10px; }
-    .content { flex: 1; display: flex; flex-direction: column; min-width: 0; }
-    .toolbar { padding: 8px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 8px; }
-    .toolbar button { padding: 6px 10px; border: 1px solid #d1d5db; background: #fff; border-radius: 6px; cursor: pointer; }
-    .file-path { color: #6b7280; font-size: 12px; }
-    .tree ul { list-style: none; margin: 0; padding-left: 16px; }
-    .tree li { margin: 4px 0; cursor: default; }
+    /* 仅保留极少量页面级快速修正（如后续需要可移除） */
+
+    html, body { height: 100%; margin: 0; background: var(--bg); }
+    body { display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial; color: var(--text); }
+
+    /* 顶栏：留白 + 细边 + 小字重 */
+    header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--panel); position: sticky; top: 0; z-index: 10; }
+    header .left { font-weight: 600; letter-spacing: .02em; }
+    header .right button { padding: 6px 12px; border: 1px solid var(--border); background: var(--text); color: #fff; border-radius: 8px; cursor: pointer; transition: background .15s ease, box-shadow .2s ease; box-shadow: var(--shadow); }
+    header .right button:hover { filter: brightness(1.05); }
+
+    main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; }
+
+    /* 侧栏：卡片式、适度留白 */
+    .sidebar { width: 300px; border: 1px solid var(--border); background: var(--panel); overflow: auto; padding: 12px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .content { flex: 1; display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .toolbar { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: #fff; border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+    .toolbar button { padding: 6px 12px; border: 1px solid var(--border); background: #fff; border-radius: 8px; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+    .toolbar button:hover { background: var(--hover); }
+    .toolbar button#btn-save { background: var(--text); color: #fff; border-color: var(--text); }
+    .toolbar button#btn-save:hover { filter: brightness(1.05); }
+
+    .file-path { color: var(--muted); font-size: 12px; }
+
+    /* 树结构：行距更松，悬停微底色 */
+    .tree ul { list-style: none; margin: 0; padding-left: 14px; }
+    .tree li { margin: 6px 0; cursor: default; }
     .tree .folder { font-weight: 600; }
-    .tree .file { cursor: pointer; color: #1f2937; }
-    .tree .file:hover { text-decoration: underline; }
+    .tree .file { cursor: pointer; color: #1f2937; padding: 2px 4px; border-radius: 6px; }
+    .tree .file:hover { background: var(--hover); text-decoration: none; }
+
+    /* 自定义滚动条（细，低对比） */
+    .sidebar::-webkit-scrollbar, .editor-preview::-webkit-scrollbar, .editor-preview-side::-webkit-scrollbar, .CodeMirror-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+    .sidebar::-webkit-scrollbar-thumb, .editor-preview::-webkit-scrollbar-thumb, .editor-preview-side::-webkit-scrollbar-thumb, .CodeMirror-scroll::-webkit-scrollbar-thumb { background: #e6e7eb; border-radius: 8px; }
+    .sidebar::-webkit-scrollbar-thumb:hover, .editor-preview::-webkit-scrollbar-thumb:hover, .editor-preview-side::-webkit-scrollbar-thumb:hover, .CodeMirror-scroll::-webkit-scrollbar-thumb:hover { background: #d8dade; }
     /* YAML Front Matter 预览样式 */
     .EasyMDEContainer .editor-preview .fm-box,
     .EasyMDEContainer .editor-preview-side .fm-box {
@@ -168,6 +188,9 @@
     </section>
   </main>
 
+  <!-- Toast 容器 -->
+  <div id="toast-container"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
   <script>
     const treeEl = document.getElementById('tree');
@@ -233,10 +256,27 @@
     }
     cm.on('change', () => { setTimeout(markFrontMatter, 50); });
 
+    function toast(message, type = 'info', duration = 2600) {
+      const container = document.getElementById('toast-container');
+      const item = document.createElement('div');
+      item.className = `toast-item ${type}`;
+      item.innerHTML = `<div>${message}</div><span class="toast-close">×</span>`;
+      container.appendChild(item);
+      requestAnimationFrame(() => item.classList.add('show'));
+      const remove = () => { item.classList.remove('show'); setTimeout(() => item.remove(), 200); };
+      const timer = setTimeout(remove, duration);
+      item.querySelector('.toast-close').onclick = () => { clearTimeout(timer); remove(); };
+    }
+
     async function api(path, options) {
-      const res = await fetch(path, options);
-      if (!res.ok) throw new Error(await res.text());
-      return res.json();
+      try {
+        const res = await fetch(path, options);
+        if (!res.ok) throw new Error(await res.text());
+        return await res.json();
+      } catch (e) {
+        toast(e?.message || '请求失败', 'error');
+        throw e;
+      }
     }
 
     function renderTree(node) {
@@ -280,14 +320,14 @@
     }
 
     btnSave.onclick = async () => {
-      if (!currentPath) { alert('请先在左侧选择要编辑的 Markdown 文件'); return; }
+      if (!currentPath) { toast('请先在左侧选择要编辑的 Markdown 文件', 'error'); return; }
       const content = editor.value();
       await api('/api/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ path: currentPath, content })
       });
-      alert('已保存');
+      toast('已保存', 'success');
     };
 
     btnNew.onclick = async () => {
@@ -302,7 +342,16 @@
       });
       await loadTree();
       if (res.path) openFile(res.path);
+      toast('已创建新文章', 'success');
     };
+
+    // Ctrl/Cmd + S 快捷键保存
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+        btnSave.click();
+      }
+    });
 
     loadTree();
   </script>
