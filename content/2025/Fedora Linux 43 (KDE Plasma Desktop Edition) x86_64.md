@@ -1,5 +1,5 @@
 ---
-title: Fedora Linux 43（KDE Plasma Desktop Edition）x86_64 安装体验
+title: Fedora Linux 43（KDE Plasma Desktop Edition）
 slug: 2025-11-01-fedora43-kde-x86_64
 datetime: 2025-11-01 22:00
 date: 2025-11-01 22:00

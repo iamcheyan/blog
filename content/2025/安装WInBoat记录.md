@@ -1,5 +1,5 @@
 ---
-title: FedoraKDE 下 WinBoat 安装全攻略（2025 最新适用 38–43）
+title: FedoraKDE 下 WinBoat 安装记录
 slug: 2025-11-03-安装WInBoat记录-fedora
 datetime: 2025-11-03 21:39
 date: 2025-11-03 21:39

@@ -34,10 +34,14 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; padding-
 .editor-toolbar { border: none !important; padding: 5px; }
 .EasyMDEContainer .CodeMirror { border: none !important; border-top: 1px solid var(--border) !important; }
 .tree ul { list-style: none; margin: 0; padding-left: 5px; }
-.tree li { margin: 6px 0; cursor: default; }
+.tree li { margin: 4px 0; cursor: default; }
+.tree .dir { display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px; border-radius: 6px; color: #111827; font-weight: 600; }
+.tree .dir:hover { background: var(--hover); }
 .tree .folder { font-weight: 600; }
-.tree .file { cursor: pointer; color: #1f2937; padding: 2px 4px; border-radius: 6px; }
+.tree .file { display: block; cursor: pointer; color: #1f2937; padding: 6px 8px; border-radius: 8px; border: 1px solid transparent; font-size: 12px; }
+.tree .file .meta { display: block; color: #6b7280; font-size: 11px; margin-top: 2px; }
 .tree .file:hover { background: var(--hover); text-decoration: none; }
+.tree .file.active { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; font-weight: 600; }
 
 /* 年份行右侧的新建按钮 */
 .tree .year-actions { margin-left: 6px; }

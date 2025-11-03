@@ -95,22 +95,27 @@
         localStorage.setItem(PREVIEW_STATE_KEY, JSON.stringify(state));
       } catch (e) {}
     }
+    function ensurePreviewOn() {
+      // 强制开启预览（用于默认场景）
+      const isPreview = containerEl.classList.contains('preview-active');
+      if (!isPreview) editor.togglePreview();
+    }
+
     function applyPreviewState() {
       const st = readPreviewState();
-      if (!st) return;
+      const wantSide = st ? !!st.sideBySide : false; // 默认不并排
+      const wantPreview = st ? !!st.preview : true;  // 默认开启预览
       // EasyMDE 提供的切换方法需对比当前状态后再触发
       const isSide = containerEl.classList.contains('side-by-side');
-      if (!!st.sideBySide !== isSide) {
-        editor.toggleSideBySide();
-      }
+      if (wantSide !== isSide) editor.toggleSideBySide();
       const isPreview = containerEl.classList.contains('preview-active');
-      if (!!st.preview !== isPreview) {
-        editor.togglePreview();
-      }
+      if (wantPreview !== isPreview) editor.togglePreview();
     }
 
     const previewObserver = new MutationObserver(() => writePreviewState());
     previewObserver.observe(containerEl, { attributes: true, attributeFilter: ['class'], subtree: true });
+    // 初次加载应用默认预览状态，并二次强制确保预览开启
+    setTimeout(() => { applyPreviewState(); ensurePreviewOn(); }, 0);
     let fmRange = { start: -1, end: -1 };
     function markFrontMatter() {
       // 清除旧样式
@@ -168,6 +173,7 @@
           // 目录名称
           const isYear = /^\d{4}$/.test(child.name);
           const header = document.createElement('span');
+          header.className = 'dir';
           header.innerHTML = `📁 <span class="folder">${child.name}</span>`;
           li.appendChild(header);
           if (isYear) {
@@ -195,9 +201,10 @@
           li.appendChild(renderTree(child));
         } else {
           const a = document.createElement('a');
-          a.textContent = '📝 ' + child.name;
           a.className = 'file';
+          a.dataset.path = child.path;
           a.onclick = () => openFile(child.path);
+          a.innerHTML = `📝 ${child.name}${child.datetime ? `<span class="meta">${child.datetime}</span>` : ''}`;
           li.appendChild(a);
         }
         ul.appendChild(li);
@@ -209,6 +216,7 @@
       const data = await api('/api/tree');
       treeEl.innerHTML = '';
       treeEl.appendChild(renderTree(data));
+      highlightCurrent();
     }
 
     async function openFile(path) {
@@ -218,6 +226,7 @@
       editor.value(content);
       // 记住最近打开
       try { localStorage.setItem(LAST_OPEN_KEY, path); } catch (e) {}
+      highlightCurrent();
       // 切换文件后同步 front matter 高亮
       setTimeout(() => {
         try { editor.codemirror && editor.codemirror.refresh(); } catch (e) {}
@@ -226,7 +235,17 @@
         if (typeof markFrontMatter === 'function') markFrontMatter();
         // 应用上次预览状态
         applyPreviewState();
+        // 确保预览处于开启状态
+        ensurePreviewOn();
       }, 0);
+    }
+
+    function highlightCurrent() {
+      const items = treeEl.querySelectorAll('a.file');
+      items.forEach(a => {
+        if (a.dataset.path === currentPath) a.classList.add('active');
+        else a.classList.remove('active');
+      });
     }
 
     btnSave.onclick = async () => {

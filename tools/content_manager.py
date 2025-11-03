@@ -66,11 +66,28 @@ def _build_tree_filtered(root: Path):
                 node['children'].append(child_node)
                 has_md = True
 
+        def read_front_datetime(p: Path):
+            try:
+                with p.open('r', encoding='utf-8') as fp:
+                    head = fp.read(2048)
+                if not head.startswith('---'):
+                    return None
+                # 仅取 front matter 区域
+                end = head.find('\n---', 3)
+                block = head[: end + 4] if end != -1 else head
+                for line in block.splitlines():
+                    if line.strip().lower().startswith('datetime:'):
+                        return line.split(':', 1)[1].strip()
+                return None
+            except Exception:
+                return None
+
         for f in files:
             node['children'].append({
                 'name': f.name,
                 'path': str(f.relative_to(BASE_DIR)),
-                'type': 'file'
+                'type': 'file',
+                'datetime': read_front_datetime(f)
             })
             has_md = True
     except Exception:
