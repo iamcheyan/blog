@@ -5,7 +5,6 @@ datetime: 2023-06-10 00:00
 date: 2023-06-10 00:00
 summary: linux-下编译安装声笔系列码输入法
 tags: sbxlm
-cover_image_url: 
 ---
 ![Screenshot_20230610_225523.png][1]
 

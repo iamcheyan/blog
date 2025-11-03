@@ -5,7 +5,6 @@ datetime: 2019-05-21 00:00
 date: 2019-05-21 00:00
 summary: 华硕 T102ha 二合一平板电脑，最大亮点可能就是重量了吧，单机600克，带键盘700多克。
 tags: Surface Go, 华硕T102ha
-cover_image_url: 
 ---
 ![18199-apf40k02apa.png](../assets/2020/09/401552133.png)
 ![18565-czjoufqmwwd.png](../assets/2020/09/3142563288.png)

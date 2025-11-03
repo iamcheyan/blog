@@ -5,7 +5,6 @@ datetime: 2014-03-31 00:00
 date: 2014-03-31 00:00
 summary: 
 tags: 键盘, HHKB
-cover_image_url: 
 ---
 ![56640-lnljxhwmbbp.png](../assets/2019/09/1708913422.png)
 ![26691-59zaho95kk8.png](../assets/2019/09/450105861.png)

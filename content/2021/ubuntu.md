@@ -5,7 +5,6 @@ datetime: 2021-05-31 00:00
 date: 2021-05-31 00:00
 summary: Ubuntu 安装后的相关配置记录，包括语言设置、输入法配置、常用软件安装等系统优化内容。 
 tags: ubuntu
-cover_image_url: 
 ---
 ### ![screenshot_2023-12-31_22-01-03](../../assets/screenshot_2023-12-31_22-01-03.png)
 

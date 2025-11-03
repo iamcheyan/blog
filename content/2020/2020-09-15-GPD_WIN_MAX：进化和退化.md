@@ -5,7 +5,6 @@ datetime: 2020-09-15 00:00
 date: 2020-09-15 00:00
 summary: 时至今日，还能记得当初看到 GPD P2 MAX 的那种惊喜感：惊讶竟然有笔记本能做到这种尺寸，60...
 tags: GPD WIN MAX
-cover_image_url: 
 ---
 ![16670-4jykvf99g18.png](../assets/2019/09/2314404660.png)
 <!--more-->

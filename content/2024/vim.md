@@ -5,7 +5,6 @@ date: 2024-08-10 00:00
 datetime: 2024-08-10 00:00
 summary: 简单而现代的 VIM 编辑器配置，包括基本设置、快捷键配置和性能优化，让 VIM 像现代编辑器一样易用。
 tags: VIM, 日本語
-cover_image_url: 
 ---
 ![VIM](../../assets/VIM.jpg)
 

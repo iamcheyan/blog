@@ -5,7 +5,6 @@ date: 2024-09-12 00:00
 datetime: 2024-09-12 00:00
 summary: kvm下vpn共享
 tags: KVM,VPN
-cover_image_url: 
 ---
 之前折腾过VirtualBox下的虚拟机网络共享，其实KVM也支持，而且配置起来更加方便。
 

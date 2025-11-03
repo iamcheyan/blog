@@ -5,7 +5,6 @@ datetime: 2019-06-25 00:00
 date: 2019-06-25 00:00
 summary: 鬼迷心窍地买了这个机器， A12 88308 R7 的CPU，跟 X270 一样的模具，看着很美，而...
 tags: Thinkpad A275,
-cover_image_url: 
 ---
 ![93453-xdjf3coapfn.png](../assets/2019/09/2380929571.png)
 <!--more-->

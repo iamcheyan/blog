@@ -5,7 +5,6 @@ datetime: 2025-11-03 00:00
 date: 2025-11-03 00:00
 summary: 介绍如何在 Linux 下使用 Flatpak 安装 Fcitx5 输入法框架和 Rime（中州韵）输入法，并详细说明配置方法。
 tags: Linux, Flatpak, Fcitx5, Rime, 输入法
-cover_image_url: 
 ---
 
 本文介绍如何在 Linux 系统下使用 Flatpak 安装 Fcitx5 输入法框架和 Rime（中州韵）输入法。Flatpak 版本的 Fcitx5 Rime 由 Fcitx5 的作者亲自维护，包含 librime-lua 依赖，可以避免一些依赖问题。

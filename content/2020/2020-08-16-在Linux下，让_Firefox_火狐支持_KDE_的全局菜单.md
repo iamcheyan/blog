@@ -5,7 +5,6 @@ datetime: 2020-08-16 00:00
 date: 2020-08-16 00:00
 summary: Firefox 火狐浏览是支持 KDE 的全局菜单的，如果你的火狐缺失全局菜单，可能是少装了 *li...
 tags: Linux, 全局菜单, KDE, 火狐
-cover_image_url: 
 ---
 ![屏幕截图.jpg][1]
 Firefox 火狐浏览是支持 KDE 的全局菜单的，如果你的火狐缺失全局菜单，可能是少装了 *libdbusmenu-gtk3* 和 *libdbusmenu-gtk2* 这两个包。如果还不行的话，安装 *firefox-kde-opensuse*，一定可以。

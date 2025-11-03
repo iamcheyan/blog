@@ -5,7 +5,6 @@ datetime: 2021-04-13 00:00
 date: 2021-04-13 00:00
 summary: 2021-04-13-surface-go-+-ubuntu-20-lts
 tags: Linux, Surface Go
-cover_image_url: 
 ---
 Surface Go 低配版硬盘太小，装个 Win10 比较占空间，换了 Ubuntu，感觉好用多了，触摸屏和多点手势都可以使用，轻办公没有问题。
 驱动在这里[下载][1]。

@@ -5,7 +5,6 @@ datetime: 2020-09-22 00:00
 date: 2020-09-22 00:00
 summary: 方法如下：    ls
 tags: Linux, 双系统
-cover_image_url: 
 ---
 ![01308-f5mtpa14xb.png](../assets/2020/09/388844877.png)
 <!--more-->Windows 和 Linux 双系统的话，一般会由 Linux 的 Grub 来引导，但 Windows 更新偶尔会使 Grub 引导损坏，例如 Win10 的 2004 版本会创建一个新的恢复分区，导致 Grub 记录的分区数后移，开机显示 Grub Rescue，无法正确索引，黑屏画面如下：

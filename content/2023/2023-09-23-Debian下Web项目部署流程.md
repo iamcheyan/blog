@@ -5,7 +5,6 @@ datetime: 2023-09-23 00:00
 date: 2023-09-23 00:00
 summary: 记录在 Debian 系统下部署 Web 应用的完整流程，包括 systemd 服务配置、Nginx 反向代理和 SSL 证书配置。
 tags: Debian, systemd, Nginx, 运维, 部署
-cover_image_url: 
 ---
 
 本文介绍在 Debian 系统下部署 Web 应用的完整流程，适用于 Python、Node.js 等 Web 服务。

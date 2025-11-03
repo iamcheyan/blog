@@ -5,7 +5,6 @@ datetime: 2012-06-22 00:00
 date: 2012-06-22 00:00
 summary: 2012-06-22-在mac下使用github管理vim配置
 tags: VIM, Mac, GitHub
-cover_image_url: 
 ---
 ![64d1ec5djw1du852bm7ymg.gif][1]
 <!--more-->

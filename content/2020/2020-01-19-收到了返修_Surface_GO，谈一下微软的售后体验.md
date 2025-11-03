@@ -5,7 +5,6 @@ datetime: 2020-01-19 00:00
 date: 2020-01-19 00:00
 summary: 返修带的这个包装还挺有意思的，是用一层薄膜把机器保护，不像其它快递总是缠得一层又一层。
 tags: Surface Go, 返修
-cover_image_url: 
 ---
 ![21284-8ya69zqpavj.png](../assets/2019/09/65571479.png)
 <!--more-->

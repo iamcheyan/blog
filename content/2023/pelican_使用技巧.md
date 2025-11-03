@@ -6,7 +6,6 @@ date: 2023-05-06 10:20
 summary: Pelican 静态博客生成器的使用备忘和技巧，包括环境配置、内容管理和部署流程。
 
 tags: pelican
-cover_image_url: 
 ---
 ## 新建虚拟环境
     conda create -n pelican python=3.7

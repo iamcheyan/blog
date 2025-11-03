@@ -5,7 +5,6 @@ date: 2023-12-10 00:00
 datetime: 2023-12-10 00:00
 summary: 
 tags: ubuntu, Nvidia
-cover_image_url: 
 ---
 ![5f4a764b546a3e3e5122a81143c27e2](../../assets/5f4a764b546a3e3e5122a81143c27e2.jpg)
 

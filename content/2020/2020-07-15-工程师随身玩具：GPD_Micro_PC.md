@@ -5,7 +5,6 @@ datetime: 2020-07-15 00:00
 date: 2020-07-15 00:00
 summary: 2020-07-15-工程师随身玩具：gpd-micro-pc
 tags: GPD Micro PC
-cover_image_url: 
 ---
 ![17907-z97epj837dj.png][1]
 <!--more-->

@@ -5,7 +5,6 @@ datetime: 2018-12-31 00:00
 date: 2018-12-31 00:00
 summary: 折腾了一圈，最终还是买了 Surface GO。
 tags: Surface Go
-cover_image_url: 
 ---
 ![55558-6lz8m5evvy3.png](../assets/2019/09/4029844744.png)
 折腾了一圈，最终还是买了 Surface GO。

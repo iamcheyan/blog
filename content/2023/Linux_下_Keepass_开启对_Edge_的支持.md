@@ -6,7 +6,6 @@ datetime: 2023-12-01 00:00
 summary: 强制开启 KeepassXC 对 Edge 浏览器的密码支持，通过自定义浏览器配置解决兼容性问题。
 
 tags: Keepass
-cover_image_url: 
 ---
 KeepassXC 忽然无法识别 Edge 浏览器了，表现是在`启用浏览器集成`内，`Edge`的选项是灰色的。
 

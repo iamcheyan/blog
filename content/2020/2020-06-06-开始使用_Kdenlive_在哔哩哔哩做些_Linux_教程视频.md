@@ -5,7 +5,6 @@ datetime: 2020-06-06 00:00
 date: 2020-06-06 00:00
 summary: [可以关注我的B站链接][2]
 tags: Linux, Kdenlive
-cover_image_url: 
 ---
 ![Screenshot_20200605_235542.png](../assets/2020/09/Screenshot_20200605_235542.png)
 

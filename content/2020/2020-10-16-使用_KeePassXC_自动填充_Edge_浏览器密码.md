@@ -5,7 +5,6 @@ datetime: 2020-10-16 00:00
 date: 2020-10-16 00:00
 summary: 我所有的密码都使用 KeePassXC 管理，此处记录下，如何使用 KeePassXC 的插件，来让...
 tags: KeePassXC, 密码
-cover_image_url: 
 ---
 ![78288-8b39i1i8k5.png](../assets/2020/10/579763290.png)
 我所有的密码都使用 KeePassXC 管理，此处记录下，如何使用 KeePassXC 的插件，来让 Edge 自动填充密码。

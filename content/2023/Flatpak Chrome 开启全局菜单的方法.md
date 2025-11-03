@@ -6,7 +6,6 @@ date: 2023-07-19 00:00
 summary: 介绍如何在 Flatpak 版本的 Chrome 浏览器中开启全局菜单功能，提升 Linux 桌面体验。
 
 tags: sbxlm
-cover_image_url: 
 ---
 ![Screenshot_20230719_120849.png][1]
 <!--more-->

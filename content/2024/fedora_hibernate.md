@@ -5,7 +5,6 @@ datetime: 2024-04-26 00:00
 date: 2024-04-26 00:00
 summary: 
 tags: fedora, hibernate
-cover_image_url: 
 ---
 网上的方法都太复杂，其实Fedora本身就已经支持了休眠功能。
 

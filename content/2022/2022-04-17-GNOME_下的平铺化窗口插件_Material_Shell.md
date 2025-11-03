@@ -5,7 +5,6 @@ datetime: 2022-04-17 00:00
 date: 2022-04-17 00:00
 summary: GNOME 桌面环境下的平铺化窗口插件 Material Shell 使用体验，提升 Linux 桌面效率的实用工具。
 tags: GNOME
-cover_image_url: 
 ---
 ![2022-04-17 10-22-32 的屏幕截图.png][1]
 <!--more-->

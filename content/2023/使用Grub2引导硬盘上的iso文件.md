@@ -6,7 +6,6 @@ date: 2023-12-30 00:00
 summary: 在 Btrfs 分区使用 Grub2 引导硬盘上的 ISO 镜像文件，实现直接从硬盘启动 Linux 安装镜像的方法。
 
 tags: grub,  btrfs
-cover_image_url: 
 ---
 ![f556bdcd4b50800022394f89c49e254](../../assets/f556bdcd4b50800022394f89c49e254.jpg)
 

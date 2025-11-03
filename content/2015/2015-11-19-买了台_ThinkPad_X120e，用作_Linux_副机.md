@@ -5,7 +5,6 @@ datetime: 2015/11/19 00:00:00 00:00
 date: 2015/11/19 00:00:00
 summary: 
 tags: ThinkPad X120e
-cover_image_url: 
 ---
 ---
 ![44017-5f31ectozx2.png](../assets/2019/09/3200588649.png)

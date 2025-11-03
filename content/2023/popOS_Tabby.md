@@ -5,7 +5,6 @@ datetime: 2023-11-26 00:00
 date: 2023-11-26 00:00
 summary: 
 tags: popOS!, Tabby, GPT, Linux
-cover_image_url: 
 ---
 ![Pop!_OS 22.04 LTS 部署 Tabby ](../../assets/popOS%E4%B8%8B%E9%83%A8%E7%BD%B2Tabby.gif)
 

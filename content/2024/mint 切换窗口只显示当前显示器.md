@@ -5,7 +5,6 @@ datetime: 2024-01-03 00:00
 date: 2024-01-03 00:00
 summary: mint-切换窗口只显示当前显示器
 tags: Linutx mint
-cover_image_url: 
 ---
 ![image-20240103134809876](../../assets/image-20240103134809876.png)
 

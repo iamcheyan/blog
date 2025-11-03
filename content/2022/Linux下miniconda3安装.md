@@ -5,7 +5,6 @@ datetime: 2022-01-14 00:00
 date: 2022-01-14 00:00
 summary: Linux 下 miniconda3 的安装和配置方法，包括下载安装、路径设置和环境初始化。 linux下miniconda3安装
 tags: miniconda3,  python
-cover_image_url: 
 ---
 ## 下载 miniconda3 
 在[官网](https://docs.conda.io/projects/miniconda/en/latest/)下载，进入下载的目录，执行以下命令： 

@@ -5,7 +5,6 @@ datetime: 2019-09-23 00:00
 date: 2019-09-23 00:00
 summary: 2019-09-23-四百块钱的洋垃圾：acer-chromebook-c740
 tags: ChromeBook, Acer Chromebook C740
-cover_image_url: 
 ---
 ![94267-zzctjggn62j.png](../assets/2020/10/3608909209.png)
 <!--more-->特别喜欢这个机器的尺寸，和进风口的设计，但无奈键盘手感太渣，键程基本没有。

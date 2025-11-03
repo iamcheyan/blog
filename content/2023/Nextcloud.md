@@ -5,7 +5,6 @@ datetime: 2023-01-09 00:00
 date: 2023-01-09 00:00
 summary: 不要用 SQLlite，虽然我很喜欢这个轻量级的数据库。
 tags: SQLite
-cover_image_url: 
 ---
 不要用 SQLlite，虽然我很喜欢这个轻量级的数据库。 
 速度是一个问题，但稳定性更重要，使用 SQLlite，任何并发访问数据库时，都有可能导致数据库被锁，还是建议使用 Mysql。

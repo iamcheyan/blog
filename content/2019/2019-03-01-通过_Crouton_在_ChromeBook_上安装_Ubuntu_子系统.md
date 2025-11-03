@@ -5,7 +5,6 @@ datetime: 2019-03-01 00:00
 date: 2019-03-01 00:00
 summary: -
 tags: Linux, 联想 ChromeBook 100E, ChromeBook, 刷机
-cover_image_url: 
 ---
 ![99218-o6pufc3nes.png](../assets/2019/09/3027295670.png)提示：全程需要科学上网先打开开发者模式，网上按你的机型搜下就有，本文演示的机型是联想500E。
 <!--more-->

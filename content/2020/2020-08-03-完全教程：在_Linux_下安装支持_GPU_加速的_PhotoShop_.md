@@ -5,7 +5,6 @@ datetime: 2020-08-03 00:00
 date: 2020-08-03 00:00
 summary: [视频教程][2]
 tags: Linux, Wine, 视频教程, Manjaro, Photoshop
-cover_image_url: 
 ---
 ![2020-09-13-20-38-58屏幕截图.jpg][1]
 [视频教程][2]

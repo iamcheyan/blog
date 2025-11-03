@@ -5,7 +5,6 @@ datetime: 2018-12-04 00:00
 date: 2018-12-04 00:00
 summary: 2018-12-04-三星-galaxy-tabpro-s（sm-w700n）平板电脑使...
 tags: 三星 Galaxy TabPro S
-cover_image_url: 
 ---
 ![03011-bn1pjr82z26.png](../assets/2019/09/3164673901.png)
 <!--more-->

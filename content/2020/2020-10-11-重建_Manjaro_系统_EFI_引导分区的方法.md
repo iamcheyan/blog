@@ -5,7 +5,6 @@ datetime: 2020-10-11 00:00
 date: 2020-10-11 00:00
 summary: Manjaro 系统 EFI 引导分区重建教程，手贱搞坏分区表后的恢复方法，详细记录 Live 环境下的修复步骤。
 tags: Linux, Manjaro
-cover_image_url: 
 ---
 Modified: 2020-10-11
 

@@ -5,7 +5,6 @@ datetime: 2021-07-07 00:00
 date: 2021-07-07 00:00
 summary: 拆下D壳螺丝后，沿着缝隙边缘慢慢翘起，要注意，电池是粘在D壳上面的，所以不能大力出奇迹。
 tags: GPD WIN MAX
-cover_image_url: 
 ---
 ![00769-4wi19yr7d87.png](../assets/2021/08/197279784.png)
 <!--more-->

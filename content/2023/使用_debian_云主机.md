@@ -6,7 +6,6 @@ date: 2023-01-29 00:00
 summary: 使用 Debian 云主机的经验分享，包括用户权限管理、软件安装和系统配置的最佳实践。
 
 tags: debian, 云主机
-cover_image_url: 
 ---
 默认的 root 帐户登录之后就要切换掉，否则之后产生的用户权限很麻烦。  
 安装 gogs 时，尽量不要使用 docker，docker 的权限很小，调用宿主机的 conda 和很麻烦，直接使用二进制的方法安装最适宜。  

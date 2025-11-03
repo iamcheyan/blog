@@ -5,7 +5,6 @@ datetime: 2020-08-20 00:00
 date: 2020-08-20 00:00
 summary: 2020-08-20-戴尔-latitude5285-安装-windows8-说明
 tags: Windows 8, 戴尔5285
-cover_image_url: 
 ---
 ![Snipaste_2020-08-28_19-48-39.png][1]
 ![03474-qbxyjoqb1t8.png](../assets/2019/09/770097524.png)

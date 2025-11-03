@@ -5,7 +5,6 @@ datetime: 2021-04-30 00:00
 date: 2021-04-30 00:00
 summary: HP Chromebook 13 G1 安装 Ubuntu 的完整记录，3K屏幕和双TypeC接口的性价比之选，破解BIOS实现完全Linux化。
 tags: Linux, ChromeBook, Hp chromebook 13 g1
-cover_image_url: 
 ---
 ![2021-04-30 16-39-20屏幕截图.png][1]
 <!--more-->

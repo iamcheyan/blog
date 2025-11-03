@@ -5,7 +5,6 @@ datetime: 2023-11-26 00:00
 date: 2023-11-26 00:00
 summary: 
 tags: Dotsync, Linux
-cover_image_url: 
 ---
 Linux 下的软件和系统的配置文件常常散落在各处。  
 比如 zsh 的配置文件存放在`~/.zshrc`，但 ssh 的配置却存放在`.ssh/config`，如何管理和同步它们是个很麻烦的事情。  

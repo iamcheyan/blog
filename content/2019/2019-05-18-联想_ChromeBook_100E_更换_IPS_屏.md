@@ -5,7 +5,6 @@ datetime: 2019-05-18 00:00
 date: 2019-05-18 00:00
 summary: 
 tags: 拆机, 联想 ChromeBook 100E
-cover_image_url: 
 ---
 ![17407-jxau2t2xx8.png](../assets/2019/09/1448038857.png)
 <!--more-->

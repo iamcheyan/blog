@@ -5,7 +5,6 @@ datetime: 2021-08-04 00:00
 date: 2021-08-04 00:00
 summary: 出于对 umpc 的喜爱，买了win3，其实不是用来玩游戏，还是希望能做到轻装上班的体验，但这个屏太...
 tags: GPD WIN 3, TNT GO
-cover_image_url: 
 ---
 ![08072-dlj7wwjb2x.png](../assets/2021/08/322917778.png)
 <!--more-->

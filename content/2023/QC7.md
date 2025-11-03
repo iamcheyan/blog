@@ -5,7 +5,6 @@ date: 2023-05-31 00:00
 datetime: 2023-05-31 00:00
 summary: 英特尔 QC7 笔记本的详细使用体验，包括硬件配置、4K 屏幕升级、Linux 系统安装和性能优化建议。
 tags: QC7
-cover_image_url: 
 ---
 ![英特尔KC7](../../assets/941eb979deda7833ead5c66ae020e13.jpg)
 

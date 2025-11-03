@@ -5,7 +5,6 @@ datetime: 2021-11-01 00:00
 date: 2021-11-01 00:00
 summary: 传统的注入器总是忘记充电，找到了这个可以通过安卓手机注入的方法。
 tags: Nintendo Switch
-cover_image_url: 
 ---
 ![09261-wl03j9vrgq.png](../assets/2022/04/3119467660.png)
 <!--more-->

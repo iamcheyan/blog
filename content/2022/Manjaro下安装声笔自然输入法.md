@@ -5,7 +5,6 @@ datetime: 2022-04-14 00:00
 date: 2022-04-14 00:00
 summary: 在 Manjaro Linux 下安装声笔自然输入法的详细教程，包括 fcitx5 配置和 rime 输入法设置。 manjaro下安装声笔自然输入法
 tags: Manjaro, 声笔自然
-cover_image_url: 
 ---
 Modified: 2022-04-14
 
