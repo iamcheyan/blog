@@ -185,3 +185,11 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; padding-
 /* 拖拽上传时的高亮 */
 .EasyMDEContainer.drag-hover { outline: 2px dashed #94a3b8; outline-offset: -10px; }
 
+/* 终端覆盖层 */
+.terminal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: none; align-items: center; justify-content: center; z-index: 2000; }
+.terminal-box { width: 80vw; max-width: 1000px; height: 60vh; background: #0b0f14; color: #e5e7eb; border-radius: 10px; box-shadow: var(--shadow); display: flex; flex-direction: column; border: 1px solid #111827; }
+.terminal-header { padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1f2937; background: #0f172a; }
+.terminal-title { font-size: 13px; color: #93c5fd; }
+.terminal-close { border: 1px solid #374151; background: #111827; color: #e5e7eb; padding: 4px 8px; border-radius: 6px; cursor: pointer; }
+.terminal-body { flex: 1; padding: 10px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 12px; line-height: 1.6; white-space: pre-wrap; }
+

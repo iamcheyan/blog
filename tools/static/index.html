@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>内容管理工具</title>
+  <title>Content Management Tool</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <header>
-    <div class="left">内容管理工具</div>
+    <div class="left">Content Management Tool</div>
     <div class="right">
-      <button id="btn-new">新建</button>
+      <button id="btn-new">New</button>
+      <button id="btn-push">Push</button>
     </div>
   </header>
   <main>
@@ -20,9 +21,9 @@
     </aside>
     <section class="content">
       <div class="toolbar">
-        <button id="btn-save">保存</button>
-        <button id="btn-rename">重命名</button>
-        <button id="btn-delete">删除</button>
+        <button id="btn-save">Save</button>
+        <button id="btn-rename">Rename</button>
+        <button id="btn-delete">Delete</button>
         <span class="file-path" id="file-path"></span>
       </div>
       <textarea id="editor"></textarea>
@@ -31,6 +32,16 @@
 
   <!-- Toast 容器 -->
   <div id="toast-container"></div>
+  <!-- Terminal Overlay -->
+  <div id="terminal" class="terminal-overlay">
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <div class="terminal-title">Git Push</div>
+        <button id="terminal-close" class="terminal-close">Close</button>
+      </div>
+      <pre id="terminal-body" class="terminal-body"></pre>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
   <script>
@@ -40,8 +51,11 @@
     const btnRename = document.getElementById('btn-rename');
     const btnDelete = document.getElementById('btn-delete');
     const btnNew = document.getElementById('btn-new');
+    const btnPush = document.getElementById('btn-push');
+    const terminalEl = document.getElementById('terminal');
+    const terminalBody = document.getElementById('terminal-body');
+    const terminalClose = document.getElementById('terminal-close');
     const LAST_OPEN_KEY = 'cm_last_open_path';
-    const PREVIEW_STATE_KEY = 'cm_preview_state';
     let currentPath = '';
     const editor = new EasyMDE({
       element: document.getElementById('editor'),
@@ -78,44 +92,18 @@
     const cm = editor.codemirror;
     const containerEl = document.querySelector('.EasyMDEContainer');
 
-    // 记忆预览与并排的状态
-    function readPreviewState() {
-      try {
-        const raw = localStorage.getItem(PREVIEW_STATE_KEY);
-        return raw ? JSON.parse(raw) : null;
-      } catch (e) { return null; }
-    }
-    function writePreviewState() {
-      try {
-        const sideActive = !!containerEl.querySelector('.editor-preview-active-side');
-        const previewActive = !!containerEl.querySelector('.editor-preview');
-        // 更可靠的判断：类名
-        const hasSide = containerEl.classList.contains('side-by-side');
-        const state = { sideBySide: hasSide || sideActive, preview: containerEl.classList.contains('preview-active') || !!containerEl.querySelector('.editor-preview-active') };
-        localStorage.setItem(PREVIEW_STATE_KEY, JSON.stringify(state));
-      } catch (e) {}
-    }
-    function ensurePreviewOn() {
-      // 强制开启预览（用于默认场景）
-      const isPreview = containerEl.classList.contains('preview-active');
-      if (!isPreview) editor.togglePreview();
+    // 移除预览记忆逻辑，仅保留并排强制开启工具
+    function isSideActive() {
+      return containerEl.classList.contains('side-by-side') || !!containerEl.querySelector('.editor-preview-active-side');
     }
 
-    function applyPreviewState() {
-      const st = readPreviewState();
-      const wantSide = st ? !!st.sideBySide : false; // 默认不并排
-      const wantPreview = st ? !!st.preview : true;  // 默认开启预览
-      // EasyMDE 提供的切换方法需对比当前状态后再触发
-      const isSide = containerEl.classList.contains('side-by-side');
-      if (wantSide !== isSide) editor.toggleSideBySide();
-      const isPreview = containerEl.classList.contains('preview-active');
-      if (wantPreview !== isPreview) editor.togglePreview();
+    function ensureSideBySideOn() {
+      // 强制并排（会自动处理预览侧边）
+      if (!isSideActive()) editor.toggleSideBySide();
     }
 
-    const previewObserver = new MutationObserver(() => writePreviewState());
-    previewObserver.observe(containerEl, { attributes: true, attributeFilter: ['class'], subtree: true });
-    // 初次加载应用默认预览状态，并二次强制确保预览开启
-    setTimeout(() => { applyPreviewState(); ensurePreviewOn(); }, 0);
+    // 初次加载确保并排开启
+    setTimeout(() => { ensureSideBySideOn(); }, 0);
     let fmRange = { start: -1, end: -1 };
     function markFrontMatter() {
       // 清除旧样式
@@ -181,7 +169,7 @@
             actions.className = 'year-actions';
             const btn = document.createElement('button');
             btn.className = 'btn-year-new';
-            btn.textContent = '新建';
+            btn.textContent = 'New';
             btn.title = `在 ${child.name} 年新增 Markdown`;
             btn.onclick = async (e) => {
               e.stopPropagation();
@@ -233,10 +221,8 @@
         try { editor.codemirror && editor.codemirror.execCommand('goDocStart'); } catch (e) {}
         try { editor.codemirror && editor.codemirror.focus(); } catch (e) {}
         if (typeof markFrontMatter === 'function') markFrontMatter();
-        // 应用上次预览状态
-        applyPreviewState();
-        // 确保预览处于开启状态
-        ensurePreviewOn();
+        // 确保并排开启
+        ensureSideBySideOn();
       }, 0);
     }
 
@@ -272,6 +258,25 @@
       await loadTree();
       if (res.path) openFile(res.path);
       toast('已创建新文章', 'success');
+    };
+
+    // Push 功能
+    function openTerminal() { terminalEl.style.display = 'flex'; }
+    function closeTerminal() { terminalEl.style.display = 'none'; }
+    terminalClose.onclick = closeTerminal;
+    btnPush.onclick = async () => {
+      openTerminal();
+      btnPush.disabled = true;
+      terminalBody.textContent = '$ git add -A && git commit && git push\n\nRunning...\n';
+      try {
+        const res = await api('/api/push', { method: 'POST' });
+        terminalBody.textContent = res.log || '';
+        toast(res.ok ? 'Push 完成' : 'Push 失败', res.ok ? 'success' : 'error');
+      } catch (e) {
+        // 错误已在 api 内部 toast
+      } finally {
+        btnPush.disabled = false;
+      }
     };
 
     // 粘贴图片上传 -> 自动插入 Markdown

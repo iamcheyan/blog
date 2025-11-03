@@ -190,6 +190,46 @@ def api_delete_file():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/api/push', methods=['POST'])
+def api_push():
+    """执行 git add/commit/push，并返回合并日志。
+
+    提交信息：push-<timestamp_ms>
+    在仓库根目录 BASE_DIR 下执行。
+    """
+    import time
+    import subprocess
+
+    def run(cmd):
+        try:
+            p = subprocess.run(cmd, cwd=str(BASE_DIR), capture_output=True, text=True)
+            out = (p.stdout or '') + (p.stderr or '')
+            return p.returncode, out
+        except Exception as e:
+            return 1, f"Command failed: {' '.join(cmd)}\n{e}\n"
+
+    ts = int(time.time() * 1000)
+    logs = []
+
+    steps = [
+        ["git", "status"],
+        ["git", "add", "-A"],
+        ["git", "commit", "-m", f"push-{ts}", "--allow-empty"],
+        ["git", "push"],
+    ]
+    ok = True
+    for cmd in steps:
+        code, out = run(cmd)
+        logs.append(f"$ {' '.join(cmd)}\n{out}\n")
+        if code != 0 and cmd[0:2] != ["git", "commit"]:  # 允许 allow-empty 导致的非变更提交通过
+            ok = False
+            break
+
+    return jsonify({
+        'ok': ok,
+        'log': "\n".join(logs)
+    })
+
 @app.route('/api/upload_image', methods=['POST'])
 def api_upload_image():
     """接受粘贴/上传的图片，保存到 content/assets/{year}/ 下。
