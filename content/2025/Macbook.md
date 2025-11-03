@@ -7,3 +7,4 @@ tags: macbook
 ---
 
 ![image](/assets/2025/1762172795006.png)
+![image](/assets/2025/1762176393567.png)

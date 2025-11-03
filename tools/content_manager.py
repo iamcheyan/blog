@@ -351,6 +351,66 @@ def api_new_file():
     return jsonify({'ok': True, 'path': rel})
 
 
+@app.route('/api/search', methods=['POST'])
+def api_search():
+    """简单全文检索：在 content/ 下查找包含关键词的 Markdown。
+
+    请求 JSON: { q: string, limit?: int }
+    返回: { results: [{ path, title, snippet }] }
+    """
+    data = request.get_json(force=True)
+    q = (data.get('q') or '').strip()
+    limit = int(data.get('limit') or 50)
+    if not q:
+        return jsonify({'results': []})
+
+    q_lower = q.lower()
+    results = []
+
+    def get_title_and_snippet(p: Path) -> tuple[str, str]:
+        title = p.stem
+        snippet = ''
+        try:
+            text = p.read_text(encoding='utf-8', errors='ignore')
+        except Exception:
+            return title, snippet
+        # 读取 title
+        if text.startswith('---'):
+            end = text.find('\n---', 3)
+            block = text[: end + 4] if end != -1 else text
+            for line in block.splitlines():
+                if line.strip().lower().startswith('title:'):
+                    t = line.split(':', 1)[1].strip()
+                    if t:
+                        title = t
+                    break
+        # 查找片段
+        idx = text.lower().find(q_lower)
+        if idx != -1:
+            start = max(0, idx - 40)
+            end = min(len(text), idx + 80)
+            snippet = text[start:end].replace('\n', ' ')
+        return title, snippet
+
+    for p in CONTENT_DIR.rglob('*.md'):
+        if len(results) >= limit:
+            break
+        try:
+            # 文件名匹配或内容匹配
+            hit = q_lower in p.name.lower()
+            title, snippet = get_title_and_snippet(p)
+            hit = hit or (q_lower in title.lower()) or (q_lower in snippet.lower())
+            if hit:
+                results.append({
+                    'path': str(p.relative_to(BASE_DIR)),
+                    'title': title,
+                    'snippet': snippet
+                })
+        except Exception:
+            continue
+
+    return jsonify({'results': results})
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='内容管理工具（目录树 + Markdown 编辑器）')
