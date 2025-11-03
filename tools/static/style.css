@@ -108,12 +108,11 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; padding-
 .EasyMDEContainer .CodeMirror .cm-front-matter {
   background: #f9fafb;
   border-left: 4px solid #9ca3af;
-  font-size: 14px !important;
-  font-weight: 400 !important;
+  /* 不修改字体尺寸/字重，避免影响 CodeMirror 光标计算 */
+  padding-left: 8px; /* 给左侧边线留出间距，避免视觉重叠 */
 }
 .EasyMDEContainer .CodeMirror .cm-front-matter * {
-  font-size: 14px !important;
-  font-weight: 400 !important;
+  /* 同上：不要覆盖 CodeMirror 的字体度量 */
 }
 
 /* 仅预览区域的 Markdown 排版优化 */

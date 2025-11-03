@@ -6,6 +6,7 @@ date: 2025-09-27 17:00
 tags: イベント, 日本語, プレゼン, Terebi, ByteDance
 summary: 東京でByteDance TRAEチーム主催の「Vibe Coding Journey」イベントに登壇し、1年目で日本語プレゼンに挑戦。自作の日本語ビデオツール「Terebi」も紹介しました。
 cover_image_url: ../assets/G12DnU0agAAppvS-20251103130455783.jpg
+
 ---
 
 ![2025年9月27日、東京で開催されたバイトダンス（ByteDance）TRAEチーム主催の「Vibe Coding Journey」イベントで講演。自作の日本語ビデオツール「Terebi」を紹介し、日本語学習1年目にして初めて日本語でプレゼンテーションを行い、とても緊張した](../assets/G12DnU0agAAppvS-20251103130455783.jpg)

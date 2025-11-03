@@ -272,6 +272,8 @@
         const res = await api('/api/push', { method: 'POST' });
         terminalBody.textContent = res.log || '';
         toast(res.ok ? 'Push 完成' : 'Push 失败', res.ok ? 'success' : 'error');
+        // 成功后 3 秒自动关闭
+        if (res.ok) setTimeout(() => { closeTerminal(); }, 3000);
       } catch (e) {
         // 错误已在 api 内部 toast
       } finally {

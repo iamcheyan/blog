@@ -318,30 +318,31 @@ def api_new_file():
     year_dir = CONTENT_DIR / f'{target_year}'
     year_dir.mkdir(parents=True, exist_ok=True)
 
-    # 生成安全文件名
-    base_name = title or now.strftime('%Y-%m-%d-未命名')
-    safe_name = ''.join(c for c in base_name if c not in '\\/:*?"<>|').strip()
-    # 文件名前缀：指定年份 + 当天月日
-    date_prefix = f"{target_year}-{now.month:02d}-{now.day:02d}"
-    filename = f"{date_prefix}-{safe_name}.md"
+    # 生成文件名：有标题则直接用标题；无标题则用当前时间
+    if title:
+        safe_name = ''.join(c for c in title if c not in '\\/:*?"<>|').strip()
+        filename = f"{safe_name}.md" if safe_name else f"{now.strftime('%Y-%m-%d-%H%M%S')}.md"
+    else:
+        safe_name = ''
+        filename = f"{now.strftime('%Y-%m-%d-%H%M%S')}.md"
     target = year_dir / filename
     i = 1
     while target.exists():
-        target = year_dir / f"{now.strftime('%Y-%m-%d')}-{safe_name}-{i}.md"
+        target = year_dir / f"{target.stem}-{i}.md"
         i += 1
 
     front_matter = [
         '---',
-        f'title: {title or "新文章"}',
+        '',
+        f'title: {title or target.stem}',
         f'slug: {target.stem}',
-        f'datetime: {date_prefix} {now.strftime("%H:%M")}',
-        f'date: {date_prefix} {now.strftime("%H:%M")}',
+        f'datetime: {now.strftime("%Y-%m-%d %H:%M")}',
+        f'date: {now.strftime("%Y-%m-%d %H:%M")}',
         f'summary: {summary}',
         f'tags: {tags}',
-        'cover_image_url: ',
+        '',
         '---',
         '',
-        '正文内容...',
         ''
     ]
     target.write_text('\n'.join(front_matter), encoding='utf-8')
