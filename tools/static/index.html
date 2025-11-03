@@ -22,6 +22,74 @@
     .tree .folder { font-weight: 600; }
     .tree .file { cursor: pointer; color: #1f2937; }
     .tree .file:hover { text-decoration: underline; }
+    /* YAML Front Matter 预览样式 */
+    .EasyMDEContainer .editor-preview .fm-box,
+    .EasyMDEContainer .editor-preview-side .fm-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #9ca3af;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 8px 16px 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      color: #374151;
+    }
+    .EasyMDEContainer .editor-preview .fm-box .fm-title,
+    .EasyMDEContainer .editor-preview-side .fm-box .fm-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 6px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .EasyMDEContainer .editor-preview .fm-box pre,
+    .EasyMDEContainer .editor-preview-side .fm-box pre {
+      margin: 0;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      white-space: pre-wrap;
+    }
+    /* 左侧编辑器（CodeMirror）可读性优化 */
+    .EasyMDEContainer .CodeMirror {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      padding: 12px 14px; /* 让文本不贴边 */
+    }
+    .EasyMDEContainer .CodeMirror pre { padding: 0; }
+    .EasyMDEContainer .CodeMirror-scroll { overscroll-behavior: contain; }
+    .EasyMDEContainer .cm-s-easymde .CodeMirror-line { padding-bottom: 2px; }
+    /* Markdown token 配色（在亮色主题下更柔和） */
+    .cm-s-easymde .cm-header { color: #0f172a; font-weight: 700; }
+    .cm-s-easymde .cm-strong { color: #0f172a; font-weight: 700; }
+    .cm-s-easymde .cm-em { color: #334155; font-style: italic; }
+    .cm-s-easymde .cm-link { color: #2563eb; }
+    .cm-s-easymde .cm-url { color: #1d4ed8; }
+    .cm-s-easymde .cm-quote { color: #475569; }
+    .cm-s-easymde .cm-comment { color: #475569; }
+    .cm-s-easymde .cm-image { color: #0e7490; }
+    /* 水平分隔线更醒目 */
+    .cm-s-easymde .cm-hr { color: #94a3b8; }
+    /* 选区/光标可见性 */
+    .EasyMDEContainer .CodeMirror div.CodeMirror-cursor { border-left: 2px solid #111827; }
+    .EasyMDEContainer .CodeMirror .CodeMirror-selected { background: rgba(37, 99, 235, .18); }
+    /* 并排时左右各自内边距一致 */
+    .EasyMDEContainer .CodeMirror,
+    .EasyMDEContainer .editor-preview-side { box-sizing: border-box; }
+    /* 编辑器中的 YAML Front Matter 高亮（首个 --- 到下一个 --- 之间） */
+    .EasyMDEContainer .CodeMirror .cm-front-matter {
+      background: #f9fafb;
+      border-left: 4px solid #9ca3af;
+      /* 强制使用普通字号与常规字重，避免被 Markdown 标题样式放大 */
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+    .EasyMDEContainer .CodeMirror .cm-front-matter * {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
     /* 仅预览区域的 Markdown 排版优化 */
     .EasyMDEContainer .editor-preview,
     .EasyMDEContainer .editor-preview-side {
@@ -113,10 +181,57 @@
       autofocus: true,
       autosave: { enabled: false },
       renderingConfig: { singleLineBreaks: false, codeSyntaxHighlighting: true },
+      previewRender: (plainText) => {
+        // 提取并渲染 YAML Front Matter
+        const fmMatch = plainText.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+        let fm = '';
+        let body = plainText;
+        if (fmMatch) {
+          fm = fmMatch[1];
+          body = plainText.slice(fmMatch[0].length);
+        }
+        function escapeHtml(str) {
+          return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        }
+        const fmHtml = fm
+          ? `<div class="fm-box"><div class="fm-title">Front Matter</div><pre>${escapeHtml(fm)}</pre></div>`
+          : '';
+        return fmHtml + editor.markdown(body);
+      },
         // 禁止并排预览时自动进入全屏
         sideBySideFullscreen: false,
       minHeight: 'calc(100vh - 120px)'
     });
+
+    // 为编辑器内的 YAML Front Matter 添加行样式
+    const cm = editor.codemirror;
+    let fmRange = { start: -1, end: -1 };
+    function markFrontMatter() {
+      // 清除旧样式
+      if (fmRange.start !== -1) {
+        for (let i = fmRange.start; i <= fmRange.end; i++) {
+          cm.removeLineClass(i, 'wrap', 'cm-front-matter');
+        }
+        fmRange = { start: -1, end: -1 };
+      }
+      const line0 = cm.getLine(0) || '';
+      if (line0.trim() !== '---') return;
+      const total = cm.lineCount();
+      let end = -1;
+      for (let i = 1; i < Math.min(total, 500); i++) {
+        if ((cm.getLine(i) || '').trim() === '---') { end = i; break; }
+      }
+      if (end >= 0) {
+        for (let i = 0; i <= end; i++) {
+          cm.addLineClass(i, 'wrap', 'cm-front-matter');
+        }
+        fmRange = { start: 0, end };
+      }
+    }
+    cm.on('change', () => { setTimeout(markFrontMatter, 50); });
 
     async function api(path, options) {
       const res = await fetch(path, options);
@@ -155,6 +270,13 @@
       currentPath = path;
       filePathEl.textContent = path;
       editor.value(content);
+      // 切换文件后同步 front matter 高亮
+      setTimeout(() => {
+        try { editor.codemirror && editor.codemirror.refresh(); } catch (e) {}
+        try { editor.codemirror && editor.codemirror.execCommand('goDocStart'); } catch (e) {}
+        try { editor.codemirror && editor.codemirror.focus(); } catch (e) {}
+        if (typeof markFrontMatter === 'function') markFrontMatter();
+      }, 0);
     }
 
     btnSave.onclick = async () => {
