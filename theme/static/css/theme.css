@@ -131,12 +131,7 @@ body {
 
 /* 分隔线样式 */
 hr {
-    visibility: visible;
-    border: none;
-    border-top: 2px solid #e9ecef;
-    margin: 2rem 0;
-    padding: 0;
-    height: 0;
+    display: none;
 }
 
 article {

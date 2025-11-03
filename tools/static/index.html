@@ -11,6 +11,7 @@
   <header>
     <div class="left">Content Management Tool</div>
     <div class="right">
+      <input id="search-input" type="search" placeholder="Search (Enter)" />
       <button id="btn-new">New</button>
       <button id="btn-push">Push</button>
     </div>
@@ -42,6 +43,18 @@
       <pre id="terminal-body" class="terminal-body"></pre>
     </div>
   </div>
+  <!-- Search Modal -->
+  <div id="search-modal" class="terminal-overlay">
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <div class="terminal-title">Search</div>
+        <button id="search-close" class="terminal-close">Close</button>
+      </div>
+      <div class="terminal-body">
+        <ul id="search-results" class="search-list"></ul>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
   <script>
@@ -55,6 +68,10 @@
     const terminalEl = document.getElementById('terminal');
     const terminalBody = document.getElementById('terminal-body');
     const terminalClose = document.getElementById('terminal-close');
+    const searchInput = document.getElementById('search-input');
+    const searchModal = document.getElementById('search-modal');
+    const searchClose = document.getElementById('search-close');
+    const searchResults = document.getElementById('search-results');
     const LAST_OPEN_KEY = 'cm_last_open_path';
     let currentPath = '';
     const editor = new EasyMDE({
@@ -250,6 +267,57 @@
         else a.classList.remove('active');
       });
     }
+
+    // 搜索功能
+    function openSearch() { searchModal.style.display = 'flex'; }
+    function closeSearch() { searchModal.style.display = 'none'; }
+    searchClose.onclick = closeSearch;
+    function renderSearchResults(list) {
+      searchResults.innerHTML = '';
+      if (!list || list.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'search-item';
+        li.textContent = 'No results';
+        searchResults.appendChild(li);
+        return;
+      }
+      for (const item of list) {
+        const li = document.createElement('li');
+        li.className = 'search-item';
+        li.innerHTML = `<div class="title">${item.title}</div>
+                        <div class="path">${item.path}</div>
+                        <div class="snippet">${(item.snippet||'').replace(/[<>]/g, '')}</div>`;
+        li.onclick = () => { closeSearch(); openFile(item.path); };
+        searchResults.appendChild(li);
+      }
+    }
+    async function doSearch(q) {
+      if (!q) return;
+      openSearch();
+      renderSearchResults([{ title: 'Searching...', path: '', snippet: '' }]);
+      try {
+        const res = await api('/api/search', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q }) });
+        renderSearchResults(res.results || []);
+      } catch (e) {
+        renderSearchResults([]);
+      }
+    }
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        doSearch(searchInput.value.trim());
+      }
+    });
+    // 快捷键: Ctrl/Cmd+K 聚焦搜索
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'k')) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape') {
+        closeSearch();
+      }
+    });
 
     btnSave.onclick = async () => {
       if (!currentPath) { toast('请先在左侧选择要编辑的 Markdown 文件', 'error'); return; }
