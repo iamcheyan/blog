@@ -21,6 +21,8 @@
     <section class="content">
       <div class="toolbar">
         <button id="btn-save">保存</button>
+        <button id="btn-rename">重命名</button>
+        <button id="btn-delete">删除</button>
         <span class="file-path" id="file-path"></span>
       </div>
       <textarea id="editor"></textarea>
@@ -35,6 +37,8 @@
     const treeEl = document.getElementById('tree');
     const filePathEl = document.getElementById('file-path');
     const btnSave = document.getElementById('btn-save');
+    const btnRename = document.getElementById('btn-rename');
+    const btnDelete = document.getElementById('btn-delete');
     const btnNew = document.getElementById('btn-new');
     let currentPath = '';
     const editor = new EasyMDE({
@@ -124,7 +128,33 @@
       for (const child of node.children) {
         const li = document.createElement('li');
         if (child.type === 'directory') {
-          li.innerHTML = `📁 <span class="folder">${child.name}</span>`;
+          // 目录名称
+          const isYear = /^\d{4}$/.test(child.name);
+          const header = document.createElement('span');
+          header.innerHTML = `📁 <span class="folder">${child.name}</span>`;
+          li.appendChild(header);
+          if (isYear) {
+            const actions = document.createElement('span');
+            actions.className = 'year-actions';
+            const btn = document.createElement('button');
+            btn.className = 'btn-year-new';
+            btn.textContent = '新建';
+            btn.title = `在 ${child.name} 年新增 Markdown`;
+            btn.onclick = async (e) => {
+              e.stopPropagation();
+              const title = prompt('请输入文章标题（可留空）', '');
+              const res = await api('/api/new', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, tags: '', summary: '', year: Number(child.name) })
+              });
+              await loadTree();
+              if (res.path) openFile(res.path);
+              toast(`已在 ${child.name} 创建新文章`, 'success');
+            };
+            actions.appendChild(btn);
+            li.appendChild(actions);
+          }
           li.appendChild(renderTree(child));
         } else {
           const a = document.createElement('a');
@@ -182,6 +212,44 @@
       await loadTree();
       if (res.path) openFile(res.path);
       toast('已创建新文章', 'success');
+    };
+
+    // 重命名
+    btnRename.onclick = async () => {
+      if (!currentPath) { toast('请先选择要重命名的文件', 'error'); return; }
+      const parts = currentPath.split('/');
+      const currentName = parts[parts.length - 1];
+      const newName = prompt('输入新的文件名（含 .md）', currentName);
+      if (!newName || newName === currentName) return;
+      if (!/\.md$/i.test(newName)) { toast('文件名需以 .md 结尾', 'error'); return; }
+      const res = await api('/api/rename', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: currentPath, new_name: newName })
+      });
+      if (res.path) {
+        currentPath = res.path;
+        filePathEl.textContent = res.path;
+        await loadTree();
+        toast('已重命名', 'success');
+      }
+    };
+
+    // 删除
+    btnDelete.onclick = async () => {
+      if (!currentPath) { toast('请先选择要删除的文件', 'error'); return; }
+      const ok = confirm('确定删除当前文件？此操作不可恢复');
+      if (!ok) return;
+      await api('/api/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: currentPath })
+      });
+      toast('已删除', 'success');
+      editor.value('');
+      filePathEl.textContent = '';
+      currentPath = '';
+      await loadTree();
     };
 
     // Ctrl/Cmd + S 快捷键保存

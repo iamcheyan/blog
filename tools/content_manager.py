@@ -155,20 +155,68 @@ def api_save_file():
     return jsonify({'ok': True})
 
 
+@app.route('/api/delete', methods=['POST'])
+def api_delete_file():
+    data = request.get_json(force=True)
+    rel_path = (data.get('path') or '').strip()
+    if not rel_path:
+        return jsonify({'error': 'path required'}), 400
+    abs_path = (BASE_DIR / rel_path).resolve()
+    try:
+        if not abs_path.is_file() or not abs_path.parent.is_relative_to(CONTENT_DIR):
+            return jsonify({'error': 'invalid path'}), 400
+        abs_path.unlink(missing_ok=False)
+        return jsonify({'ok': True})
+    except FileNotFoundError:
+        return jsonify({'error': 'not found'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/rename', methods=['POST'])
+def api_rename_file():
+    data = request.get_json(force=True)
+    rel_path = (data.get('path') or '').strip()
+    new_name = (data.get('new_name') or '').strip()
+    if not rel_path or not new_name:
+        return jsonify({'error': 'path and new_name required'}), 400
+    src = (BASE_DIR / rel_path).resolve()
+    if not src.is_file() or not src.parent.is_relative_to(CONTENT_DIR):
+        return jsonify({'error': 'invalid path'}), 400
+    # 仅允许更改同一目录下的文件名
+    dst = (src.parent / new_name).resolve()
+    if not dst.parent == src.parent:
+        return jsonify({'error': 'rename must stay in same directory'}), 400
+    try:
+        src.rename(dst)
+        rel = str(dst.relative_to(BASE_DIR))
+        return jsonify({'ok': True, 'path': rel})
+    except FileExistsError:
+        return jsonify({'error': 'target exists'}), 409
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/api/new', methods=['POST'])
 def api_new_file():
     data = request.get_json(force=True)
     title = (data.get('title') or '').strip()
     tags = (data.get('tags') or '').strip()
     summary = (data.get('summary') or '').strip()
+    year_override = data.get('year')  # 可选：指定年份目录
     now = datetime.datetime.now()
-    year_dir = CONTENT_DIR / f'{now.year}'
+    try:
+        target_year = int(year_override) if year_override is not None else now.year
+    except Exception:
+        target_year = now.year
+    year_dir = CONTENT_DIR / f'{target_year}'
     year_dir.mkdir(parents=True, exist_ok=True)
 
     # 生成安全文件名
     base_name = title or now.strftime('%Y-%m-%d-未命名')
     safe_name = ''.join(c for c in base_name if c not in '\\/:*?"<>|').strip()
-    filename = f"{now.strftime('%Y-%m-%d')}-{safe_name}.md"
+    # 文件名前缀：指定年份 + 当天月日
+    date_prefix = f"{target_year}-{now.month:02d}-{now.day:02d}"
+    filename = f"{date_prefix}-{safe_name}.md"
     target = year_dir / filename
     i = 1
     while target.exists():
@@ -179,8 +227,8 @@ def api_new_file():
         '---',
         f'title: {title or "新文章"}',
         f'slug: {target.stem}',
-        f'datetime: {now.strftime("%Y-%m-%d %H:%M")}',
-        f'date: {now.strftime("%Y-%m-%d %H:%M")}',
+        f'datetime: {date_prefix} {now.strftime("%H:%M")}',
+        f'date: {date_prefix} {now.strftime("%H:%M")}',
         f'summary: {summary}',
         f'tags: {tags}',
         'cover_image_url: ',

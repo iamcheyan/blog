@@ -20,8 +20,8 @@ header .right button:hover { filter: brightness(1.05); }
 
 main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; }
 
-.sidebar { width: 240px; border: 1px solid var(--border); background: var(--panel); overflow: auto; padding: 12px; border-radius: var(--radius); box-shadow: var(--shadow); }
-.content { flex: 1; display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); }
+.sidebar { width: 240px;  background: var(--panel); overflow: auto; padding: 12px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.content { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); }
 .toolbar { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: #fff; border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
 .toolbar button { padding: 6px 12px; border: 1px solid var(--border); background: #fff; border-radius: 8px; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
 .toolbar button:hover { background: var(--hover); }
@@ -36,6 +36,11 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; }
 .tree .folder { font-weight: 600; }
 .tree .file { cursor: pointer; color: #1f2937; padding: 2px 4px; border-radius: 6px; }
 .tree .file:hover { background: var(--hover); text-decoration: none; }
+
+/* 年份行右侧的新建按钮 */
+.tree .year-actions { margin-left: 6px; }
+.tree .year-actions .btn-year-new { border: 1px solid var(--border); background: #fff; padding: 2px 6px; font-size: 12px; border-radius: 6px; cursor: pointer; }
+.tree .year-actions .btn-year-new:hover { background: var(--hover); }
 
 .sidebar::-webkit-scrollbar, .editor-preview::-webkit-scrollbar, .editor-preview-side::-webkit-scrollbar, .CodeMirror-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
 .sidebar::-webkit-scrollbar-thumb, .editor-preview::-webkit-scrollbar-thumb, .editor-preview-side::-webkit-scrollbar-thumb, .CodeMirror-scroll::-webkit-scrollbar-thumb { background: #e6e7eb; border-radius: 8px; }
