@@ -36,8 +36,11 @@
     <div id="page">
         <header id="page-head">
             <div id="topbar">
-                <a href="?lang=ja" class="on">日本語</a>
-                <a href="?lang=zh-cn">中文</a>
+                <a href="/index.html" class="on">日本語</a>
+                <a href="/index.zh-cn.html">中文</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="切换明暗主题">
+                    <span class="theme-icon">🌙</span>
+                </button>
             </div>
             <nav class="navbar" role="navigation">
                 <h1><a href="http://iamcheyan.com/">Iam cheyan .com</a></h1>
@@ -79,6 +82,7 @@
         <footer id="footer" role="contentinfo">
             <span>
                 Powered by <a href="http://pelican.readthedocs.org" target="_blank">Pelican</a>
+                <a href="https://github.com/iamcheyan/blog" target="_blank">GitHub</a>
                 &nbsp; /
                 {# 文章总数：390 /#}
                 <a href="{{ SITEURL }}/archives.html">すべての記事</a>&nbsp; /
@@ -87,8 +91,7 @@
             </span>
             <span>
                 © 2010 - <script>document.write(new Date().getFullYear());</script> &nbsp;
-                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved &nbsp; /
-                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19045254号-1</a>
+                <a href="http://iamcheyan.com/">Cheyan</a> All Rights Reserved
             </span>
         </footer>
     </div> <!-- /#page -->
@@ -110,20 +113,8 @@
     {#代码高亮#}
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/highlightjs.css" />
     <script src="{{ SITEURL }}/theme/js/highlight.min.js"></script>
-    {#深色模式#}
-    <script src="{{ SITEURL }}/theme/js/darkmode-js.min.js"></script>
-    <script>
-        const options = {
-            bottom: '32px',
-            right: '32px',
-            time: '0.5s',
-            saveInCookies: true,
-            label: '🌓',
-            autoMatchOsTheme: true
-        };
-        const darkmode = new Darkmode(options);
-        darkmode.showWidget();
-    </script>
+    {#主题切换#}
+    <script src="{{ SITEURL }}/theme/js/theme-toggle.js"></script>
     {#输入效果#}
     <script src="{{ SITEURL }}/theme/js/commentTyping.js"></script>
 </body>
