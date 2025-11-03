@@ -14,6 +14,14 @@
             var m = html.match(/<img\b[\s\S]*?>/i);
             if (m && m[0]) {
                 target.innerHTML = m[0];
+                // 若文章只有图片且无其他内容，则隐藏“続きを読む”按钮
+                var remain = html.replace(m[0], '');
+                // 去掉其他 HTML 标签与空白
+                remain = remain.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim();
+                if (!remain) {
+                    var footer = document.getElementById('post-footer-' + idx);
+                    if (footer) footer.style.display = 'none';
+                }
             } else {
                 // 若无图片，则不显示任何内容
                 target.innerHTML = '';
@@ -41,8 +49,10 @@
             <div class="meta">
                 {% include "includes/article_meta.html" %}
             </div>
-            <div class="post-footer">
-                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">続きを読む</a>
+            <div class="post-footer" id="post-footer-{{ loop.index0 }}">
+                {% if not article.content_all or not article.content_all() %}
+                    <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+                {% endif %}
             </div>
         </article>
         {% set article = False %}

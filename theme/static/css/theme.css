@@ -1540,11 +1540,6 @@ code.hljs {
     color: #f0f6fc;
 }
 
-/* Dark Mode - 分隔线 */
-[data-theme="dark"] hr,
-[data-theme="dark"] .post-content hr {
-    border-top-color: #30363d;
-}
 
 /* Dark Mode - 删除线 */
 [data-theme="dark"] .post-content del {

@@ -2,8 +2,8 @@
 <nav>
     <div class="site-search kit-hidden-tb">
         {#        <form id="search" method="get" action="search.html?q=" role="search" target="_blank">#}
-        {#            <input type="text" name="q" class="text" placeholder="输入关键字搜索" value="">#}
-        {#            <button type="submit" class="submit">搜索</button>#}
+        {#            <input type="text" name="q" class="text" placeholder="Enter keywords to search" value="">#}
+        {#            <button type="submit" class="submit">Search</button>#}
         {#        </form>#}
         <form class="tipue_search_group" id="search" method="get" action="search.html?q=" role="search">
             <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" list="search"
@@ -28,12 +28,12 @@
     </div>
 </nav>
 <nav>
-    <h3>ページ</h3>
+    <h3>Pages</h3>
     <ul>
-        <li><a href="{{ SITEURL }}/index.html">ホーム</a></li>
-        {#              <li><a href="{{ SITEURL }}/categories.html">カテゴリー</a></li>#}
-        <li><a href="{{ SITEURL }}/archives.html">アーカイブ</a></li>
-        {#              <li><a href="{{ SITEURL }}/tags.html">タグ</a></li>#}
+        <li><a href="{{ SITEURL }}/index.html">Home</a></li>
+        {#              <li><a href="{{ SITEURL }}/categories.html">Categories</a></li>#}
+        <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+        {#              <li><a href="{{ SITEURL }}/tags.html">Tags</a></li>#}
         {% if MENUITEMS %}
             {% for name, uri in MENUITEMS %}
                 <li><a href="{{ SITEURL }}/{{ uri|format(SITEURL) }}">{{ name }}</a></li>
@@ -51,19 +51,19 @@
 
 {#            <nav>#}
 {#            <ul>#}
-{#              <li><a class="icon brightness" href="{{ SITEURL }}/javascript:;">亮度切换</a></li>#}
-{#              <li><a class="icon " href="{{ SITEURL }}/javascript:;">语言切换</a></li>#}
+{#              <li><a class="icon brightness" href="{{ SITEURL }}/javascript:;">Toggle Brightness</a></li>#}
+{#              <li><a class="icon " href="{{ SITEURL }}/javascript:;">Switch Language</a></li>#}
 {#            </ul>#}
 {#          </nav>#}
 
 <nav>
-    <h3>友達の家</h3>
+    <h3>Friend Links</h3>
     <ul>
         {% if FEED_ATOM %}
-            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_ATOM }}">Flux ATOM</a></li>
+            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_ATOM }}">ATOM Feed</a></li>
         {% endif %}
         {% if FEED_RSS %}
-            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_RSS }}">Flux RSS</a></li>
+            <li><a href="{{ SITEURL }}/{{ FEED_DOMAIN }}/{{ FEED_RSS }}">RSS Feed</a></li>
         {% endif %}
         {% if SOCIAL %}
             {% for name, url in SOCIAL %}
@@ -77,7 +77,7 @@
         {% endif %}
     </ul>
 </nav>
-<h3>ランダム記事</h3>
+<h3>Random Articles</h3>
 <ul id="random-articles"></ul>
 </nav>
 {#            <nav class="tags">#}
@@ -96,7 +96,7 @@
 
 {#          {% if categories %}#}
 {#          <nav>#}
-{#            <h3>分类</h3>#}
+{#            <h3>Categories</h3>#}
 {#            <ul>#}
 {#            {% for cat, null in categories %}#}
 {#              <li{%- if cat == category %} class="active"{% endif -%}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>#}
