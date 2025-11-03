@@ -5,6 +5,7 @@ datetime: 2025-11-03 21:39
 date: 2025-11-03 21:39
 summary: Fedora（38~43）系统下 WinBoat 从零完整安装流程与实用笔记：依赖准备、Docker/KVM/Wayland 优化、常见问题与快捷脚本全方案。
 tags: Fedora, WinBoat, KVM, Docker, Wayland, 虚拟化, 安装指南
+
 ---
 
 ![image](/assets/2025/1762173639427.png)

@@ -11,7 +11,10 @@
   <header>
     <div class="left">Content Management Tool</div>
     <div class="right">
-      <input id="search-input" type="search" placeholder="Search (Enter)" />
+      <span class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search (Enter)" />
+        <button id="search-icon" aria-label="Search"></button>
+      </span>
       <button id="btn-new">New</button>
       <button id="btn-push">Push</button>
     </div>
@@ -43,14 +46,14 @@
       <pre id="terminal-body" class="terminal-body"></pre>
     </div>
   </div>
-  <!-- Search Modal -->
-  <div id="search-modal" class="terminal-overlay">
-    <div class="terminal-box">
-      <div class="terminal-header">
-        <div class="terminal-title">Search</div>
-        <button id="search-close" class="terminal-close">Close</button>
+  <!-- Search Modal (white doc style) -->
+  <div id="search-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+        <button id="search-close" class="modal-close">Close</button>
       </div>
-      <div class="terminal-body">
+      <div class="modal-body">
         <ul id="search-results" class="search-list"></ul>
       </div>
     </div>
@@ -69,6 +72,7 @@
     const terminalBody = document.getElementById('terminal-body');
     const terminalClose = document.getElementById('terminal-close');
     const searchInput = document.getElementById('search-input');
+    const searchIcon = document.getElementById('search-icon');
     const searchModal = document.getElementById('search-modal');
     const searchClose = document.getElementById('search-close');
     const searchResults = document.getElementById('search-results');
@@ -272,6 +276,19 @@
     function openSearch() { searchModal.style.display = 'flex'; }
     function closeSearch() { searchModal.style.display = 'none'; }
     searchClose.onclick = closeSearch;
+    function escapeHtml(s) {
+      return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function highlight(text, q) {
+      if (!q) return escapeHtml(text);
+      try {
+        const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+        return escapeHtml(text).replace(re, (m) => `<span class="hl">${m}</span>`);
+      } catch (e) {
+        return escapeHtml(text);
+      }
+    }
+    let lastQuery = '';
     function renderSearchResults(list) {
       searchResults.innerHTML = '';
       if (!list || list.length === 0) {
@@ -284,9 +301,9 @@
       for (const item of list) {
         const li = document.createElement('li');
         li.className = 'search-item';
-        li.innerHTML = `<div class="title">${item.title}</div>
-                        <div class="path">${item.path}</div>
-                        <div class="snippet">${(item.snippet||'').replace(/[<>]/g, '')}</div>`;
+        li.innerHTML = `<div class="title">${highlight(item.title, lastQuery)}</div>
+                        <div class="path">${escapeHtml(item.path)}</div>
+                        <div class="snippet">${highlight(item.snippet||'', lastQuery)}</div>`;
         li.onclick = () => { closeSearch(); openFile(item.path); };
         searchResults.appendChild(li);
       }
@@ -296,6 +313,7 @@
       openSearch();
       renderSearchResults([{ title: 'Searching...', path: '', snippet: '' }]);
       try {
+        lastQuery = q;
         const res = await api('/api/search', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q }) });
         renderSearchResults(res.results || []);
       } catch (e) {
@@ -308,6 +326,7 @@
         doSearch(searchInput.value.trim());
       }
     });
+    searchIcon.addEventListener('click', () => { doSearch(searchInput.value.trim()); });
     // 快捷键: Ctrl/Cmd+K 聚焦搜索
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'k')) {
