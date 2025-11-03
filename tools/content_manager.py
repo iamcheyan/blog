@@ -173,6 +173,56 @@ def api_delete_file():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/api/upload_image', methods=['POST'])
+def api_upload_image():
+    """接受粘贴/上传的图片，保存到 content/assets/{year}/ 下。
+
+    请求：multipart/form-data
+      - image: 文件
+      - year: 可选，数字年份；缺省则用当前年份
+    返回：{ url: "/assets/{year}/{filename}" }
+    """
+    import time
+    import mimetypes
+
+    if 'image' not in request.files:
+        return jsonify({'error': 'image required'}), 400
+    f = request.files['image']
+    try:
+        y = request.form.get('year')
+        year = int(y) if y else datetime.datetime.now().year
+    except Exception:
+        year = datetime.datetime.now().year
+
+    # 计算扩展名
+    ext = ''
+    if f.mimetype:
+        guessed = mimetypes.guess_extension(f.mimetype) or ''
+        ext = (guessed or '').lower()
+        # 有些 mimetype 会映射为 .jpe，统一成 .jpg
+        if ext in {'.jpe'}:
+            ext = '.jpg'
+    if not ext:
+        # 尝试从原始文件名获取
+        orig = (f.filename or '').lower()
+        for cand in ('.png', '.jpg', '.jpeg', '.gif', '.webp'):
+            if orig.endswith(cand):
+                ext = cand if cand != '.jpeg' else '.jpg'
+                break
+    if not ext:
+        ext = '.png'
+
+    ts_ms = int(time.time() * 1000)
+    filename = f"{ts_ms}{ext}"
+    target_dir = CONTENT_DIR / 'assets' / str(year)
+    target_dir.mkdir(parents=True, exist_ok=True)
+    save_path = target_dir / filename
+    f.save(save_path)
+
+    url = f"/assets/{year}/{filename}"
+    rel_path = str(save_path.relative_to(BASE_DIR))
+    return jsonify({'ok': True, 'url': url, 'path': rel_path})
+
 @app.route('/api/rename', methods=['POST'])
 def api_rename_file():
     data = request.get_json(force=True)

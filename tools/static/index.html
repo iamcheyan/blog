@@ -214,6 +214,83 @@
       toast('已创建新文章', 'success');
     };
 
+    // 粘贴图片上传 -> 自动插入 Markdown
+    async function uploadImage(file, year) {
+      const fd = new FormData();
+      fd.append('image', file, file.name || 'paste.png');
+      if (year) fd.append('year', String(year));
+      const res = await fetch('/api/upload_image', { method: 'POST', body: fd });
+      if (!res.ok) { throw new Error(await res.text()); }
+      return res.json();
+    }
+
+    function getYearForCurrentFile() {
+      // 从当前路径提取年份，如 content/2025/xxx.md
+      if (!currentPath) return new Date().getFullYear();
+      const m = currentPath.match(/^content\/(\d{4})\//);
+      return m ? Number(m[1]) : new Date().getFullYear();
+    }
+
+    editor.codemirror.on('paste', async (cm, e) => {
+      const dt = e.clipboardData;
+      if (!dt || !dt.items) return;
+      for (const item of dt.items) {
+        if (item.kind === 'file' && item.type.startsWith('image/')) {
+          e.preventDefault();
+          try {
+            const file = item.getAsFile();
+            const { url } = await uploadImage(file, getYearForCurrentFile());
+            const pos = cm.getCursor();
+            const text = `![image](${url})`;
+            cm.replaceRange(text, pos);
+            toast('图片已上传并插入', 'success');
+          } catch (err) {
+            toast('图片上传失败', 'error');
+          }
+          break;
+        }
+      }
+    });
+
+    // 拖拽图片到编辑器上传
+    const cmWrapper = editor.codemirror.getWrapperElement();
+    function isFileDrag(evt) {
+      const dt = evt.dataTransfer;
+      return dt && (dt.types?.includes?.('Files') || dt.files?.length);
+    }
+    ;['dragenter','dragover'].forEach(ev => {
+      cmWrapper.addEventListener(ev, (e) => {
+        if (!isFileDrag(e)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        cmWrapper.closest('.EasyMDEContainer')?.classList.add('drag-hover');
+      });
+    });
+    ;['dragleave','dragend','drop'].forEach(ev => {
+      cmWrapper.addEventListener(ev, (e) => {
+        cmWrapper.closest('.EasyMDEContainer')?.classList.remove('drag-hover');
+      });
+    });
+    cmWrapper.addEventListener('drop', async (e) => {
+      if (!isFileDrag(e)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const files = Array.from(e.dataTransfer.files || []);
+      const year = getYearForCurrentFile();
+      for (const file of files) {
+        if (!file.type.startsWith('image/')) continue;
+        try {
+          const { url } = await uploadImage(file, year);
+          const cm = editor.codemirror;
+          const pos = cm.getCursor();
+          cm.replaceRange(`![image](${url})\n`, pos);
+          toast('图片已上传并插入', 'success');
+        } catch (err) {
+          toast('图片上传失败', 'error');
+        }
+      }
+    });
+
     // 重命名
     btnRename.onclick = async () => {
       if (!currentPath) { toast('请先选择要重命名的文件', 'error'); return; }

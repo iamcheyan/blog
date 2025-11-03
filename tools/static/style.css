@@ -176,3 +176,6 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; }
 .toast-item.info { background: rgba(17,24,39,.92); }
 .toast-close { margin-left: auto; color: rgba(255,255,255,.8); cursor: pointer; font-size: 12px; padding-left: 8px; }
 
+/* 拖拽上传时的高亮 */
+.EasyMDEContainer.drag-hover { outline: 2px dashed #94a3b8; outline-offset: -10px; }
+
