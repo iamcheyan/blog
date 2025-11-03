@@ -9,18 +9,21 @@
   --radius: 10px;
   --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.04);
   --sidebar-w: 200px;
-  --header-h: 56px;
+  --header-h: 42px;
 }
 
 html, body { height: 100%; margin: 0; background: var(--bg); }
 body { display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial; color: var(--text); padding-top: var(--header-h); }
 
-header { height: var(--header-h); padding: 0 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--panel); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+header { height: var(--header-h); padding: 0 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--panel); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
 header .left { font-weight: 600; letter-spacing: .02em; }
 header .right button { padding: 6px 12px; border: 1px solid var(--border); background: var(--text); color: #fff; border-radius: 8px; cursor: pointer; transition: background .15s ease, box-shadow .2s ease; box-shadow: var(--shadow); }
 header .right button:hover { filter: brightness(1.05); }
+/* Push 按钮绿色样式 */
+header .right #btn-push { background: #16a34a; border-color: #16a34a; }
+header .right #btn-push:hover { background: #15803d; border-color: #15803d; }
 
-main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; padding-left: calc(var(--sidebar-w) + 50px); }
+main { flex: 1; display: flex; min-height: 0; gap: 10px; padding: 10px; padding-left: calc(var(--sidebar-w) + 50px); }
 
 .sidebar { width: var(--sidebar-w);  background: var(--panel); overflow: auto; padding: 12px; border-radius: var(--radius); box-shadow: var(--shadow); position: fixed; left: 14px; top: calc(var(--header-h) + 14px); height: calc(100vh - var(--header-h) - 50px); }
 .content { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); }

@@ -192,12 +192,29 @@
           a.className = 'file';
           a.dataset.path = child.path;
           a.onclick = () => openFile(child.path);
-          a.innerHTML = `📝 ${child.name}${child.datetime ? `<span class="meta">${child.datetime}</span>` : ''}`;
+          const meta = child.datetime ? `<span class="meta">${formatMetaDate(child.datetime)}</span>` : '';
+          a.innerHTML = `📝 ${child.name}${meta}`;
           li.appendChild(a);
         }
         ul.appendChild(li);
       }
       return ul;
+    }
+
+    function formatMetaDate(dt) {
+      // 输入可能为 "YYYY-MM-DD HH:MM" 或其它；如果 HH:MM 为 00:00 则只显示日期
+      try {
+        const m = dt.match(/^(\d{4}-\d{2}-\d{2})(?:\s+(\d{2}:\d{2}))?$/);
+        if (m) {
+          const date = m[1];
+          const time = m[2];
+          if (!time || time === '00:00') return date;
+          return `${date} ${time}`;
+        }
+        return dt;
+      } catch (e) {
+        return dt;
+      }
     }
 
     async function loadTree() {
