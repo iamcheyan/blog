@@ -107,9 +107,14 @@ main { flex: 1; display: flex; min-height: 0; gap: 14px; padding: 14px; padding-
 .EasyMDEContainer .editor-preview-side { box-sizing: border-box; }
 .EasyMDEContainer .CodeMirror .cm-front-matter {
   background: #f9fafb;
-  border-left: 4px solid #9ca3af;
-  /* 不修改字体尺寸/字重，避免影响 CodeMirror 光标计算 */
-  padding-left: 8px; /* 给左侧边线留出间距，避免视觉重叠 */
+  /* 使用 inset 阴影模拟左侧竖线，不改变文本排版，避免光标位移 */
+  box-shadow: inset 4px 0 0 #9ca3af;
+  padding-left: 20px;
+}
+.EasyMDEContainer .CodeMirror .cm-front-matter .cm-header {
+  /* 在 front matter 中强制使用普通字号/字重渲染（避免 h1/h2 放大） */
+  font-size: 1em !important;
+  font-weight: 400 !important;
 }
 .EasyMDEContainer .CodeMirror .cm-front-matter * {
   /* 同上：不要覆盖 CodeMirror 的字体度量 */
