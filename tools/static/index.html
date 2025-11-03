@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>内容管理工具</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial; }
+    header { padding: 10px 12px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; }
+    header .left { font-weight: 600; }
+    header .right button { padding: 6px 10px; border: 1px solid #d1d5db; background: #111827; color: #fff; border-radius: 6px; cursor: pointer; }
+    main { flex: 1; display: flex; min-height: 0; }
+    .sidebar { width: 320px; border-right: 1px solid #e5e7eb; overflow: auto; padding: 10px; }
+    .content { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .toolbar { padding: 8px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 8px; }
+    .toolbar button { padding: 6px 10px; border: 1px solid #d1d5db; background: #fff; border-radius: 6px; cursor: pointer; }
+    .file-path { color: #6b7280; font-size: 12px; }
+    .tree ul { list-style: none; margin: 0; padding-left: 16px; }
+    .tree li { margin: 4px 0; cursor: default; }
+    .tree .folder { font-weight: 600; }
+    .tree .file { cursor: pointer; color: #1f2937; }
+    .tree .file:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left">内容管理工具</div>
+    <div class="right">
+      <button id="btn-new">新建</button>
+    </div>
+  </header>
+  <main>
+    <aside class="sidebar">
+      <div class="tree" id="tree"></div>
+    </aside>
+    <section class="content">
+      <div class="toolbar">
+        <button id="btn-save">保存</button>
+        <span class="file-path" id="file-path"></span>
+      </div>
+      <textarea id="editor"></textarea>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+  <script>
+    const treeEl = document.getElementById('tree');
+    const filePathEl = document.getElementById('file-path');
+    const btnSave = document.getElementById('btn-save');
+    const btnNew = document.getElementById('btn-new');
+    let currentPath = '';
+    const editor = new EasyMDE({
+      element: document.getElementById('editor'),
+      spellChecker: false,
+      autofocus: true,
+      autosave: { enabled: false },
+      renderingConfig: { singleLineBreaks: false, codeSyntaxHighlighting: true },
+        // 禁止并排预览时自动进入全屏
+        sideBySideFullscreen: false,
+      minHeight: 'calc(100vh - 120px)'
+    });
+
+    async function api(path, options) {
+      const res = await fetch(path, options);
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+
+    function renderTree(node) {
+      const ul = document.createElement('ul');
+      if (!node.children) return ul;
+      for (const child of node.children) {
+        const li = document.createElement('li');
+        if (child.type === 'directory') {
+          li.innerHTML = `📁 <span class="folder">${child.name}</span>`;
+          li.appendChild(renderTree(child));
+        } else {
+          const a = document.createElement('a');
+          a.textContent = '📝 ' + child.name;
+          a.className = 'file';
+          a.onclick = () => openFile(child.path);
+          li.appendChild(a);
+        }
+        ul.appendChild(li);
+      }
+      return ul;
+    }
+
+    async function loadTree() {
+      const data = await api('/api/tree');
+      treeEl.innerHTML = '';
+      treeEl.appendChild(renderTree(data));
+    }
+
+    async function openFile(path) {
+      const { content } = await api(`/api/file?path=${encodeURIComponent(path)}`);
+      currentPath = path;
+      filePathEl.textContent = path;
+      editor.value(content);
+    }
+
+    btnSave.onclick = async () => {
+      if (!currentPath) { alert('请先在左侧选择要编辑的 Markdown 文件'); return; }
+      const content = editor.value();
+      await api('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: currentPath, content })
+      });
+      alert('已保存');
+    };
+
+    btnNew.onclick = async () => {
+      const title = prompt('请输入文章标题');
+      if (title === null) return;
+      const tags = prompt('请输入标签（用逗号分隔）', '');
+      const summary = prompt('请输入摘要', '');
+      const res = await api('/api/new', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, tags, summary })
+      });
+      await loadTree();
+      if (res.path) openFile(res.path);
+    };
+
+    loadTree();
+  </script>
+</body>
+</html>
+
+

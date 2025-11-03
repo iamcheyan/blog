@@ -287,6 +287,41 @@ pelican content -s publishconf.py
 python compress_images.py
 ```
 
+## 内容管理工具（目录树 + Markdown 编辑器）
+
+项目内置了一个轻量的内容管理工具，启动后：
+- 左侧显示 `content/` 的目录树（只显示 Markdown 文件和文件夹）
+- 右侧为 Markdown 编辑器（基于 EasyMDE）
+- 右上角有「新建」按钮，可在当前年份目录自动创建带 Front Matter 的新文章
+
+### 启动
+
+```bash
+# 激活虚拟环境
+source venv/bin/activate
+
+# 安装依赖（需要 Flask）
+pip install Flask
+
+# 启动管理工具（默认端口 5000）
+python tools/content_manager.py
+
+# 指定端口
+python tools/content_manager.py -p 5500
+
+# 访问
+open http://127.0.0.1:5000
+```
+
+### 使用说明
+
+- 在左侧目录树点击任意 `.md` 文件即可在右侧打开编辑
+- 点击「保存」按钮保存当前文件内容
+- 点击「新建」会依次询问标题/标签/摘要，并在 `content/<当前年份>/` 下创建
+- 新建后的文件会自动加载到编辑器中
+
+注意：若浏览器无法加载 EasyMDE 的 CDN，可替换为本地资源或切换网络。
+
 ### 开发服务器警告说明
 
 运行 `pelican --listen` 时如果看到类似这样的警告：
