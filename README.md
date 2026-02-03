@@ -50,16 +50,21 @@ blog.iamcheyan.com/
 推送代码到 master → GitHub Actions 自动触发 → 构建 Pelican 博客 → 部署到 GitHub Pages → 网站自动更新
 ```
 
-### 发布新文章
+### 发布新文章与自动同步
 
-1. 在 `content/` 目录下创建 Markdown 文件（按年份组织）
-2. 提交并推送：
+1. 在 `content/` 目录下创建 Markdown 文件（按年份组织）。
+2. 使用项目根目录下的一键推送脚本：
    ```bash
-   git add content/
-   git commit -m "Add new post: 文章标题"
-   git push origin master
+   ./push
    ```
-3. 等待 2-5 分钟，文章会自动发布到网站
+   该脚本会自动完成：
+   - 使用虚拟环境。
+   - 本地生产环境构建测试（确保无语法错误）。
+   - 自动 Git Commit（带当前时间戳）。
+   - 强制推送到仓库主分支。
+3. 推送完成后，GitHub Actions 会自动触发并完成最终的线上部署。
+
+**提示：** 该流程已整合到 **Mini Twitter** 的自动化任务中。当 Mini Twitter 自动发推时，也会同时触发主博客的同步。
 
 ## 本地开发环境
 
@@ -107,14 +112,11 @@ pip install -r requirements.txt
 
 #### 使用 app.py（推荐）
 
-```bash
-# 激活虚拟环境
-source venv/bin/activate  # macOS/Linux（venv）
-# 或
-conda activate pelican    # conda
+`app.py` 现在具有**环境自感知**能力，即使不手动激活虚拟环境，它也会尝试自动切换到 `.venv` 运行。
 
-# 一键启动（自动构建 + 自动重载 + 本地服务器）
-python app.py -p 8001
+```bash
+# 直接运行即可，无需手动 source 激活环境
+python3 app.py -p 8001
 
 # 访问 http://localhost:8001 查看预览
 ```
