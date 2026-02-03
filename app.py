@@ -24,14 +24,28 @@ def print_step(step, message):
 
 
 def check_virtualenv():
-    """检查虚拟环境是否激活"""
+    """检查虚拟环境是否激活，如果未激活但存在 .venv，则尝试自动使用虚拟环境运行"""
     if not os.environ.get('VIRTUAL_ENV'):
-        venv_path = BASE_DIR / 'venv'
-        if venv_path.exists():
-            print("⚠️  虚拟环境未激活，正在尝试激活...")
-            print("   请手动运行: source venv/bin/activate")
-            print("   或者运行: source venv/bin/activate && python app.py")
-            return False
+        venv_python = BASE_DIR / '.venv' / 'bin' / 'python'
+        if not venv_python.exists():
+            # 兼容性检查：检查名称为 venv 的目录
+            venv_python = BASE_DIR / 'venv' / 'bin' / 'python'
+            
+        if venv_python.exists():
+            # 获取当前 python 解释器路径
+            current_python = Path(sys.executable).resolve()
+            target_python = venv_python.resolve()
+            
+            if current_python != target_python:
+                print(f"🔄 检测到虚拟环境，正在自动切换到: {venv_python}")
+                # 设置环境变量，防止无限递归并让子进程知道自己在虚拟环境中
+                env = os.environ.copy()
+                env['VIRTUAL_ENV'] = str(venv_python.parent.parent)
+                # 将虚拟环境的 bin 目录加入 PATH
+                env['PATH'] = str(venv_python.parent) + os.pathsep + env.get('PATH', '')
+                
+                # 使用虚拟环境的 python 重新执行当前脚本
+                os.execve(str(target_python), [str(target_python)] + sys.argv, env)
     return True
 
 
@@ -54,11 +68,31 @@ def run_command(cmd, check=True):
         return False
 
 
+def get_pelican_cmd():
+    """获取 pelican 命令的路径"""
+    # 优先从虚拟环境找
+    venv_bin = BASE_DIR / '.venv' / 'bin'
+    if not venv_bin.exists():
+        venv_bin = BASE_DIR / 'venv' / 'bin'
+        
+    pelican_path = venv_bin / 'pelican'
+    if pelican_path.exists():
+        return str(pelican_path)
+    
+    # 否则尝试从 PATH 找
+    import shutil
+    path_pelican = shutil.which('pelican')
+    if path_pelican:
+        return path_pelican
+        
+    return 'pelican'
+
+
 def build_site(config='pelicanconf.py'):
     """构建网站"""
     print_step(1, "构建 Pelican 网站")
     
-    cmd = ['pelican', 'content', '-s', config]
+    cmd = [get_pelican_cmd(), 'content', '-s', config]
     if not run_command(cmd):
         print("❌ 构建失败")
         return False
@@ -71,7 +105,7 @@ def start_server(port=8000, autoreload=True):
     """启动本地服务器"""
     print_step(2, f"启动本地服务器 (端口: {port})")
     
-    cmd = ['pelican', '--listen', '-p', str(port)]
+    cmd = [get_pelican_cmd(), '--listen', '-p', str(port)]
     if autoreload:
         cmd.insert(1, '--autoreload')
         print("✅ 已启用自动重载模式（文件变化时自动重新构建）")

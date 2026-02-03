@@ -366,4 +366,4 @@ WARNING  Unable to find `/theme/css/theme.css` or variations:
 
 ---
 
-© 2010 - Cheyan. All rights reserved.
+© Cheyan. All rights reserved.

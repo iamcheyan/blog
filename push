@@ -1,0 +1,51 @@
+#!/bin/bash
+# 博客推送脚本 - 自动构建并强制推送至远程仓库
+
+# 获取项目根目录
+PROJECT_DIR="/home/tetsuya/project/blog.iamcheyan.com"
+cd "$PROJECT_DIR" || exit 1
+
+echo "🚀 Starting Blog Push Process..."
+echo "Date: $(date)"
+
+# 1. 确保使用虚拟环境中的 Python 和 Pelican
+VENV_PYTHON="$PROJECT_DIR/.venv/bin/python"
+if [ ! -f "$VENV_PYTHON" ]; then
+    VENV_PYTHON="$PROJECT_DIR/venv/bin/python"
+fi
+
+if [ ! -f "$VENV_PYTHON" ]; then
+    echo "❌ Virtual environment not found!"
+    exit 1
+fi
+
+# 2. 构建生产版本
+echo "🎨 Building production site..."
+$VENV_PYTHON -m pelican content -s publishconf.py
+
+if [ $? -ne 0 ]; then
+    echo "❌ Build failed!"
+    exit 1
+fi
+
+# 3. Git 操作
+echo "📤 Pushing to GitHub..."
+
+# 添加所有变更
+git add .
+
+# 提交（如果没变化则跳过，但通常构建后会有变化）
+COMMIT_MSG="Auto update: $(date '+%Y-%m-%d %H:%M')"
+git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit."
+
+# 强制推送
+git push origin master --force
+
+if [ $? -eq 0 ]; then
+    echo "✅ Successfully pushed to GitHub!"
+else
+    echo "❌ Push failed!"
+    exit 1
+fi
+
+echo "🎉 Blog update complete!"
