@@ -5,7 +5,7 @@ SITENAME = 'iamcheyan.com'
 SITEURL = 'http://iamcheyan.com/app/pelican/blog'
 PATH = 'content'
 TIMEZONE = 'Asia/Shanghai'
-LOCALE = 'en_US.UTF-8'  # 设置语言环境为英文
+LOCALE = 'C.UTF-8'  # 设置语言环境为英文
 DEFAULT_LANG = 'en'
 DEFAULT_PAGINATION = 20 # 每页所列出的文章数量的最大值
 
